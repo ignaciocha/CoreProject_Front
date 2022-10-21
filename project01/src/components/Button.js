@@ -20,8 +20,10 @@ function Button({ disabled, type, children, ...props}) {
     <StyledButton
       disabled={disabled}
       typeStyle={typeStyle}
+      props={props}
     >
       {children}
+      {console.log(props.toggle)}
     </StyledButton>
   );
 }
@@ -46,11 +48,11 @@ const StyledButton = styled.button`
     background: var(--button-hover-bg-color, #711887);
   }
 
-  &:disabled {
-    cursor: default;
-    opacity: 0.5;
-    background: var(--button-bg-color, #9921B8);
-  }
-`;
-
+  `;
+  // &:disabled {
+  //   cursor: default;
+  //   opacity: 0.5;
+  //   background: var(--button-bg-color, #9921B8);
+  // }
+  
 export default Button;

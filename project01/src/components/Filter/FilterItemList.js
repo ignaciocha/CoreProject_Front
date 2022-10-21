@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Button from '../Button';
 
-const FilterItemList = () => {
+const FilterItemList = (props) => {
 
-
-  
-  const buttonStyle = {
-    marginRight: '10px',
-    margin: '0px 10px'
+  const [toggle, setToggle] = useState(false);
+  const clickedToggle = () => {
+    setToggle((prev) => !prev);
   }
+  
+
 
   return (
-    <div>
-      <button style={buttonStyle}>1</button>
+    <div className='buttonStyle'>
+      <Button type='round'
+      onClick={clickedToggle}
+      toggle={toggle}>
+        {props.item}
+      </Button>
     </div>
   )
 }

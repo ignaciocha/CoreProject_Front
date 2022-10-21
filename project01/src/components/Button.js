@@ -1,55 +1,55 @@
 import styled, { css } from "styled-components";
 
-const SIZES = {
-  sm: css`
-    --button-font-size: 0.875rem;
-    --button-padding: 8px 12px;
-    --button-radius: 4px;
-  `,
-  md: css`
-    --button-font-size: 1rem;
-    --button-padding: 12px 16px;
+const TYPES = {
+  square: css`
     --button-radius: 8px;
   `,
-  lg: css`
-    --button-font-size: 1.25rem;
-    --button-padding: 16px 20px;
-    --button-radius: 12px;
-  `,
+  round: css`
+    --button-radius: 40px;
+    --button-padding: 5px 35px;
+    --background-color: ${(props) => (
+      props.toggle ? 'none' : '#711887'
+    )}
+  `
 };
 
-function Button({ disabled, size, children }) {
-  const sizeStyle = SIZES[size];
+function Button({ disabled, type, children, ...props}) {
+  const typeStyle = TYPES[type];
 
   return (
-    <StyledButton disabled={disabled} sizeStyle={sizeStyle}>
+    <StyledButton
+      disabled={disabled}
+      typeStyle={typeStyle}
+    >
       {children}
     </StyledButton>
   );
 }
 
 const StyledButton = styled.button`
-${(p) => p.sizeStyle}
+  ${(p) => p.typeStyle}
+
   margin: 0;
-  border: none;
+  border: 5px solid #841D9E;
   cursor: pointer;
   font-family: "Noto Sans KR", sans-serif;
   font-size: var(--button-font-size, 1rem);
   padding: var(--button-padding, 12px 16px);
   border-radius: var(--button-radius, 8px);
-  background: var(--button-bg-color, #0d6efd);
-  color: var(--button-color, #ffffff);
+  color: var(--button-color, black);
+  background: var(--button-bg-color, );
+  
 
   &:active,
   &:hover,
   &:focus {
-    background: var(--button-hover-bg-color, #025ce2);
+    background: var(--button-hover-bg-color, #711887);
   }
 
   &:disabled {
     cursor: default;
     opacity: 0.5;
-    background: var(--button-bg-color, #025ce2);
+    background: var(--button-bg-color, #9921B8);
   }
 `;
 

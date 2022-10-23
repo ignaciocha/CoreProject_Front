@@ -4,6 +4,8 @@ import Header from './pages/Header';
 import FilterBox from './components/Filter/FilterBox';
 import {Route, Routes} from 'react-router-dom'
 import Main from './pages/Main'
+import TeamRoom from './pages/TeamRoom';
+import TeamSetting from './pages/TeamSetting';
 
 
 function App() {
@@ -11,10 +13,11 @@ function App() {
    <div>
     <Header/>
     <FilterBox/>
+    <TeamRoom/>
 
     <Routes>
       <Route path='/' element={<Main/>}></Route>
-      <Route path='*'></Route>
+      <Route path='/teamSetting' element={<TeamSetting/>}></Route>
       <Route path='*'></Route>
       <Route path='*'></Route>
       <Route path='*'></Route>

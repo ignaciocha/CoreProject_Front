@@ -9,13 +9,13 @@ const FilterItemList = (props) => {
   }
   
 
-
+  
   return (
     <div className='buttonStyle'>
-      <Button type='round'
+      <Button type='filter'
       onClick={clickedToggle}
-      toggle={toggle}>
-        {props.item}
+      toggle={toggle}
+      children={props.item}>
       </Button>
     </div>
   )

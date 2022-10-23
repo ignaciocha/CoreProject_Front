@@ -3,6 +3,7 @@ import FilterMenuList from './FilterMenuList';
 import '../../styles/FilterBox.css'
 
 
+
 const FilterBox = () => {
   
   const gameDetail = {

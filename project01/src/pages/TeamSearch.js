@@ -1,6 +1,7 @@
 import React from 'react'
 import FilterBox from '../components/Filter/FilterBox'
 
+
 const TeamSearch = () => {
   return (
     <div>

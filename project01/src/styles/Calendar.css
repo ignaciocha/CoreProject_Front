@@ -1,0 +1,5 @@
+.fc-toolbar-title,
+.fc-col-header-cell-cushion,
+.fc-daygrid-day-number {
+  user-select: none;
+}

@@ -4,6 +4,7 @@ import Modal from "../components/Modal/Modal";
 import Modal2 from "../components/Modal/Modal2"
 import '../styles/TeamRoom.css'
 import {Link} from "react-router-dom";
+import Calendar from "../components/Calendar";
 
 const TeamRoom = () => {
   const [modalCal, setModalCal] = useState(false);
@@ -26,7 +27,9 @@ const TeamRoom = () => {
   return (
     <div>
       <div className="calChatBox">
-      <div className="calendarBox">캘린더</div>
+      <div className="calendarBox">
+        <Calendar/>
+      </div>
       <div className="chatBox">채팅</div>
       </div>
       <div className="scheduleVoteBox">

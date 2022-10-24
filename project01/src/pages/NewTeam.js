@@ -7,12 +7,7 @@ import '../styles/NewTeam.css'
 
 const NewTeam = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
-    //초기값을 false
-
-  const toggleButton = () =>{
-    setIsOpen(true); // on,off개념 boolean
-  }
+  const [view, setView] = useState(false)
 
 
     return (
@@ -39,16 +34,17 @@ const NewTeam = () => {
                         50대 이상 <input type='checkbox' name='age' value='50'/></li>
                 <li>플레이 게임</li>
                 <li>
-                  <button type="button" className='gameSelect' name="lol" onClick={()=>toggleButton}>리그오브레전드</button>
-                  <button type="button" className='gameSelect' name="overwatch2" onClick={toggleButton}>오버워치2</button>
-                  <button type="button" className='gameSelect' name="valorant" onClick={toggleButton}>발로란트</button>
-                  <button type="button" className='gameSelect' name="lostark" onClick={toggleButton}>로스트아크</button>
+                  <button type="button" className='gameSelect' name="lol" onClick={()=>setView(true)}>리그오브레전드</button>
+                  <button type="button" className='gameSelect' name="overwatch2" onClick={()=>setView(true)}>오버워치2</button>
+                  <button type="button" className='gameSelect' name="valorant" onClick={()=>setView(true)}>발로란트</button>
+                  <button type="button" className='gameSelect' name="lostark" onClick={()=>setView(true)}>로스트아크</button>
                 </li>
       <li>
-        {isOpen && <Lol/> }
-        {isOpen && <Lostark/> }
-        {isOpen && <Valorant/> }
-        {isOpen && <Overwatch2/> }
+        {view && <Lol/> }
+        {view && <Lostark/> }
+        {view && <Valorant/> }
+        {view && <Overwatch2/> }
+
       </li>
       <li><input type='submit' value='팀 만들기' id='new'></input></li>
 </ul>

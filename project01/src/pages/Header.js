@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../assets/img/gameus_logo_width.svg";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
+import { BsFillBellFill } from "react-icons/bs";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -26,13 +27,14 @@ const Header = () => {
           <div className="topStyle">내팀보기</div>
         </Link>
       </div>
-      {isLogin ? (
+      {!isLogin ? (
         <div className="rightStyle">
           <Link className="textLink">
             <div className="loginStyle">내정보</div>
           </Link>
           <Link className="text-link">
-            <div className="loginStyle">알림</div>
+            <div className="loginStyle">
+              <BsFillBellFill className="" color="purple" size='16'/></div>
           </Link>
         </div>
       ) : (

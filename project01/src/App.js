@@ -8,7 +8,8 @@ import TeamRoom from './pages/TeamRoom';
 import TeamSetting from './pages/TeamSetting';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import NewTeam from './pages/NewTeam';
-
+import BubbleChart from '@weknow/react-bubble-chart-d3'
+import './styles/Chart.css'
 
 function App() {
   return (

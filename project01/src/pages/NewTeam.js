@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Lol from '../components/Game/Lol'
 import Valorant from '../components/Game/Valorant'
 import Overwatch2 from '../components/Game/Overwatch2'
@@ -11,6 +11,34 @@ const NewTeam = () => {
   const [overwatch2, setOverwatch2] = useState(false)
   const [lol, setLol] = useState(false)
   const [valorant, setValorant] = useState(false)
+
+  const lolBtnCk = () => {
+    setLol(!lol) 
+    setLostark(false)
+    setOverwatch2(false)
+    setValorant(false)
+  }
+
+  const ovchBtnCk = () => {
+    setOverwatch2(!overwatch2)
+    setLostark(false)
+    setLol(false)
+    setValorant(false)
+  }
+
+  const loaBtnCk = () => {
+    setLostark(!lostark)
+    setOverwatch2(false)
+    setLol(false)
+    setValorant(false)
+  }
+
+  const vrBtnCk = () => {
+    setValorant(!valorant)
+    setOverwatch2(false)
+    setLol(false)
+    setLostark(false)
+  }
 
   return (
       <div className='plusTeam'>
@@ -54,10 +82,10 @@ const NewTeam = () => {
                 <li></li>
                 <li><b>플레이 게임</b></li>
                 <li>
-                  <button type="button" className='gameSelect' name="lol" onClick={()=>setLol(!lol)}>리그오브레전드</button>
-                  <button type="button" className='gameSelect' name="overwatch2" onClick={()=>setOverwatch2(!overwatch2)}>오버워치2</button>
-                  <button type="button" className='gameSelect' name="valorant" onClick={()=>setValorant(!valorant)}>발로란트</button>
-                  <button type="button" className='gameSelect' name="lostark" onClick={()=>setLostark(!lostark)}>로스트아크</button>
+                  <button type="button" className='gameSelect' name="lol" onClick={lolBtnCk}>리그오브레전드</button>
+                  <button type="button" className='gameSelect' name="overwatch2" onClick={ovchBtnCk}>오버워치2</button>
+                  <button type="button" className='gameSelect' name="valorant" onClick={vrBtnCk}>발로란트</button>
+                  <button type="button" className='gameSelect' name="lostark" onClick={loaBtnCk}>로스트아크</button>
                 </li>
                 <li>
                   { lol && <Lol/> }

@@ -6,8 +6,8 @@ import TeamSearch from './TeamSearch';
 const Main = () => {
   return (
     <div align='center'>
-      <NewTeam/>
-      <TeamCheck/>
+      {/* <NewTeam/> */}
+      {/* <TeamCheck/> */}
       <TeamSearch/>
     </div>
   )

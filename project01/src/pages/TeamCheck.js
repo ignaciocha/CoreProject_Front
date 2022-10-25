@@ -67,7 +67,7 @@ const TeamCheck = () => {
       </table>
     </form>
     </div>
-)
+  )
 }
 
 export default TeamCheck

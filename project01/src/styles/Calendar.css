@@ -3,3 +3,76 @@
 .fc-daygrid-day-number {
   user-select: none;
 }
+
+.fc .fc-button-primary {
+  color: #fff;
+  color: var(--fc-button-text-color, #fff);
+  background-color: purple;
+  background-color: var(--fc-button-bg-color, purple);
+  border-color: purple;
+  border-color: var(--fc-button-border-color, purple);
+}
+
+.fc .fc-button-primary:hover {
+  color: #fff;
+  color: var(--fc-button-text-color, #fff);
+  background-color: rgb(160, 0, 160);
+  background-color: var(--fc-button-hover-bg-color, rgb(160, 0, 160));
+  border-color: rgb(160, 0, 160);
+  border-color: var(--fc-button-hover-border-color, rgb(160, 0, 160));
+}
+
+.fc .fc-button-primary:disabled {
+  color: #fff;
+  color: var(--fc-button-text-color, #fff);
+  background-color: rgb(160, 0, 160);
+  background-color: var(--fc-button-bg-color, rgb(160, 0, 160));
+  border-color: rgb(160, 0, 160);
+  border-color: var(--fc-button-border-color, #2C3E50);
+}
+
+
+.fc-day:hover {
+  background: #EEF7FF;
+  cursor: pointer;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.fc .fc-button:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(160, 0, 160);
+}
+
+.fc .fc-button-primary:focus {
+  box-shadow: 0 0 0 0.2rem rgb(160, 0, 160);
+}
+
+.fc .fc-button-primary:not(:disabled):active:focus,
+.fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+  box-shadow: 0 0 0 0.2rem rgb(160, 0, 160);
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+  .fc .fc-button-primary:not(:disabled).fc-button-active {
+    color: #fff;
+    color: var(--fc-button-text-color, #fff);
+    background-color: rgb(160, 0, 160);
+    background-color: var(--fc-button-active-bg-color, rgb(160, 0, 160));
+    border-color: rgb(160, 0, 160);
+    border-color: var(--fc-button-active-border-color, rgb(160, 0, 160));
+  }
+
+.fc .fc-button-primary:not(:disabled):active:focus,
+.fc .fc-button-primary:not(:disabled).fc-button-active:focus {
+  box-shadow: 0 0 0 0.2rem rgb(160, 0, 160);
+}
+
+.fc-prev-button.fc-button.fc-button-primary:active {
+  background-color: rgb(160, 0, 160);
+}
+
+.fc-next-button.fc-button.fc-button-primary:active {
+  background-color: rgb(160, 0, 160);
+}

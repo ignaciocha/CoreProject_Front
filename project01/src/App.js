@@ -6,7 +6,9 @@ import {Route, Routes} from 'react-router-dom'
 import Main from './pages/Main'
 import TeamRoom from './pages/TeamRoom';
 import TeamSetting from './pages/TeamSetting';
+import ReactModal from 'react-modal';
 
+ReactModal.setAppElement('#root');
 
 function App() {
   return (
@@ -15,6 +17,7 @@ function App() {
     <FilterBox/>
     <TeamRoom/>
 
+    
     <Routes>
       <Route path='/' element={<Main/>}></Route>
       <Route path='/teamSetting' element={<TeamSetting/>}></Route>
@@ -26,5 +29,7 @@ function App() {
    </div>
   );
 }
+
+
 
 export default App;

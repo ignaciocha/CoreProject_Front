@@ -1,0 +1,29 @@
+{
+    "list": [
+        {
+            "user_nick": "야돈",
+            "joindate": "2022-10-20",
+            "confirm": "팀장",
+            "user_icon": "lol"
+        },
+        {
+            "user_nick": "야도란",
+            "joindate": "2022-10-20",
+            "confirm": "대기중",
+            "user_icon": "lol"
+        },
+        {
+            "user_nick": "야도킹",
+            "joindate": "2022-10-20",
+            "confirm": "팀원",
+            "user_icon": "lol"
+        },
+        {
+            "user_nick": "너도킹",
+            "joindate": "2022-10-20",
+            "confirm": "팀원",
+            "user_icon": "lol"
+        }
+ 
+    ]
+}

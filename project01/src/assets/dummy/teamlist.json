@@ -1,0 +1,27 @@
+{
+    "list": [
+        {
+            "teamName": "야돈길드",
+            "opendate": "2022-10-20",
+            "content": "구함구함구함",
+            "gameName": "lol"
+        },
+        {
+            "teamName": "야돈킹",
+            "opendate": "2022-10-20",
+            "content": "함께 게임하실 분",
+            "gameName": "오버워치2"
+        },
+        {
+            "teamName": "집에가고싶다",
+            "opendate": "2022-10-20",
+            "content": "집에 가고싶은 분 없나요",
+            "gameName": "발로란트"
+        },        {
+            "teamName": "로또",
+            "opendate": "2022-10-20",
+            "content": "이번주 로또1등은 나야나 나야나",
+            "gameName": "로스트아크"
+        }
+    ]
+}

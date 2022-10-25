@@ -8,3 +8,9 @@
     padding: 50px;
     border-radius: 10px;
 }
+
+.circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -17,26 +17,29 @@ const Bubble = () => {
 
   // ** 사용자가 누른 div만 정해진 색상으로 활성화 **
   const changeColor = (index) => {
+    let x = document.getElementById(index);
     if(checkCircle === ''){ // 전에 눌렀던 게 없을 때
-      let x = document.getElementById(index);
       x.style.backgroundColor = 'purple';
       checkCircle = x;
     }else if(parseInt(checkCircle.id) === index){
-      console.log("눌렀던 거 또 누름")
+      x.style.backgroundColor = 'lightgray';
     }else{ // 전에 눌렀던 음성이 있으면 다시 비활성화
-      checkCircle.style.backgroundColor = "grey";
-      let x = document.getElementById(index);
+      checkCircle.style.backgroundColor = "lightgray";
       checkCircle = x; // 바꿔치기
       checkCircle.style.backgroundColor = 'purple'; // 정해진 색상으로만 활성화 되게
     }
   }
+
+  const gameTitle = [
+    '리그오브레전드', '오버워치2', '로스트아크', '발로란트'
+  ];
 
   return (
     <div>
       <div className="bubbleChart">
         {style.area.map((item, index) => {
           return (
-            <p
+            <p className="circle"
               key={item}
               id={index}
               style={{
@@ -48,7 +51,7 @@ const Bubble = () => {
                 marginBottom: `-${style.gap[index]}px`,
               }}
               onClick={()=>{changeColor(index)}}
-            ></p>
+            >{gameTitle[index]}</p>
           );
         })}
       </div>

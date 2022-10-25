@@ -30,7 +30,7 @@ const slideImages = [
 const Slideshow = () => {
     return (
       <div className="slide-container">
-        <Slide>
+        <Slide indicators={true}>
          {slideImages.map((slideImage, index)=> (
             <div className="each-slide" key={index}>
               <div style={{'backgroundImage': `url(${slideImage.url})`}}>

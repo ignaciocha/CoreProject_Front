@@ -1,9 +1,8 @@
 import React from 'react'
-import '../styles/App.css';
+import '../styles/Main.css';
 import 'react-slideshow-image/dist/styles.css'
 import Slideshow from '../components/Slider';
 import { TeamList } from '../components/TeamList';
-import teamList from '../assets/dummy/teamlist.json'
 
 const Main = () => {
   return (
@@ -14,7 +13,7 @@ const Main = () => {
       </div>
         <h3>최근에 모집을 시작한 팀👀👁👁</h3>
       {/* 팀 목록 div */}
-      <div>
+      <div className='centerStyle'>
         <TeamList/>
       </div>
     </div>

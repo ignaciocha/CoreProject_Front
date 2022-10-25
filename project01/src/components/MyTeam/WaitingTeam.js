@@ -9,10 +9,10 @@ const WaitingTeam = ({item, idx}) => {
     <div className='waitingTeamStyle'>
         <div>
             <div>
-                {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}
-                {item.gameName ==='오버워치2' && <img src={logo2} width='50px' className='imgStyle'></img>}
-                {item.gameName==='발로란트' && <img src={logo3} width='50px' className='imgStyle'></img>}
-                {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
+                {item.gameName ==='lol' && <img src={logo1} width='50px' className='gamelogoStyle'></img>}
+                {item.gameName ==='오버워치2' && <img src={logo2} width='50px' className='gamelogoStyle'></img>}
+                {item.gameName==='발로란트' && <img src={logo3} width='50px' className='gamelogoStyle'></img>}
+                {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='gamelogoStyle'></img>}
             </div>
             <div>
                 <span>{item.teamName}</span>

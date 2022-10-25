@@ -1,6 +1,7 @@
 import React from 'react'
 import list from '../../assets/dummy/memberlist.json'
 import TeamMember from './TeamMember'
+import '../../styles/ManageMember.css'
 
 const ManageMember = () => {
 
@@ -9,9 +10,9 @@ const ManageMember = () => {
   return (
     <div>
         <h3>팀원 관리</h3>
-        {memberlist}
-
-
+          <div className='manageMemberListStyle'>
+          {memberlist}
+          </div>
     </div>
   )
 }

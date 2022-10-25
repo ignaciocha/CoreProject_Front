@@ -1,0 +1,22 @@
+.noTeamBtn {
+    background: #841D9E;
+    border: none;
+    color: white;
+    width: 350px;
+    height: 40px;
+    border-radius: 7px;
+    font-family: 'Pretendard-Regular';
+    margin: 5px;
+    font-size: 15px;
+  }
+  
+  .noTeamBtn:hover{
+    background:#E0BFE6;
+  }
+
+  .noTeamStyle {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }

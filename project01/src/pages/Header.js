@@ -1,10 +1,23 @@
 import React, { useState } from "react";
 import logo from "../assets/img/gameus_logo_width.svg";
 import "../styles/Header.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import "./Login";
+import "./Join";
+
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
+  
+  const navigate = useNavigate()
+
+const goToJoin = () => {
+    navigate('/join')
+}
+
+const goToLogin = () => {
+  navigate('/login')
+}
 
   return (
     <div className="headerStyle">
@@ -37,11 +50,11 @@ const Header = () => {
         </div>
       ) : (
         <div className="rightStyle">
-          <Link className="textLink">
-            <div className="loginStyle">회원가입</div>
+          <Link to='./join' className="textLink">
+            <div className="loginStyle" onClick={goToJoin}>회원가입</div>
           </Link>
-          <Link className="textLink">
-            <div className="loginStyle">로그인</div>
+          <Link to='./login' className="textLink">
+            <div className="loginStyle" onClick={goToLogin}>로그인</div>
           </Link>
         </div>
       )}

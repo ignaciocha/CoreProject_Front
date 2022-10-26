@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import '../CSS/Edit.css'
 
+
 const Edit = () => {
 
     const [game, setGame] = useState("")
@@ -16,7 +17,7 @@ const Edit = () => {
         event.preventDefault()
     }
     return (
-        <div >
+    <div>
             <div><input type="text" name="id" className='editregister__input' placeholder="아이디를 입력해주세요"></input></div>
             <div> <input type="password" name="pw" className='editregister__input' placeholder="비밀번호를 입력해주세요"></input></div>
             <div><input type="text" name="name" className='editregister__input' placeholder="닉네임을 입력해주세요"></input></div>

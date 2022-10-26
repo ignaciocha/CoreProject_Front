@@ -1,22 +1,91 @@
-.loginregister {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-.loginregister__input {
-    width: 300px;
-    height: 50px;
-    padding-left: 10px;
-    margin: 10px;
-}
-.loginregister__button {
-    background-color: rgb(132, 29, 158);
-    color: rgb(255, 255, 255);
-    
-    font-weight: 700;
+.LoginPage {
+    /* position: absolute; */
+    /* top: 0; */
+    /* bottom: 0; */
     width: 100%;
-    border-radius: 40px;
+    height: 800px;
+    max-width: 500px;
+    padding: 0 20px;
+  
+    /* left: 50%; */
+    /* transform: translate(-50%, 0); */
+    
+    background-color: #f7f7f7;
+  
+    overflow: hidden;
+    margin: 300px auto;
+    /* display: flex; */
+    /* flex-direction: column; */
+  }
+  
+  .LoginTitleWrap{
+   margin-top: 87px;
+   font-size: 26px;
+   font-weight: 700;
+    color: #262626;
+  }
+  .LoginContentWrap{
+    margin-top: 26px;
+    flex: 1;
+  }
+  .LoginInputTitle{
+    font-size: 12px;
+    font-weight: 600;
+    color: #262626;
+  }
+  .LoginInputWrap{
+    display: flex;
+    border-radius: 8px;
+    padding: 16px;
+    margin-top: 8px;
+    background-color: white;
+    border: 1px solid #e2e2e2;
+  }
+  .LoginInputWrap:focus-within{
+    border: 1px solid #8049DB;
+  }
+  .LoginInput{
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 17px;
+    font-size: 14px;
+    font-weight: 400;
+    
+  }
+  
+  .input::placeholder{
+    color: #dadada;
+  }
+  
+  .LoginErrorMessageWrap{
+    margin-top: 8px;
+    color: #ef0000;
+    font-size: 12px;
+  }
+  
+  .LoginLogo{
+    height: 90px;
+    margin-left: 80px;
+    margin-bottom: 20px;
+    
+  }
+  
+  .LoginButton{
+    width: 100%;
     height: 48px;
-    margin-top: 10px;
-}
+    border: none;
+    font-weight: 700;
+    background-color: #841D9E;
+    border-radius: 64px;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+  
+  }
+  
+  .LoginButton:disabled {
+    background-color: #a98faf;
+  }
+  
+

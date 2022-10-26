@@ -28,6 +28,7 @@ function App() {
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/Edit' element={<Edit/>}></Route>
       <Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
+     
     </Routes>
    </div>
   );

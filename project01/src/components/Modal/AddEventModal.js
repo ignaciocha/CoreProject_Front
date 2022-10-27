@@ -3,10 +3,10 @@ import ReactModal from 'react-modal';
 import Datetime from 'react-datetime'
 import  "react-datetime/css/react-datetime.css" ;
 
-const AddEventModal = ({isOpen, onClose, onEventAdded, schedule}) => {
-  const [title, setTitle] = useState(schedule.title);
-  const [start, setStart] = useState(schedule.start);
-  const [end, setEnd] = useState(schedule.end);
+const AddEventModal = ({isOpen, onClose, onEventAdded, event}) => {
+  const [title, setTitle] = useState(event.title);
+  const [start, setStart] = useState(event.start);
+  const [end, setEnd] = useState(event.end);
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -24,19 +24,20 @@ const AddEventModal = ({isOpen, onClose, onEventAdded, schedule}) => {
   return (
     <ReactModal isOpen={isOpen} onRequestClose={onClose}>
       <form onSubmit={onSubmit}>
-        <label for='scheduleTitle'>일정</label>
+        <label htmlFor='scheduleTitle'>일정</label>
         <input id='scheduleTitle' value={title} 
         onChange={
           e => setTitle(e.target.value)
         } />
+       
         <div>
-          <label>시작일</label>
-          <Datetime value={schedule.start} onChange={date => setStart(date)}></Datetime>
-        </div>
-
-        <div>
-          <label>종료일</label>
-          <Datetime value={schedule.end} onChange={date => setEnd(date)}></Datetime>
+          날짜
+          <Space direction="vertical">
+            <RangePicker 
+            defaultValue={[moment(event.start, 'YYYY-MM-DD'), moment(event.end, 'YYYY-MM-DD')]} 
+            onChange={date => setEnd(date)}
+            format='YYYY-MM-DD' />
+          </Space>
         </div>
 
         <button>일정 추가</button>

@@ -1,0 +1,19 @@
+.teamContainerStyle{
+    border : '1px solid gray';
+    display : 'flex';
+    flex-direction: 'column';
+    width: '500px';
+    border-radius: '15px';
+    margin: '10px';
+    box-shadow: '1px 1px 10px -2px gray';
+    padding: '10px'
+  }
+
+  .teamItemStyle{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .gamelogoStyle{
+    border-radius: 50%;
+  }

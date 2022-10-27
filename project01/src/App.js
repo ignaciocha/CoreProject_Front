@@ -17,6 +17,8 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './styles/Chart.css'
 import Join from './pages/Join';
 import Login from './pages/Login';
+import MyPage from './pages/MyPage';
+import Edit from './pages/Edit';
 
 ReactModal.setAppElement('#root');
 
@@ -39,6 +41,8 @@ function App() {
       <Route path='/teamsearch' element={<TeamSearch/>}></Route>
       <Route path='/join' element={<Join/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
+      <Route path='/mypage' element={<MyPage/>}></Route>
+      <Route path='/edit' element={<Edit/>}></Route>
 
     </Routes>
    </div>

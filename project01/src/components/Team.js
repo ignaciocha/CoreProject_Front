@@ -21,6 +21,7 @@ const Team = ({item, idx}) => {
 
   return (
     <div style={containerStyle}>
+          <Link to='/teamcheck'>
         <div className = 'teamItemStyle'>
           <div>
           {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}
@@ -29,12 +30,13 @@ const Team = ({item, idx}) => {
           {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
           </div>
         <div>
-        <Link to='/teamcheck'>{item.teamName}</Link>
+        <span>{item.teamName}</span>
         <br></br>
         <sapn>{item.opendate} </sapn><br></br>
-        <Link to='/teamcheck'>{item.content}</Link><br></br>
+        <span>{item.content}</span><br></br>
         </div>
         </div>
+        </Link>
         </div>
   )
 }

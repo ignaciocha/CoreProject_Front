@@ -31,7 +31,7 @@ const Team = ({item, idx}) => {
         <div>
         <Link to='/teamcheck'>{item.teamName}</Link>
         <br></br>
-        <sapn>{item.opendate} </sapn><br></br>
+        <span>{item.opendate} </span><br></br>
         <Link to='/teamcheck'>{item.content}</Link><br></br>
         </div>
         </div>

@@ -17,16 +17,25 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './styles/Chart.css'
 import Join from './pages/Join';
 import Login from './pages/Login';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 ReactModal.setAppElement('#root');
 
 function App() {
+  // const [hello, setHello] = useState('');
+
+  useEffect(() => {
+    axios.get('/hello')
+    .then(response => console.log(response.data))
+    .catch(error => console.log(error))
+}, []);
+
   return (
    <div>
     <Header/>
-    {/* <FilterBox/> */}
-    {/* <TeamRoom/> */}
 
+    {/* {hello} */}
     
     <Routes>
       <Route path='/' element={<Main/>}></Route>

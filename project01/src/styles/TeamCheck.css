@@ -1,0 +1,18 @@
+#subBtn {
+    width: 440px;
+    background: rgba(128, 0, 128, 0.213);
+    border-radius: 5px;
+    border: none;
+    color: black;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.tier, .gender, .age, .position {
+    border: none;
+    background: rgb(248, 233, 255);
+    margin-right: 10px;
+    width: 80px;
+    border-radius: 10px;
+}

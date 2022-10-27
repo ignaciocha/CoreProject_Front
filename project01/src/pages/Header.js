@@ -3,6 +3,7 @@ import logo from "../assets/img/gameus_logo_width.svg";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
 import { BsFillBellFill } from "react-icons/io";
+import Notifications from "../components/Modal/Notifications";
 
 const Header = () => {
   const [isLogin, setIsLogin] = useState(false);
@@ -32,7 +33,8 @@ const Header = () => {
           <Link className="textLink">
             <div className="loginStyle">내정보</div>
           </Link>
-          <Link className="text-link">알람
+          <Link className="text-link">
+            <div className="loginStyle"><Notifications/></div>
           </Link>
         </div>
       ) : (

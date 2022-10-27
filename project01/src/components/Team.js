@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import logo1 from '../assets/img/gameLogo/1.png'
 import logo2 from '../assets/img/gameLogo/2.png'
 import logo3 from '../assets/img/gameLogo/3.png'
@@ -27,10 +28,10 @@ const Team = ({item, idx}) => {
           {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
           </div>
         <div>
-        <span>{item.teamName}</span>
+        <Link>{item.teamName}</Link>
         <br></br>
-        <span>{item.opendate} </span><br></br>
-        <span>{item.content}</span><br></br>
+        <Link>{item.opendate} </Link><br></br>
+        <Link>{item.content}</Link><br></br>
         </div>
         </div>
         </div>

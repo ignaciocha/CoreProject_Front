@@ -1,0 +1,63 @@
+.plusTeam {
+    margin-top: 50px;
+    border: 3px solid #F3F1F1;   
+    border-radius: 10px;
+    padding-top: 20px;
+    padding-bottom: 1px;
+    width: 650px;
+    box-shadow: 5px 5px 10px -5px rgb(205, 205, 205);
+}
+
+ul, li {
+    list-style: none;
+}
+
+#playGame {
+    padding: 0px;
+}
+
+#newBtn {
+    width: 440px;
+    background: rgba(128, 0, 128, 0.213);
+    border-radius: 5px;
+    border: none;
+    color: black;
+    height: 40px;
+}
+
+.gameSelect {
+    margin: 5px;
+    border: none;
+    width: 215px;
+    height: 40px;
+    border-radius: 5px;
+  }
+
+.gameSelect:hover {
+    background: rgba(128, 0, 128, 0.213);
+    font-weight: bolder;
+}
+
+input[type='number']{
+    width: 326px;
+} 
+
+input[type='checkbox']{
+    margin-right: 6px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+span {
+    display: flex;
+    border: 1px solid gray;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}

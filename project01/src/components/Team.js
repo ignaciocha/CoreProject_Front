@@ -4,6 +4,7 @@ import logo1 from '../assets/img/gameLogo/1.png'
 import logo2 from '../assets/img/gameLogo/2.png'
 import logo3 from '../assets/img/gameLogo/3.png'
 import logo4 from '../assets/img/gameLogo/4.jpg'
+import TeamCheck from '../pages/TeamCheck'
 
 
 const Team = ({item, idx}) => {
@@ -28,10 +29,10 @@ const Team = ({item, idx}) => {
           {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
           </div>
         <div>
-        <Link>{item.teamName}</Link>
+        <Link to='/teamcheck'>{item.teamName}</Link>
         <br></br>
-        <Link>{item.opendate} </Link><br></br>
-        <Link>{item.content}</Link><br></br>
+        <sapn>{item.opendate} </sapn><br></br>
+        <Link to='/teamcheck'>{item.content}</Link><br></br>
         </div>
         </div>
         </div>

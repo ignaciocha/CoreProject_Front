@@ -32,7 +32,7 @@ const Team = ({item, idx}) => {
         <div>
         <span>{item.teamName}</span>
         <br></br>
-        <sapn>{item.opendate} </sapn><br></br>
+        <span>{item.opendate} </span><br></br>
         <span>{item.content}</span><br></br>
         </div>
         </div>

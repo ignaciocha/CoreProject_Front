@@ -23,13 +23,12 @@ import Edit from './pages/Edit';
 ReactModal.setAppElement('#root');
 
 function App() {
+
   return (
    <div>
     <Header/>
     {/* <FilterBox/> */}
     {/* <TeamRoom/> */}
-
-    
     <Routes>
       <Route path='/' element={<Main/>}></Route>
       <Route path='/teamsetting' element={<TeamSetting/>}></Route>

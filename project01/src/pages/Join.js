@@ -2,7 +2,8 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import logo from "../assets/img/gameus_logo_width.svg";
-import '../CSS/Join.css'
+import '../styles/Join.css'
+
 
 function Join() {
   const formSchema = yup.object({
@@ -13,7 +14,7 @@ function Join() {
     password: yup
       .string()
       .required('영문, 숫자포함 8자리를 입력해주세요.')
-      .min(8, '최소 8자 이상 가능합니다')
+      .min(9, '최소 9자 이상 가능합니다')
       .max(15, '최대 15자 까지만 가능합니다')
       .matches(
         /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/,
@@ -36,13 +37,17 @@ function Join() {
 
   const onSubmit = (data) => console.log(data);
 
+ 
+
+
+
   return (
     <div className="JoinPage">
+      <form onSubmit={handleSubmit(onSubmit)}>
     <div className="JoinTitleWrap">
      <img className="JoinLogo" src={logo}></img>
     <br/>
     </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
           <div className="JoinInputTitle">이메일</div>
         <div className="JoinInputWrap">
           <input className="JoinInput" placeholder="이메일" {...register('email')} />
@@ -80,14 +85,17 @@ function Join() {
          type="text"
          className="JoinInput"
          placeholder="닉네임 확인"
+         {...register('nicknameConfirm')}
          />
          </div>
          <div>
               <div className="JoinInputTitle"> 생년월일과 성별 </div>
               <input placeholder="931015" className="birthBox"
-              type='text' maxLength='6' name='signup_birthday'/> -  
+              type='text' maxLength='6' name='signup_birthday'
+              {...register('dateConfirm')}/> -  
               <input placeholder="1" className="sexBox"
-              type='text' maxLength='1' name='signup_sex'/> ******
+              type='text' maxLength='1' name='signup_sex'
+              {...register('sexConfirm')}/> ******
             </div>
         <div>
           <button className="JoinButton" type="submit" disabled={errors || watch()}>가입하기</button>

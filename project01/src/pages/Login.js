@@ -1,42 +1,43 @@
 import React from 'react'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import '../CSS/Login.css'
+import { useNavigate } from 'react-router-dom'
+import '../styles/Login.css'
 import logo from "../assets/img/gameus_logo_width.svg"
 import { useEffect } from 'react'
 // const Login = () => {
 
 const User = {
-    id: 'test12345',
-    pw: 'dkssud123'
+    id: '',
+    pw: 'test12345'
 }
 
 function Login() {
 
 
 
-    const [id, setId] = useState('');
+    const [email, setId] = useState('');
     const [pw, setPw] = useState("");
 
-    const [idValid, setIdValid] = useState(false);
+    const [emailValid, setEmailValid] = useState(false);
     const [pwValid, setPwValid] = useState(false);
     const [notAllow, setNotAllow] = useState(true);
 
     const handleId = (e) => {
         setId(e.target.value);
         const regex =
-            /[a-zA-Z0-9]/
-        if (regex.test(id)) {
-            setIdValid(true);
+        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+        if (regex.test(email)) {
+            setEmailValid(true);
         } else {
-            setIdValid(false);
+            setEmailValid(false);
         }
     }
 
     const handlePassword = (e) => {
         setPw(e.target.value);
         const regex =
-            /^[A-Za-z0-9]{8,20}$/
+        
+        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/
         if (regex.test(pw)) {
             setPwValid(true);
         } else {
@@ -45,7 +46,7 @@ function Login() {
     }
 
     const onClickConfirmbutton = () => {
-        if (id === User.id && pw === User.pw) {
+        if (email === User.email && pw === User.pw) {
             alert('로그인에 성공하셨습니다.');
 
             navigate('/')
@@ -62,12 +63,12 @@ function Login() {
     }
 
     useEffect(() => {
-        if (idValid && pwValid) {
+        if (emailValid && pwValid) {
             setNotAllow(false);
             return;
         }
         setNotAllow(true);
-    }, [idValid, pwValid]);
+    }, [emailValid, pwValid]);
 
 
 
@@ -80,20 +81,20 @@ function Login() {
             </div>
 
             <div className="LoginContentWrap">
-                <div className="LoginInputTitle">아이디</div>
+                <div className="LoginInputTitle">이메일</div>
                 <div className="LoginInputWrap">
                     <input
                         type='text'
                         className="LoginInput"
-                        placeholder="아이디를 입력해주세요"
-                        value={id}
+                        placeholder="이메일을 입력해주세요"
+                        value={email}
                         onChange={handleId}
 
                     />
                 </div>
                 <div className="LoginErrorMessageWrap">
-                    {!idValid && id.length > 0 && (
-                        <div>올바른 아이디를 입력해주세요</div>
+                    {!emailValid && email.length > 0 && (
+                        <div>올바른 이메일을 입력해주세요</div>
                     )}
                 </div>
 

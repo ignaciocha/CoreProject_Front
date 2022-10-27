@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../CSS/MyPage.css'
+import '../styles/MyPage.css'
 import './Edit';
 
 const MyPage = () => {

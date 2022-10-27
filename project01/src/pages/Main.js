@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import '../CSS/Main.css';
+import '../styles/Main.css';
 import Join from './Join';
 const Main = () => {
     const navigate = useNavigate()

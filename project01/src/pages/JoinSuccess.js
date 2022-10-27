@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import '../CSS/JoinSuccess.css'
+import '../styles/JoinSuccess.css'
 import logo from "../assets/img/gameus_logo_width.svg"
 
 const JoinSuccess = () => {

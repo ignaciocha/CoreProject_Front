@@ -3,25 +3,25 @@
         {
             "user_nick": "야돈",
             "joindate": "2022-10-20",
-            "confirm": "팀장",
+            "confirm": "y",
             "user_icon": "lol"
         },
         {
             "user_nick": "야도란",
             "joindate": "2022-10-20",
-            "confirm": "대기중",
+            "confirm": "n",
             "user_icon": "lol"
         },
         {
             "user_nick": "야도킹",
             "joindate": "2022-10-20",
-            "confirm": "팀원",
+            "confirm": "y",
             "user_icon": "lol"
         },
         {
             "user_nick": "너도킹",
             "joindate": "2022-10-20",
-            "confirm": "팀원",
+            "confirm": "y",
             "user_icon": "lol"
         }
  

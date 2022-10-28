@@ -38,13 +38,13 @@ ul, li {
     font-weight: bolder;
 }
 
-/* input[type='number']{
+input[type='number']{
     width: 326px;
 } 
 
 input[type='checkbox']{
     margin-right: 6px;
-} */
+}
 
 li {
     margin-bottom: 10px;

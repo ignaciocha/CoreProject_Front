@@ -11,53 +11,61 @@ import moment from "react-moment";
 const Calendar = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const calendarRef = useRef(null);
-  const [event, setEvent] = useState({
-    id: 0,
-    title: "",
-    start: "",
-    end: "",
-    teamSeq: "",
-  });
+  const [event, setEvent] = useState({});
 
   const [eventList, setEventList] = useState([]);
 
 
-  
+  /** 캘린더에 이벤트 추가 */
   const onEventAdded = (e) => {
-    let calendarApi = calendarRef.current.getApi();
-    console.log(calendarRef);
-    calendarApi.addEvent(e);
+    const calendarApi = calendarRef.current.getApi();
+    calendarApi.addEvent({
+      start: e.start,
+      end: e.end,
+      title: e.title
+    });
   };
 
-  // const eventAddHandler = async (data) => {
-  //   await axios.post('/teamroom/addCalendar')
-  //   .then(response => response.data.event)
-  //   .catch(() => console.log('전송 오류'));
-  // }
+  
+
+  const eventAddHandler = async (e) => {
+    await axios.post('/api/teamroom/Calendar', {
+      start: e.event.startStr,
+      end: e.event.endStr,
+      title: e.event.title
+    })
+    .then(response => {
+      console.log('성공 응답');
+      console.log('성공 event');
+    })
+    .catch(() => {console.log('실패', e.event)});
+  }
 
   // const handleDateSet = async (data) => {
   //   const response = await axios.get(`/teamroom/GetAddCalendar?start=${moment(data.start)}&end=${moment(data.end)}`);
   //   setEventList(response.data);
   // }
+
+  
+
   return (
-    <div>
+    <>
       <div style={{ position: "relative", zIndex: 0 }}>
-        <FullCalendar
+        <FullCalendar  
           plugins={[dayGridPlugin, interactionPlugin]}
           initialView="dayGridMonth"
           selectable="true"
           height="auto"
-          events={eventList}
-          // eventAdd={(e) => eventAddHandler(e)}
+          events={event}
+          ref={calendarRef}
+          eventAdd={(e) => eventAddHandler(e)}
           // datesSet={(date) => handleDateSet(date)}
           select={(e) => {
             setEvent({
-              id: Math.random(),
-              title: e.title,
-              start: e.start,
-              end: e.end,
+              start: e.startStr,
+              end: e.endStr
             });
-            setModalOpen(true);
+            setModalOpen(true)
           }}
         />
       </div>
@@ -67,7 +75,7 @@ const Calendar = () => {
         onEventAdded={(e) => onEventAdded(e)}
         event={event}
       />
-    </div>
+    </>
   );
 };
 

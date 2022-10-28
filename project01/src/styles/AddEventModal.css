@@ -28,3 +28,7 @@
   align-items: center;
   flex-direction: column;
 }
+
+.calendarForm button:disabled{
+  background-color: rgba(0, 0, 0, 0.3);
+}

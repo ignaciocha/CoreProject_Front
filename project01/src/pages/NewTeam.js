@@ -12,7 +12,9 @@ const NewTeam = () => {
   const [overwatch2, setOverwatch2] = useState(false)
   const [lol, setLol] = useState(false)
   const [valorant, setValorant] = useState(false)
-  // const [gameBtn, setGameBtn] = useState('')
+  const [selGame, setSelGame] = useState('')
+  const [tGender, setTGender] = useState('')
+  const [tAge, setTAge] = useState('')
     
   const tNameRef = useRef();
   const tMaxRef = useRef();
@@ -34,6 +36,7 @@ const NewTeam = () => {
     setLostark(false)
     setOverwatch2(false)
     setValorant(false)
+    setSelGame('lol')
     console.log(lolRef.current.value);
   }
   
@@ -42,6 +45,7 @@ const NewTeam = () => {
     setLostark(false)
     setLol(false)
     setValorant(false)
+    setSelGame('overwatch2')
     console.log(ovchRef.current.value);
   }
   
@@ -50,6 +54,7 @@ const NewTeam = () => {
     setOverwatch2(false)
     setLol(false)
     setValorant(false)
+    setSelGame('lostark')
     console.log(loaRef.current.value);
   }
 
@@ -58,6 +63,7 @@ const NewTeam = () => {
     setOverwatch2(false)
     setLol(false)
     setLostark(false)
+    setSelGame('valorant')
     console.log(vrRef.current.value);
   }
 
@@ -68,7 +74,7 @@ const NewTeam = () => {
 
     const config = {"Content-Type": 'application/json'};
 
-    axios.post('http://localhost:8090/gameus/newTeam', {
+    axios.post('http://localhost:8090/gameus/team', {
       teamName: tNameRef.current.value,
       teamMax: tMaxRef.current.value,
       teamContent: tContentRef.current.value,
@@ -79,13 +85,14 @@ const NewTeam = () => {
       age30: a30Ref.current.checked,
       age40: a40Ref.current.checked,
       age50: a50Ref.current.checked,
+      game: selGame
       // lostark: loaRef.current.value,
       // overwatch2: ovchRef.current.value,
       // valorant: vrRef.current.value
       // lostark: loaRef.current.checked,
       // valorant: vrRef.current.checked,
       // overwatch2: ovchRef.current.checked
-    }, config).then((res)=>{console.log(res)
+    }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));
   }
@@ -111,7 +118,7 @@ const NewTeam = () => {
 
   return (
       <div className='plusTeam'>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} post='get'>
             <ul id="title" align='left'>
                 <li><h3><b>팀만들기</b></h3></li>
                 <small>팀을 생성해주세요!</small>

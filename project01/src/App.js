@@ -21,11 +21,11 @@ ReactModal.setAppElement('#root');
 
 function App() {
 
-  useEffect(() => {
-    axios.get('/hello')
-    .then(response => console.log(response.data))
-    .catch(error => console.log(error))
-}, []);
+//   useEffect(() => {
+//     axios.get('/hello')
+//     .then(response => console.log(response.data))
+//     .catch(error => console.log(error))
+// }, []);
 
   // ** axios로 데이터 전송하기 (백엔드에)
   // axios                       : 비동기적으로 데이터를 요청

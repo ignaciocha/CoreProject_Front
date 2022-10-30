@@ -29,7 +29,7 @@ const Calendar = () => {
   
 
   const eventAddHandler = async (e) => {
-    await axios.post('/api/teamroom/Calendar', {
+    await axios.post('/api/teamroom/calendar', {
       start: e.event.startStr,
       end: e.event.endStr,
       title: e.event.title

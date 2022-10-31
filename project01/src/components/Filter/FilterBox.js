@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FilterMenuList from './FilterMenuList';
 import '../../styles/FilterBox.css'
+import { useEffect } from 'react';
+import axios from 'axios'
 
 
 
 const FilterBox = () => {
   
-  const gameDetail = {
-    '티어': ['언랭', '아이언', '브론즈', '실버', '골드'],
-    '포지션': ['탑', '정글', '미드', '바텀', '서포터'],
-    '성별': ['남자', '여자'],
-    '나이': ['10대', '20대', '30대', '40대', '50대 이상']
+  const [gameDetail, setGameDetail] = useState([]);
+  const [selectGame, setSelectGame] = useState('');
+
+  const gameClick = () => {
+    // 게임 클릭한 이름 선택(소문자)
+    setSelectGame('lol')
   }
   
+  useEffect(() => {
+    axios.get('/api/filter', {
+      param: {
+        game: selectGame
+      }
+    })
+    .then(e => {console.log(e);})
+    .catch(e => {console.log(e);})
+  
+  }, [selectGame])
   
 
   const filterMenuList = Object.entries(gameDetail).map((i, idx) => (

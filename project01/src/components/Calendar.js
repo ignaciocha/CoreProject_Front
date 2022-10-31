@@ -6,7 +6,6 @@ import AddEventModal from "./Modal/AddEventModal";
 import "../styles/Calendar.css";
 import "../styles/AddEventModal.css";
 import axios from "axios";
-import moment from "react-moment";
 
 const Calendar = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -35,16 +34,28 @@ const Calendar = () => {
       title: e.event.title
     })
     .then(response => {
+      
       console.log('성공 응답');
       console.log('성공 event');
     })
     .catch(() => {console.log('실패', e.event)});
   }
 
-  // const handleDateSet = async (data) => {
-  //   const response = await axios.get(`/teamroom/GetAddCalendar?start=${moment(data.start)}&end=${moment(data.end)}`);
-  //   setEventList(response.data);
-  // }
+  /** 캘린더가 로드되면 데이터 불러오기 */
+  const handleDateSet = async () => {
+    const response = await axios.get(`/api/teamroom/calendar`)
+    .then(e => {
+      const viewEvent = e.data.map(i => ({
+        title: i.cal_schedule,
+        start: i.cal_s_dt,
+        end: i.cal_e_dt
+      }))
+      setEventList(viewEvent)
+    })
+    .catch(e => {console.log('캘린더를 불러올 수 없어요');})
+    // ?start=${moment(data.start)}&end=${moment(data.end)}
+    // setEventList(response.data);
+  }
 
   
 
@@ -56,15 +67,16 @@ const Calendar = () => {
           initialView="dayGridMonth"
           selectable="true"
           height="auto"
-          events={event}
+          events={eventList}
           ref={calendarRef}
           eventAdd={(e) => eventAddHandler(e)}
-          // datesSet={(date) => handleDateSet(date)}
+          datesSet={(date) => handleDateSet(date)}
           select={(e) => {
             setEvent({
-              start: e.startStr,
-              end: e.endStr
+              start: e.start,
+              end: e.end
             });
+            console.log(e);
             setModalOpen(true)
           }}
         />

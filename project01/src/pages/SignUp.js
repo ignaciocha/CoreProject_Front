@@ -44,7 +44,8 @@ const SignUp = () => {
         username: username,
         password: password,
         age: age,
-        gender: gender
+        gender: gender,
+        joindate: new Date()
       });
       toast.success(<h3>회원가입이 완료되었습니다.<br/>추가정보를 입력하세요😸</h3>, {
         position: "top-center",
@@ -158,9 +159,9 @@ const SignUp = () => {
                 value={values.gender}
                 name="gender"
                 onChange={handleChange}>
-                    남자<input type='radio' name='gender' value='man'/>
-                    여자<input type='radio' name='gender' value='woman'/>
-                    비공개<input type='radio' name='gender' value='secret'/>
+                    남자<input type='radio' name='gender' value='m'/>
+                    여자<input type='radio' name='gender' value='w'/>
+                    비공개<input type='radio' name='gender' value='s'/>
               </div>
                 <div className="error-message">
                   {errors.gender}

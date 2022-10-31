@@ -21,6 +21,8 @@ import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
 import KakaoLogin from './pages/KakaoLogin';
 import SignUp from './pages/SignUp';
+import JoinSuccess from './pages/JoinSuccess';
+
 
 ReactModal.setAppElement("#root");
 

@@ -30,7 +30,7 @@ function App() {
 useEffect(
   () => {
     axios({
-        url: 'gameus/hello',
+        url: 'api/hello',
         method: 'GET'
     }).then((res) => {
         setHello(res.data);

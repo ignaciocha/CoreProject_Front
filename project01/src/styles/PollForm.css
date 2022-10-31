@@ -10,11 +10,11 @@ li {
     border-radius: 5px;
   }
   
+  
 
-
-  .btn {
+  .pollBtn {
     padding: 0.5rem;
-    background-color: lightblue;
+    background-color: #E0BFE6;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -22,9 +22,9 @@ li {
     max-width: 12rem;
   }
   
-  .btn:focus,
-  .btn:hover {
-    background-color: rgb(88, 162, 247);
+  .pollBtn:focus,
+  .pollBtn:hover {
+    background-color: #841D9E;
   }
   
   .poll {

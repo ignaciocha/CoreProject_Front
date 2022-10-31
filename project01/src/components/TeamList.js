@@ -16,8 +16,8 @@ export const TeamList = () => {
   useEffect(
     () => {
       axios({
-          url:'gameus/allteam',
-          method: 'GET'
+          url:'api/allteam',
+          method: 'get'
       }).then((res)=>{
         setAllTeam(res);
         console.log(res.data);

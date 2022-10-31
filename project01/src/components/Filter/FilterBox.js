@@ -24,6 +24,10 @@ const FilterBox = () => {
   return (
     <div className='filterBoxStyle'>
       {filterMenuList}
+      <div className='filterDoneBox'>
+      <div className="filterDone">적용</div>
+      <div className="filterReset">초기화</div>
+      </div>
     </div>
   )
 }

@@ -1,23 +1,22 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import '../styles/Main.css';
-import Join from './Join';
-const Main = () => {
-    const navigate = useNavigate()
-    const goToJoin = () => {
-        navigate('/join')
-    }
-    const goToLogin = () => {
-        navigate('/login')
-    }
+import 'react-slideshow-image/dist/styles.css'
+import Slideshow from '../components/Slider';
+import { TeamList } from '../components/TeamList';
 
+const Main = () => {
   return (
-    <div>
-        <div><button onClick={goToJoin} className='mainbutton' >회원가입</button>
-        <button onClick={goToLogin} className='mainbutton' >로그인</button></div>
-        
-        <Join/>
-        </div>
+    <div> {/* 전체 컨테이너 */}
+      {/* 슬라이드 컨테이너 */}
+      <div className="container mt-5 carousel">
+         <Slideshow/>
+      </div>
+        <h3>최근에 모집을 시작한 팀👀👁👁</h3>
+      {/* 팀 목록 div */}
+      <div className='centerStyle'>
+        <TeamList/>
+      </div>
+    </div>
   )
 }
 

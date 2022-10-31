@@ -1,0 +1,27 @@
+.waitingTeamStyle {
+    height: 100px;
+    border-color: transparent;
+    border-bottom: gainsboro;
+    border-style: solid;
+    border-width: 2px;
+    display : 'flex';
+    flex-wrap : 'wrap';
+  }
+
+
+  .waitingTeamStyle:hover{
+    background:#E0BFE6;
+  }
+
+  h1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .teamItemTitle{
+    display: flex;
+    align-items: center;
+
+  }

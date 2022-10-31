@@ -19,16 +19,34 @@ import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 ReactModal.setAppElement('#root');
 
 function App() {
+  const [hello, setHello] = useState('')
+
+useEffect(
+  () => {
+    axios({
+        url: 'gameus/hello',
+        method: 'GET'
+    }).then((res) => {
+        setHello(res.data);
+    })
+  }, []
+);
 
   return (
    <div>
     <Header/>
     {/* <FilterBox/> */}
     {/* <TeamRoom/> */}
+      <div>
+        <br></br><br></br>
+      저쪽 테이블에서 보낸 데이터입니다: {hello}
+      </div>
     <Routes>
       <Route path='/' element={<Main/>}></Route>
       <Route path='/teamsetting' element={<TeamSetting/>}></Route>

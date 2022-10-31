@@ -16,18 +16,16 @@ const FilterBox = () => {
     setSelectGame('lol')
   }
   
-  useEffect(() => {
-    axios.get('/api/filter', {
-      param: {
+  const applyFilter = async () => {
+    await axios.get('/api/filter', {
+      params: {
         game: selectGame
       }
     })
-    .then(e => {console.log(e);})
-    .catch(e => {console.log(e);})
+    .then(e => {console.log('성공 ',e);})
+    .catch(e => {console.log('필터 에러 :',e);})
+  }
   
-  }, [selectGame])
-  
-
   const filterMenuList = Object.entries(gameDetail).map((i, idx) => (
     <FilterMenuList item={i} key={idx}/>
   ))
@@ -37,9 +35,10 @@ const FilterBox = () => {
   return (
     <div className='filterBoxStyle'>
       {filterMenuList}
+      <button onClick={gameClick}>여기!</button>
       <div className='filterDoneBox'>
-      <div className="filterDone">적용</div>
-      <div className="filterReset">초기화</div>
+      <button className="filterDone" onClick={applyFilter}>적용</button>
+      <button className="filterReset">초기화</button>
       </div>
     </div>
   )

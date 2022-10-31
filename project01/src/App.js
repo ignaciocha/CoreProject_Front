@@ -10,9 +10,14 @@ import Header from './pages/Header';
 import FilterBox from './components/Filter/FilterBox';
 import TeamRoom from './pages/TeamRoom';
 import TeamSetting from './pages/TeamSetting';
+import KakaoLogin from './pages/KakaoLogin';
+import SignUp from './pages/SignUp';
 
 
 function App() {
+
+  
+
   return (
 
    <div>
@@ -28,7 +33,8 @@ function App() {
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/Edit' element={<Edit/>}></Route>
       <Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
-     
+      <Route path='/kakaologin' element={<KakaoLogin/>}></Route>
+      <Route path='/signup' element={<SignUp/>}></Route>
     </Routes>
    </div>
   );

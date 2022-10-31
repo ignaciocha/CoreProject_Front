@@ -1,0 +1,14 @@
+.kakaobtnStyle{
+    border: none;
+    background-color: transparent;
+    width: 100%;
+    width: 100%;
+    height: 48px;
+    border: none;
+    font-weight: 700;
+
+ 
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+}

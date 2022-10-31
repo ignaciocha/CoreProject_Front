@@ -2,17 +2,24 @@ import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/Login.css'
+import '../styles/kakao.css'
 import logo from "../assets/img/gameus_logo_width.svg"
 import { useEffect } from 'react'
+import {REST_API_KEY, REDIRECT_URI } from '../components/Kakao';
+import axios from 'axios';
 // const Login = () => {
 
 const User = {
-    id: '',
+    id: 'test1234@naver.com',
     pw: 'test12345'
 }
 
 function Login() {
+    const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
+    const handleLogin = () => {
+        window.location.href = KAKAO_AUTH_URL;
+    };
 
 
     const [email, setId] = useState('');
@@ -25,19 +32,20 @@ function Login() {
     const handleId = (e) => {
         setId(e.target.value);
         const regex =
-        /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+            /^(([^<>()\[\].,;:\s@"]+(\.[^<>()\[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
         if (regex.test(email)) {
             setEmailValid(true);
         } else {
             setEmailValid(false);
         }
+        
     }
 
     const handlePassword = (e) => {
         setPw(e.target.value);
         const regex =
-        
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/
+
+            /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,15}$/
         if (regex.test(pw)) {
             setPwValid(true);
         } else {
@@ -89,6 +97,7 @@ function Login() {
                         placeholder="이메일을 입력해주세요"
                         value={email}
                         onChange={handleId}
+                        
 
                     />
                 </div>
@@ -126,6 +135,10 @@ function Login() {
                     회원가입
                 </button>
                 </div>
+            </div>
+           <hr className="hr"/>
+            <div>
+             <button onClick={handleLogin} className="kakaobtnStyle"><img src='https://developers.kakao.com/tool/resource/static/img/button/login/full/ko/kakao_login_medium_wide.png'/></button>
             </div>
 
         </div>

@@ -1,112 +1,120 @@
 .JoinPage {
-    /* position: absolute; */
-    /* top: 0; */
-    /* bottom: 0; */
-    width: 100%;
-    height: 1000px;
-    max-width: 500px;
-    padding: 0 20px;
-  
-    /* left: 50%; */
-    /* transform: translate(-50%, 0); */
-    
-    background-color: #f7f7f7;
-  
-    overflow: hidden;
-    margin: 300px auto;
-    /* display: flex; */
-    /* flex-direction: column; */
-  }
-  
-  .JoinTitleWrap{
-   margin-top: 87px;
-   font-size: 26px;
-   font-weight: 700;
-    color: #262626;
-  }
-  .JoinContentWrap{
-    margin-top: 26px;
-    flex: 1;
-  }
-  .JoinInputTitle{
-    font-size: 12px;
-    font-weight: 600;
-    color: #262626;
-  }
-  .JoinInputWrap{
-    display: flex;
-    border-radius: 8px;
-    padding: 16px;
-    margin-top: 8px;
-    background-color: white;
-    border: 1px solid #e2e2e2;
-  }
-  .JoinInputWrap:focus-within{
-    border: 1px solid #8049DB;
-  }
-  .JoinInput{
-    width: 100%;
-    outline: none;
-    border: none;
-    height: 17px;
-    font-size: 14px;
-    font-weight: 400;
-    
-  }
-  
-  .JoinInput::placeholder{
-    color: #dadada;
-  }
-  
-  .JoinErrorMessageWrap{
-    margin-top: 8px;
-    color: #ef0000;
-    font-size: 12px;
-  }
-  
-  .JoinLogo{
-    height: 90px;
-    margin-left: 80px;
-    margin-bottom: 20px;
-    
-  }
-  
-  .JoinButton{
-    width: 100%;
-    height: 48px;
-    border: none;
-    font-weight: 700;
-    background-color: #841D9E;
-    border-radius: 20px;
-    color: white;
-    margin: 5px;
-    cursor: pointer;
-  
-  }
-  
-  .JoinButton:disabled {
-    background-color: #841D9E;
-  }
-  
-  .JoinDate{
-    display: flex;
-    border-radius: 8px;
-    padding: 16px;
-    margin-top: 8px;
-    background-color: white;
-    border: 1px solid #e2e2e2;
-    width: 93.2%;
-  }
+  /* position: absolute; */
+  /* top: 0; */
+  /* bottom: 0; */
+  width: 100%;
+  height: 1000px;
+  max-width: 500px;
+  padding: 0 20px;
 
-.birthBox{
-  padding: 3px;
-color: gray;
-  width: 80px;
-  font-size: 20px;
+  /* left: 50%; */
+  /* transform: translate(-50%, 0); */
+
+  background-color: #f7f7f7;
+
+  overflow: hidden;
+  margin: 300px auto;
+  /* display: flex; */
+  /* flex-direction: column; */
 }
-.sexBox{
-  padding: 3px;
-  color: gray;
-  width: 10px;
-  font-size: 20px;
+
+.JoinTitleWrap {
+  margin-top: 87px;
+  font-size: 26px;
+  font-weight: 700;
+  color: #262626;
+}
+
+.JoinContentWrap {
+  margin-top: 26px;
+  flex: 1;
+}
+
+.JoinInputTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: #262626;
+}
+
+.JoinInputWrap {
+  display: flex;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #e2e2e2;
+}
+
+.JoinInputWrap:focus-within {
+  border: 1px solid #8049DB;
+}
+
+.JoinInput {
+  width: 100%;
+  outline: none;
+  border: none;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 400;
+
+}
+
+.JoinInput::placeholder {
+  color: #dadada;
+}
+
+.JoinErrorMessageWrap {
+  margin-top: 8px;
+  color: #ef0000;
+  font-size: 12px;
+}
+
+.JoinLogo {
+  height: 90px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+
+}
+
+.JoinButton {
+  width: 100%;
+  height: 48px;
+  border: none;
+  font-weight: 700;
+  background-color: #841D9E;
+  border-radius: 20px;
+  color: white;
+  margin: 5px;
+  cursor: pointer;
+
+}
+
+.JoinButton:disabled {
+  background-color: #841D9E;
+}
+
+.JoinDate {
+  display: flex;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 8px;
+  background-color: white;
+  border: 1px solid #e2e2e2;
+  width: 100%;
+}
+
+.birthBox {
+  padding: 5px;
+  margin: 15px;
+ width:15px;
+ height:15px;
+ border:1px;
+}
+
+.sexBox {
+ padding: 5px;
+  margin: 15px;
+ width:15px;
+ height:15px;
+ border:1px;
 }

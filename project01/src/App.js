@@ -46,7 +46,7 @@ function App() {
       <Route path='/noteam' element={<NoTeam/>}></Route>
       <Route path='/managemember' element={<ManageMember/>}></Route>
       <Route path='/newteam' element={<NewTeam/>}></Route>
-      <Route path='/TeamCheck' element={<TeamCheck/>}></Route>
+      <Route path='/Teamcheck/:team_seq' element={<TeamCheck/>}></Route>
       <Route path='/teamsearch' element={<TeamSearch/>}></Route>
       <Route path='/join' element={<Join/>}></Route>
       <Route path='/login' element={<Login/>}></Route>

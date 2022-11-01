@@ -74,7 +74,7 @@ const NewTeam = () => {
 
     const config = {"Content-Type": 'application/json'};
 
-    axios.post('http://localhost:8090/gameus/team', {
+    axios.post('/api/team', {
       teamName: tNameRef.current.value,
       teamMax: tMaxRef.current.value,
       teamContent: tContentRef.current.value,

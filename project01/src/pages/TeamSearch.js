@@ -1,6 +1,5 @@
 import React from 'react'
 import Bubble from '../components/BubbleChart/Bubble'
-import FilterBox from '../components/Filter/FilterBox'
 import '../styles/Main.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -32,7 +31,6 @@ const TeamSearch = ({item, idx}) => {
     <div>
         <h3>팀 찾기</h3>
         <Bubble/>
-        <FilterBox/>
         { allTeam.data && allTeam.data.map((item,idx)=>(<Team key={idx} item={item} idx={idx}></Team>))}
     </div>
   )

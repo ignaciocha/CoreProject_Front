@@ -9,7 +9,6 @@ const FilterItemList = ({ item }) => {
 
   const [filterList, setFilterList] = useState([]);
 
-
   // 필터링 리스트에 요소 추가
   const addFilterList = e => {
     if(filterList.includes(e.target.value)) {
@@ -24,10 +23,10 @@ const FilterItemList = ({ item }) => {
   }
 
   // 필터 리스트 불러오기
-  const filterItem = Object.entries(item).map((i) => {
+  const filterItem = Object.entries(item).map((i, idx) => {
     return (
       <div className="gameFilterItemList">
-        <h2 className="gameFilterMenu">{i[0]}</h2>
+        <h2 className="gameFilterMenu" key={idx}>{i[0]}</h2>
         {i[1].map((j) => (
           <label className="filterCheck">
             <input type="checkbox" value={j} onClick={addFilterList} />

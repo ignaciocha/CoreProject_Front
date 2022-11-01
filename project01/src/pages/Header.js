@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import logo from "../assets/img/gameus_logo_width.svg";
 import "../styles/Header.css";
 import { Link } from "react-router-dom";
-import { BsFillBellFill } from "react-icons/io";
 import Notifications from "../components/Modal/Notifications";
 
 const Header = () => {

@@ -1,13 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo1 from '../assets/img/gameLogo/1.png'
-import logo2 from '../assets/img/gameLogo/2.png'
-import logo3 from '../assets/img/gameLogo/3.png'
-import logo4 from '../assets/img/gameLogo/4.jpg'
-import TeamCheck from '../pages/TeamCheck'
-
 
 const Team = ({item, idx}) => {
+
   const containerStyle = {
     border : '1px solid gray',
     display : 'flex',
@@ -19,26 +14,29 @@ const Team = ({item, idx}) => {
     padding: '10px'
   }
 
+  let urlSource= '/teamcheck/'+item.team_seq
+
   return (
     <div style={containerStyle}>
-          <Link to='/teamcheck'>
+          <Link to={urlSource}>
         <div className = 'teamItemStyle'>
           <div>
-          {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}
+          {/* {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}
           {item.gameName ==='오버워치2' && <img src={logo2} width='50px' className='imgStyle'></img>}
           {item.gameName==='발로란트' && <img src={logo3} width='50px' className='imgStyle'></img>}
-          {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
+          {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>} */}
           </div>
         <div>
-        <span>{item.teamName}</span>
+        <span>{item.team_name}</span>
         <br></br>
-        <span>{item.opendate} </span><br></br>
-        <span>{item.content}</span><br></br>
+        <span>{item.team_opendate} </span><br></br>
+        <span>{item.team_content}</span><br></br>
+        <span>{item.team_max}</span><br></br>
+        <span>{item.user_id}</span><br></br>
         </div>
         </div>
         </Link>
         </div>
   )
 }
-
 export default Team

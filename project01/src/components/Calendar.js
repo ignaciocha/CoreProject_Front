@@ -42,8 +42,8 @@ const Calendar = () => {
   }
 
   /** 캘린더가 로드되면 데이터 불러오기 */
-  const handleDateSet = async () => {
-    const response = await axios.get(`/api/teamroom/calendar`)
+  const handleDateSet = () => {
+    const response = axios.get(`/api/teamroom/calendar`)
     .then(e => {
       const viewEvent = e.data.map(i => ({
         title: i.cal_schedule,

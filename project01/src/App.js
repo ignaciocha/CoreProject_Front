@@ -16,6 +16,7 @@ import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
+import TeamRoom from './pages/TeamRoom'
 
 ReactModal.setAppElement("#root");
 
@@ -36,7 +37,7 @@ function App() {
   return (
    <div>
     <Header/>
-
+    
     {/* {hello} */}
     
     <Routes>
@@ -52,6 +53,7 @@ function App() {
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/edit' element={<Edit/>}></Route>
+      <Route path='/teamroom' element={<TeamRoom/>}></Route>
 
     </Routes>
    </div>

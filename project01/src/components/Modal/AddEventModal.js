@@ -22,6 +22,7 @@ const AddEventModal = ({isOpen, onClose, onEventAdded, event}) => {
   
   }, [event])
   
+
   /** 캘린더 이벤트 전송 */
   const onSubmit = (e) => {
     e.preventDefault();

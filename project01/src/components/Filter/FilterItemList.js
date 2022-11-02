@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FilterItemList = ({ item }) => {
+const FilterItemList = ({ gameDetail, setFilterTeam }) => {
 
   // const [toggle, setToggle] = useState(false);
   // const clickedToggle = () => {
@@ -8,7 +8,10 @@ const FilterItemList = ({ item }) => {
   // };
 
   const [filterList, setFilterList] = useState([]);
+  
 
+  const [isAllChecked, setIsAllChecked] = useState(false);
+  const [checkeditems, setCheckeditems] = useState();
   // 필터링 리스트에 요소 추가
   const addFilterList = e => {
     if(filterList.includes(e.target.value)) {
@@ -20,16 +23,18 @@ const FilterItemList = ({ item }) => {
       const newFilterList = filterList.concat(e.target.value)
       setFilterList(newFilterList)
     }
+    console.log(filterList);
   }
 
   // 필터 리스트 불러오기
-  const filterItem = Object.entries(item).map((i, idx) => {
+  const filterItem = Object.entries(gameDetail).map((i, idx) => {
     return (
-      <div className="gameFilterItemList">
-        <h2 className="gameFilterMenu" key={idx}>{i[0]}</h2>
+      <div className="gameFilterItemList" key={`menu${idx}`}>
+        <h2 className="gameFilterMenu" >{i[0]}</h2>
         {i[1].map((j) => (
-          <label className="filterCheck">
-            <input type="checkbox" value={j} onClick={addFilterList} />
+          <label className="filterCheck" key={`filter${j}`}>
+            <input type="checkbox" value={j} 
+            onClick={addFilterList}/>
             <span className="gameFilterItem">{j}</span>
           </label>
         ))}
@@ -37,19 +42,23 @@ const FilterItemList = ({ item }) => {
     );
   });
 
+  const checkedFilterHandler = () => {
 
+  }
+
+  function acceptFilter(e) {
+    e.preventDefault();
+    setFilterTeam(filterList);
+  }
 
   return (
-    <div className="buttonStyle">
+    <form className="buttonStyle">
       
       {filterItem}
+      <button onClick={e => acceptFilter(e)}>적용</button>
+      {/* <button onClick={e => setFilter(e)}>초기화</button> */}
 
-      {/* <Button type='filter'
-      onClick={clickedToggle}
-      toggle={toggle}
-      children={props.item}>
-      </Button> */}
-    </div>
+    </form>
   );
 };
 

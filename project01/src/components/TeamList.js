@@ -33,8 +33,7 @@ export const TeamList = () => {
     <div>
         <div className='mainTeamStyle'>
             {list}
-            {/* {teamlist} */}
-            { allTeam.data && allTeam.data.map((item,idx)=>(<Team2 key={idx} item={item} idx={idx}></Team2>))}
+            {allTeam.data && allTeam.data.map((item,idx)=>(<Team2 key={idx} item={item} idx={idx}></Team2>))}
         </div>
     </div>
   )

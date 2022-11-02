@@ -4,6 +4,8 @@ import 'react-slideshow-image/dist/styles.css'
 import Slideshow from '../components/Slider';
 import { TeamList } from '../components/TeamList';
 import PollForm from '../components/Poll/PollForm'
+import PollMain from '../components/Poll/PollMain';
+import PollView from './../components/Poll/PollView';
 
 const Main = () => {
 
@@ -20,6 +22,8 @@ const Main = () => {
         <TeamList/>
       </div>
       <PollForm></PollForm>
+      <PollMain></PollMain>
+      <PollView></PollView>
     </div>
   )
 }

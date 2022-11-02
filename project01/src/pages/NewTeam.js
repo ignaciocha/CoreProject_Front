@@ -86,35 +86,10 @@ const NewTeam = () => {
       age40: a40Ref.current.checked,
       age50: a50Ref.current.checked,
       game: selGame
-      // lostark: loaRef.current.value,
-      // overwatch2: ovchRef.current.value,
-      // valorant: vrRef.current.value
-      // lostark: loaRef.current.checked,
-      // valorant: vrRef.current.checked,
-      // overwatch2: ovchRef.current.checked
     }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));
   }
-
-  // const register = () => {
-  //   axios.get('http://localhost:8090/gameus/hello', {
-  //     teamName: teamName,
-  //     teamMax: teamMax,
-  //     teamContent: teamContent,
-  //     gender: gender,
-  //     age: age,
-  //     gameSelect: {gameSelect}
-  //   }).then((response)=>{
-  //     console.log('팀 이름', response.data.teamName)
-  //     console.log('팀 정원', response.data.teamMax)
-  //     console.log('팀 설명', response.data.teamContent)
-  //     console.log('성별', response.data.gender)
-  //     console.log('연령', response.data.age)
-  //     console.log('게임', response.data.gameSelect)
-  //   }).catch((error)=>console.log(error.response))
-  // }
-
 
   return (
       <div className='plusTeam'>

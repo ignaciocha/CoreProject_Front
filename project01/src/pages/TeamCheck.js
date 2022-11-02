@@ -8,15 +8,17 @@ const TeamCheck = () => {
   let {team_seq}  = useParams();
 
   const [oneTeam, setOneTeam] = useState('');
-
+  const [teamM, setTeamM] = useState('');
 
   useEffect(() => {  
     let url = '/api/teamcheck/'+team_seq
     const config = {"Content-Type": 'application/json'};
 
     axios.get(url, {},config).then((res)=>{
-      setOneTeam(res.data);
-      console.log(res.data);
+      setOneTeam(res.data.selectOneTeam);
+      setTeamM(res.data.selectTm);
+      console.log(res.data.selectOneTeam);
+      console.log(res.data.selectTm);
       })
     .catch((error)=>{
       console.log(error)
@@ -30,7 +32,11 @@ const TeamCheck = () => {
     const config = {"Content-Type": 'application/json'};
 
     axios.post('/api/teamjoin', {
-
+      team_seq : team_seq
+    }, config).then((res)=>{
+      console.log(res);
+    }).catch((error)=>{
+      console.log(error);
     })
   }
 
@@ -44,7 +50,7 @@ const TeamCheck = () => {
       <table width='430px'>
         <tr>
           <td><span><b>모집중</b></span></td>
-          <td>0/{oneTeam.team_max}</td>
+          <td>{teamM}/{oneTeam.team_max}</td>
         </tr>
         <tr>
             <td><span><b>참여 중</b></span></td>

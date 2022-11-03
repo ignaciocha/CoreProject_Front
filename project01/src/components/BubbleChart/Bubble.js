@@ -43,7 +43,7 @@ const Bubble = ({setFilterTeam}) => {
 
   const [gameDetail, setGameDetail] = useState([]);
   const [filteredList, setFilteredList] = useState(new Set());
-  const [isAllFiltered, setIsAllFiltered] = useState(true);
+  const [resetList, setResetList] = useState(new Set());
   
   /** 게임 클릭하면 카테고리에 맞는 필터 보여주기 */
   const gameClick = (e) => {
@@ -90,17 +90,6 @@ const Bubble = ({setFilterTeam}) => {
   }
 
 
-  const allFilteredHandler = isFiltered => {
-    if (isFiltered) {
-      setFilteredList(new Set());
-      setIsAllFiltered(true);
-    } else {  
-      filteredList.clear();
-      setFilteredList(filteredList);
-      setIsAllFiltered(false);
-    }
-  
-  }
   // /** DB데이터 캐싱용 */
   // function filterListDecorator(func) {
   //   let cache = new Map();
@@ -147,8 +136,6 @@ const Bubble = ({setFilterTeam}) => {
       <FilterBox filteredList={filteredList} 
       setFilteredList={setFilteredList}
       gameDetail={gameDetail}
-      isAllFiltered={isAllFiltered}
-      allFilteredHandler={allFilteredHandler}
       gameClick={gameClick}/>
     </div>
   );

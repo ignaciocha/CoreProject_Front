@@ -3,8 +3,10 @@ import "../../styles/FilterBox.css";
 import axios from "axios";
 import FilterItemList from "./FilterItemList";
 
-const FilterBox = ({ gameDetail, filteredList, setFilteredList,  isAllFiltered, allFilteredHandler }) => {
+const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
   
+const [resetList, setResetList] = useState([]);
+
   const itemFilterHandler = (id, isFiltered) => {
     if (isFiltered) {
       filteredList.add(id);
@@ -13,12 +15,22 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList,  isAllFiltered, 
       filteredList.delete(id);
       setFilteredList(filteredList);
     }
+    console.log(filteredList);
   };
 
-  const onFilter = () => {
-    console.log('필터리스트: ',filteredList);
-    allFilteredHandler();
+  
+  // const resetList = () => {
+
+  // }
+
+  const onReset = () => {
+    const newReset = resetList.map(i => !i)
+    setResetList(newReset)
+    filteredList.clear();
+    setFilteredList(filteredList)
+    console.log(resetList);
   }
+
 
 
   const filterList = Object.entries(gameDetail).map((i, idx) => (
@@ -32,10 +44,9 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList,  isAllFiltered, 
           key={idx}
           gameDetail={gameDetail}
           itemFilterHandler={itemFilterHandler}
-          isAllFiltered={isAllFiltered}
-          allFilteredHandler={allFilteredHandler}
-          onFilter={onFilter}
           filteredList={filteredList}
+          resetList={resetList}
+          setResetList={setResetList}
         />
       ))}
     </>
@@ -43,7 +54,7 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList,  isAllFiltered, 
 
   return <div className="filterBoxStyle">
     {filterList}
-    <button onClick={onFilter}>Accept</button>
+    <button onClick={onReset}>Accept</button>
     </div>;
 };
 

@@ -32,7 +32,7 @@ const TeamCheck = () => {
     const config = {"Content-Type": 'application/json'};
 
     axios.post('/api/teamjoin', {
-      team_seq : team_seq
+      team_seq : Number(team_seq)
     }, config).then((res)=>{
       console.log(res);
     }).catch((error)=>{

@@ -14,22 +14,10 @@ const NewTeam = () => {
   const [valorant, setValorant] = useState(false)
   const [selGame, setSelGame] = useState('')
   const [tGender, setTGender] = useState('')
-  const [tAge, setTAge] = useState('')
-    
+
   const tNameRef = useRef();
   const tMaxRef = useRef();
   const tContentRef = useRef();
-  const gmRef = useRef();
-  const gwRef = useRef();
-  const a10Ref = useRef();
-  const a20Ref = useRef();
-  const a30Ref = useRef();
-  const a40Ref = useRef();
-  const a50Ref = useRef();
-  const lolRef = useRef();
-  const loaRef = useRef();
-  const ovchRef = useRef();
-  const vrRef = useRef();
 
   const lolBtnCk = () => {
     setLol(!lol) 
@@ -37,7 +25,6 @@ const NewTeam = () => {
     setOverwatch2(false)
     setValorant(false)
     setSelGame('lol')
-    console.log(lolRef.current.value);
   }
   
   const ovchBtnCk = () => {
@@ -46,7 +33,6 @@ const NewTeam = () => {
     setLol(false)
     setValorant(false)
     setSelGame('overwatch2')
-    console.log(ovchRef.current.value);
   }
   
   const loaBtnCk = () => {
@@ -55,7 +41,6 @@ const NewTeam = () => {
     setLol(false)
     setValorant(false)
     setSelGame('lostark')
-    console.log(loaRef.current.value);
   }
 
   const vrBtnCk = () => {
@@ -64,10 +49,30 @@ const NewTeam = () => {
     setLol(false)
     setLostark(false)
     setSelGame('valorant')
-    console.log(vrRef.current.value);
   }
 
+  const genderCk = (e) => {
+    console.log(e.target.value)
+    setTGender(e.target.value)
+  }
+
+  const [ageArr, setAgeArr] = useState([])
   
+  const addAgeArr = (e) => {
+    if(e.target.checked === true){
+      setAgeArr([...ageArr, 
+        Number(e.target.value)
+      ])
+    }
+  }
+
+  const delAgeArr = (e) => {
+    if(e.target.checked === false){
+      ageArr.splice(ageArr.indexOf(Number(e.target.value)), 1)
+      setAgeArr([...ageArr])
+    }
+  }
+
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,14 +83,11 @@ const NewTeam = () => {
       teamName: tNameRef.current.value,
       teamMax: tMaxRef.current.value,
       teamContent: tContentRef.current.value,
-      man: gmRef.current.checked,
-      woman: gwRef.current.checked,
-      age10: a10Ref.current.checked,
-      age20: a20Ref.current.checked,
-      age30: a30Ref.current.checked,
-      age40: a40Ref.current.checked,
-      age50: a50Ref.current.checked,
-      game: selGame
+      teamGame: selGame,
+      teamGender: tGender,
+      teamAge: ageArr
+      // teamTD: ,
+      // teamPosition: ,
     }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));
@@ -124,16 +126,19 @@ const NewTeam = () => {
               </tr>
               <tr>
                 <td><span><b>성별</b></span></td>
-                <td>남 <input type='checkbox' name='gender' ref={gmRef} value='man'/>
-                    여 <input type='checkbox' name='gender' ref={gwRef} value='woman'/></td>
+                <td>
+                  여 <input type='radio' name='gender' value='w' onChange={genderCk}/> {"\u00A0"}
+                  남 <input type='radio' name='gender' value='m' onChange={genderCk}/> {"\u00A0"}
+                  제한 없음 <input type='radio' name='gender' value='none' onChange={genderCk}/>
+                </td>
               </tr>
               <tr>
                 <td><span><b>연령</b></span></td>
-                <td>10대 <input type='checkbox' name='age' value='10'ref={a10Ref}/>
-                    20대 <input type='checkbox' name='age' value='20' ref={a20Ref}/>
-                    30대 <input type='checkbox' name='age' value='30' ref={a30Ref}/>
-                    40대 <input type='checkbox' name='age' value='40' ref={a40Ref}/>
-                    50대 이상 <input type='checkbox' name='age' value='50' ref={a50Ref}/>
+                <td>10대 <input type='checkbox' name='age' value='10' onChange={addAgeArr} onClick={delAgeArr}/>
+                    20대 <input type='checkbox' name='age' value='20' onChange={addAgeArr} onClick={delAgeArr}/>
+                    30대 <input type='checkbox' name='age' value='30' onChange={addAgeArr} onClick={delAgeArr}/>
+                    40대 <input type='checkbox' name='age' value='40' onChange={addAgeArr} onClick={delAgeArr}/>
+                    50대 이상 <input type='checkbox' name='age' value='50' onChange={addAgeArr} onClick={delAgeArr}/>
                     </td>
               </tr>
             </table>
@@ -141,10 +146,10 @@ const NewTeam = () => {
                 <li></li>
                 <li><b>플레이 게임</b></li>
                 <li>
-                  <button type="button" className='gameSelect' name='game' ref={lolRef} value="lol" onClick={lolBtnCk}>리그오브레전드</button>
-                  <button type="button" className='gameSelect' name='game' ref={ovchRef} value="overwatch2" onClick={ovchBtnCk}>오버워치2</button>
-                  <button type="button" className='gameSelect' name='game' ref={vrRef} value="valorant" onClick={vrBtnCk}>발로란트</button>
-                  <button type="button" className='gameSelect' name='game' ref={loaRef} value="lostark" onClick={loaBtnCk}>로스트아크</button>
+                  <button type="button" className='gameSelect' name='game' value="lol" onClick={lolBtnCk}>리그오브레전드</button>
+                  <button type="button" className='gameSelect' name='game' value="overwatch2" onClick={ovchBtnCk}>오버워치2</button>
+                  <button type="button" className='gameSelect' name='game' value="valorant" onClick={vrBtnCk}>발로란트</button>
+                  <button type="button" className='gameSelect' name='game' value="lostark" onClick={loaBtnCk}>로스트아크</button>
                 </li>
                 <li>
                   { lol && <Lol/> }

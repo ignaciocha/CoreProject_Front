@@ -5,8 +5,6 @@ import '../styles/Main.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Team from '../components/MyTeam/Team'
-import { BsLinkedin } from 'react-icons/bs';
-import { Link, useParams } from 'react-router-dom';
 
 const TeamSearch = ({item, idx}) => {
 

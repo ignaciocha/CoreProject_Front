@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FilterItemList = ({ gameDetail, itemFilterHandler }) => {
+const FilterItemList = ({ gameDetail, itemFilterHandler, item, key }) => {
   // const [toggle, setToggle] = useState(false);
   // const clickedToggle = () => {
   //   setToggle((prev) => !prev);
@@ -14,30 +14,19 @@ const FilterItemList = ({ gameDetail, itemFilterHandler }) => {
     console.log(e.target.checked);
   };
 
-  // 필터 리스트 불러오기
-  const filterItem = Object.entries(gameDetail).map((itemList, idx) => {
-    return (
-      <>
-        <div className="gameFilterItemList" key={"menu" + idx}>
-          {itemList[0]}
-        </div>
-
-        {itemList[1].map((i, idx) => (
-          <label className="filterCheck" key={idx}>
-            <input
-              type="checkbox"
-              onChange={(e) => filterHandler(e)}
-              checked={isFiltered}
-              id={i.category_seq}
-            />
-            <span className="gameFilterItem">{i.game_detail}</span>
-          </label>
-        ))}
-      </>
-    );
-  });
-
-  return <>{filterItem}</>;
+  // // 필터 리스트 불러오기
+  
+  return (
+    <label className="filterCheck" key={key}>
+      <input
+        type="checkbox"
+        onChange={(e) => filterHandler(e)}
+        checked={isFiltered}
+        id={item.category_seq}
+      />
+      <span className="gameFilterItem">{item.game_detail}</span>
+    </label>
+  );
 };
 
 export default FilterItemList;

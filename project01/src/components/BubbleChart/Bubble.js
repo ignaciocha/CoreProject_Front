@@ -42,7 +42,7 @@ const Bubble = ({setFilterTeam}) => {
   ]
 
   const [gameDetail, setGameDetail] = useState([]);
-
+  const [filteredList, setFilteredList] = useState();
   
   /** 게임 클릭하면 카테고리에 맞는 필터 보여주기 */
   const gameClick = (e) => {
@@ -81,18 +81,7 @@ const Bubble = ({setFilterTeam}) => {
         }
         console.log('db값: ', e.data);
         setGameDetail(newData)
-        
-        // 키 이름 변경
-        //   let newItem = {};
-        //     newItem['포지션'] = e.data['position'];
-    
-        //     if(e.data.dungeon !== undefined) {
-        //     newItem['던전'] = e.data['dungeon'];
-        //     setGameDetail(newItem);
-        //     }else {
-        //       newItem['티어'] = e.data['tier'];
-        //     setGameDetail(newItem);
-        // }  
+        setFilteredList(new Set());
       })
       .catch(e => {console.log('필터 에러 :',e);})
     // filterListDecorator(setFilter(e))
@@ -141,7 +130,7 @@ const Bubble = ({setFilterTeam}) => {
         })}
       </div>
       {/* <FilterItemList gameDetail={gameDetail} setFilterTeam={setFilterTeam}/> */}
-      <FilterBox gameDetail={gameDetail}/>
+      <FilterBox filteredList={filteredList} setFilteredList={setFilteredList} gameDetail={gameDetail}/>
     </div>
   );
 };

@@ -73,7 +73,6 @@ const NewTeam = () => {
     }
   }
 
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -85,7 +84,7 @@ const NewTeam = () => {
       teamContent: tContentRef.current.value,
       teamGame: selGame,
       teamGender: tGender,
-      teamAge: ageArr
+      teamAge: JSON.stringify(ageArr)
       // teamTD: ,
       // teamPosition: ,
     }, config).then((res)=>{console.log(res.config.data)

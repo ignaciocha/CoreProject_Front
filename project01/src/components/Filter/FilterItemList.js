@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-const FilterItemList = ({ gameDetail, itemFilterHandler, item, key }) => {
+const FilterItemList = ({ itemFilterHandler, item, key, isAllFiltered, allFilteredHandler }) => {
   // const [toggle, setToggle] = useState(false);
   // const clickedToggle = () => {
   //   setToggle((prev) => !prev);
@@ -11,9 +11,13 @@ const FilterItemList = ({ gameDetail, itemFilterHandler, item, key }) => {
   const filterHandler = (e) => {
     setIsFiltered(!isFiltered);
     itemFilterHandler(e.target.id, e.target.checked);
-    console.log(e.target.checked);
+    allFilteredHandler(e.target.checked)
   };
+  const allFilterHandler = () => setIsFiltered(isAllFiltered);
 
+  useEffect(() => {
+    allFilterHandler()
+  }, [isAllFiltered]);
   // // 필터 리스트 불러오기
   
   return (

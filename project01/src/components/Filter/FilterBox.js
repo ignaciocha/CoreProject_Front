@@ -3,7 +3,7 @@ import "../../styles/FilterBox.css";
 import axios from "axios";
 import FilterItemList from "./FilterItemList";
 
-const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
+const FilterBox = ({ gameDetail, filteredList, setFilteredList,  isAllFiltered, allFilteredHandler }) => {
   
   const itemFilterHandler = (id, isFiltered) => {
     if (isFiltered) {
@@ -16,8 +16,8 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
   };
 
   const onFilter = () => {
-    console.log(Object.values(gameDetail));
-    Object.values(gameDetail)
+    console.log('필터리스트: ',filteredList);
+    allFilteredHandler();
   }
 
 
@@ -32,6 +32,10 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
           key={idx}
           gameDetail={gameDetail}
           itemFilterHandler={itemFilterHandler}
+          isAllFiltered={isAllFiltered}
+          allFilteredHandler={allFilteredHandler}
+          onFilter={onFilter}
+          filteredList={filteredList}
         />
       ))}
     </>
@@ -39,7 +43,7 @@ const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
 
   return <div className="filterBoxStyle">
     {filterList}
-    <button onClick={onFilter}>적용</button>
+    <button onClick={onFilter}>Accept</button>
     </div>;
 };
 

@@ -45,29 +45,56 @@ const Bubble = ({setFilterTeam}) => {
 
   
   /** 게임 클릭하면 카테고리에 맞는 필터 보여주기 */
-  const gameClick = async (e) => {
+  const gameClick = (e) => {
+    
       const selectGame = e.target.value
       // 클릭한 게임 이름 선택(소문자)
-      await axios.get('/api/filter', {
+      axios.get('/api/filter', {
         params: {
           game: selectGame
         }
       })
       .then(e => {
+        let newTier = [];
+        let newPosition = [];
+        let newDungeon = [];
+        e.data.map((i) => {
+          if(i.game_section === '티어') {
+            newTier.push(i);
+          }else if(i.game_section === '포지션') {
+            newPosition.push(i);
+          }else {
+            newDungeon.push(i);
+          }
+        })
+        let newData = {}
+        if(e.data[0].game_name === 'lostark') {
+          newData = {
+            '포지션': newPosition,
+            '던전': newDungeon
+          }
+        }else {
+          newData = {
+            '티어': newTier,
+            '포지션': newPosition,
+          }
+        }
+        console.log('db값: ', e.data);
+        setGameDetail(newData)
+        
         // 키 이름 변경
-          let newItem = {};
-            newItem['포지션'] = e.data['position'];
+        //   let newItem = {};
+        //     newItem['포지션'] = e.data['position'];
     
-            if(e.data.dungeon !== undefined) {
-            newItem['던전'] = e.data['dungeon'];
-            setGameDetail(newItem);
-            }else {
-              newItem['티어'] = e.data['tier'];
-            setGameDetail(newItem);
-        }  
+        //     if(e.data.dungeon !== undefined) {
+        //     newItem['던전'] = e.data['dungeon'];
+        //     setGameDetail(newItem);
+        //     }else {
+        //       newItem['티어'] = e.data['tier'];
+        //     setGameDetail(newItem);
+        // }  
       })
       .catch(e => {console.log('필터 에러 :',e);})
-    
     // filterListDecorator(setFilter(e))
   }
 
@@ -113,7 +140,8 @@ const Bubble = ({setFilterTeam}) => {
           );
         })}
       </div>
-      <FilterItemList gameDetail={gameDetail} setFilterTeam={setFilterTeam}/>
+      {/* <FilterItemList gameDetail={gameDetail} setFilterTeam={setFilterTeam}/> */}
+      <FilterBox gameDetail={gameDetail}/>
     </div>
   );
 };

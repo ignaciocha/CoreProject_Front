@@ -7,15 +7,25 @@ import FilterItemList from './FilterItemList';
 
 const FilterBox = ({gameDetail}) => {
   
+  const [filteredList, setFilteredList ] = useState(new Set());
+
+  const itemFilterHandler = (id, isFiltered) => {
+    if(isFiltered) {
+      filteredList.add(id);
+      setFilteredList(filteredList);
+    } else if(!isFiltered && filteredList.has(id)) {
+      filteredList.delete(id);
+      setFilteredList(filteredList);
+    }
+    console.log('필터 아이템', filteredList);
+  }
+  
  
   return (
     <div className='filterBoxStyle'>
-      <FilterItemList item={gameDetail} />
-      {/* {filterMenuList}
-      <div className='filterDoneBox'>
-      <button className="filterDone">적용</button>
-      <button className="filterReset">초기화</button>
-      </div> */}
+      {console.log('가공한 값: ', gameDetail)}
+     <FilterItemList gameDetail={gameDetail}
+     itemFilterHandler={itemFilterHandler}/>
     </div>
   )
 }

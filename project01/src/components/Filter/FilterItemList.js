@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const FilterItemList = ({ itemFilterHandler, item, key, setResetList, resetList }) => {
+const FilterItemList = ({ itemFilterHandler, item, key, setIsReset, isReset }) => {
   // const [toggle, setToggle] = useState(false);
   // const clickedToggle = () => {
   //   setToggle((prev) => !prev);
@@ -11,12 +11,16 @@ const FilterItemList = ({ itemFilterHandler, item, key, setResetList, resetList 
   const filterHandler = (e) => {
     setIsFiltered(!isFiltered);
     itemFilterHandler(e.target.id, e.target.checked);
-    console.log(resetList);
-    const newResetList = resetList.concat(
-      !isFiltered
-    )
-    setResetList(newResetList)
   };
+
+  //리셋 버튼 동작
+  useEffect(() => {
+    setIsFiltered(false)
+    setIsReset(false)
+  
+  }, [isReset])
+  
+
   // // 필터 리스트 불러오기
   
   return (

@@ -27,10 +27,8 @@ const TeamSearch = ({item, idx}) => {
       }, []
   );
   
-  const teamList = () => {
-    
-    allTeam.data.map((item,idx)=>(<Team key={idx} item={item} idx={idx}></Team>))
-  }
+  const teamList = allTeam.data.map((item,idx)=>(<Team key={idx} item={item} idx={idx}></Team>))
+  
 
   // const filterData = () => {
   //   if(filterTeam === undefined) {
@@ -46,7 +44,7 @@ const TeamSearch = ({item, idx}) => {
     <div>
         <h3>팀 찾기</h3>
         <Bubble setFilterTeam={setFilterTeam}/>
-        {teamList}
+        {allTeam && teamList}
     </div>
   )
 }

@@ -44,6 +44,7 @@ const Bubble = ({setFilterTeam}) => {
   const [gameDetail, setGameDetail] = useState([]);
   const [filteredList, setFilteredList] = useState(new Set());
   const [resetList, setResetList] = useState(new Set());
+  const [isReset, setIsReset] = useState(false);
   
   /** 게임 클릭하면 카테고리에 맞는 필터 보여주기 */
   const gameClick = (e) => {
@@ -59,6 +60,9 @@ const Bubble = ({setFilterTeam}) => {
         let newTier = [];
         let newPosition = [];
         let newDungeon = [];
+        let newData = {}
+
+        const formatData = () => {
         e.data.map((i) => {
           if(i.game_section === '티어') {
             newTier.push(i);
@@ -68,7 +72,6 @@ const Bubble = ({setFilterTeam}) => {
             newDungeon.push(i);
           }
         })
-        let newData = {}
         if(e.data[0].game_name === 'lostark') {
           newData = {
             '포지션': newPosition,
@@ -80,11 +83,14 @@ const Bubble = ({setFilterTeam}) => {
             '포지션': newPosition,
           }
         }
+      }
+        formatData();
         console.log('db값: ', e.data);
         setGameDetail(newData)
         setFilteredList(new Set());
       })
       .catch(e => {console.log('필터 에러 :',e);})
+      setIsReset(true)
     // filterListDecorator(setFilter(e))
     console.log('디테일',Object.values(gameDetail));
   }
@@ -132,11 +138,12 @@ const Bubble = ({setFilterTeam}) => {
           );
         })}
       </div>
-      {/* <FilterItemList gameDetail={gameDetail} setFilterTeam={setFilterTeam}/> */}
       <FilterBox filteredList={filteredList} 
       setFilteredList={setFilteredList}
       gameDetail={gameDetail}
-      gameClick={gameClick}/>
+      gameClick={gameClick}
+      isReset={isReset}
+      setIsReset={setIsReset}/>
     </div>
   );
 };

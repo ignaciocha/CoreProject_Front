@@ -3,9 +3,9 @@ import "../../styles/FilterBox.css";
 import axios from "axios";
 import FilterItemList from "./FilterItemList";
 
-const FilterBox = ({ gameDetail, filteredList, setFilteredList }) => {
+const FilterBox = ({ gameDetail, filteredList, setFilteredList, isReset, setIsReset }) => {
   
-const [resetList, setResetList] = useState([]);
+
 
   const itemFilterHandler = (id, isFiltered) => {
     if (isFiltered) {
@@ -18,17 +18,15 @@ const [resetList, setResetList] = useState([]);
     console.log(filteredList);
   };
 
-  
-  // const resetList = () => {
-
-  // }
-
+  // 리셋 동작
   const onReset = () => {
-    const newReset = resetList.map(i => !i)
-    setResetList(newReset)
+    setIsReset(true)
     filteredList.clear();
     setFilteredList(filteredList)
-    console.log(resetList);
+  }
+
+  const AcceptFilter = () => {
+    
   }
 
 
@@ -45,8 +43,8 @@ const [resetList, setResetList] = useState([]);
           gameDetail={gameDetail}
           itemFilterHandler={itemFilterHandler}
           filteredList={filteredList}
-          resetList={resetList}
-          setResetList={setResetList}
+          isReset={isReset}
+          setIsReset={setIsReset}
         />
       ))}
     </>
@@ -54,7 +52,7 @@ const [resetList, setResetList] = useState([]);
 
   return <div className="filterBoxStyle">
     {filterList}
-    <button onClick={onReset}>Accept</button>
+    <button onClick={onReset}>적용</button>
     </div>;
 };
 

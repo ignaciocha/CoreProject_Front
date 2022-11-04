@@ -36,6 +36,10 @@ const Team = ({ item, idx }) => {
             <br></br>
             <span>{item.user_id}</span>
             <br></br>
+            <span>{item.user_id}</span>
+            <br></br>
+            <span>{item.user_id}</span>
+            <br></br>
           </div>
         </div>
       </Link>

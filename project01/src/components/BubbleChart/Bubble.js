@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import FilterBox from '../Filter/FilterBox'
 import FilterItemList from "../Filter/FilterItemList";
 
-const Bubble = ({setFilterTeam}) => {
+const Bubble = ({setFilterTeam, filterTeam}) => {
   const style = {
     area: [
         50, 100, 80, 120
@@ -38,7 +38,7 @@ const Bubble = ({setFilterTeam}) => {
   ];
 
   const gameDBTitle = [
-    'lol', 'overwatch2', 'lostark', 'valorant'
+    '리그오브레전드', '오버워치2', '로스트아크', '발로란트'
   ]
 
   const [gameDetail, setGameDetail] = useState([]);
@@ -57,12 +57,12 @@ const Bubble = ({setFilterTeam}) => {
         }
       })
       .then(e => {
-        let newTier = [];
-        let newPosition = [];
-        let newDungeon = [];
         let newData = {}
-
+        
         const formatData = () => {
+          let newTier = [];
+          let newPosition = [];
+          let newDungeon = [];
         e.data.map((i) => {
           if(i.game_section === '티어') {
             newTier.push(i);
@@ -72,7 +72,7 @@ const Bubble = ({setFilterTeam}) => {
             newDungeon.push(i);
           }
         })
-        if(e.data[0].game_name === 'lostark') {
+        if(e.data[0].game_name === '로스트아크') {
           newData = {
             '포지션': newPosition,
             '던전': newDungeon
@@ -84,15 +84,13 @@ const Bubble = ({setFilterTeam}) => {
           }
         }
       }
-        formatData();
-        console.log('db값: ', e.data);
-        setGameDetail(newData)
+      formatData();
+      setGameDetail(newData)
         setFilteredList(new Set());
       })
       .catch(e => {console.log('필터 에러 :',e);})
       setIsReset(true)
     // filterListDecorator(setFilter(e))
-    console.log('디테일',Object.values(gameDetail));
   }
 
 
@@ -143,7 +141,9 @@ const Bubble = ({setFilterTeam}) => {
       gameDetail={gameDetail}
       gameClick={gameClick}
       isReset={isReset}
-      setIsReset={setIsReset}/>
+      setIsReset={setIsReset}
+      setFilterTeam={setFilterTeam}
+      filterTeam={filterTeam}/>
     </div>
   );
 };

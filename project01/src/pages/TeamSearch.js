@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Team from '../components/MyTeam/Team'
 
-const TeamSearch = ({item, idx}) => {
+const TeamSearch = () => {
 
   const [allTeam,setAllTeam] = useState([]);
 

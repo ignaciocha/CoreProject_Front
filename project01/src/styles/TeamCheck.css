@@ -11,7 +11,7 @@
 
 .tier, .gender, .age, .position {
     border: none;
-    background: rgb(248, 233, 255);
+    background: rgba(128, 0, 128, 0.051);
     margin-right: 10px;
     width: 80px;
     border-radius: 10px;

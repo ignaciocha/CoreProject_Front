@@ -21,8 +21,8 @@ const TeamCheck = () => {
       setOneTeam(res.data.selectOneTeam);
       setTeamM(res.data.selectTm);
       setTeamAge(JSON.parse(res.data.selectOneTeam.team_age))
-      // setTeamTd(JSON.parse(res.data.selectOneTeam.team_td))
-      // setTeamPosition(JSON.parse(res.data.selectOneTeam.team_position))
+      setTeamTD(JSON.parse(res.data.selectOneTeam.team_td))
+      setTeamPosition(JSON.parse(res.data.selectOneTeam.team_position))
       console.log(res.data.selectOneTeam);
       console.log(res.data.selectTm);
       console.log(teamAge);
@@ -98,13 +98,13 @@ const TeamCheck = () => {
         <tr>
             <td><span id='newTeamSpan'><b>{oneTeam.team_game==='로스트아크'?'던전':'티어'}</b></span></td>
             <td>
-              {/* {teamTD.map((item)=>(<button type='button' key={item} className='tier'>{item}</button>))} */}
+              {teamTD.map((item)=>(<button type='button' key={item} className='tier'>{item}</button>))}
             </td>
         </tr>
         <tr>
             <td><span id='newTeamSpan'><b>포지션</b></span></td>
             <td>
-              {/* {teamPosition.map((item)=>(<button type='button' key={item} className='position'>{item}</button>))} */}
+              {teamPosition.map((item)=>(<button type='button' key={item} className='position'>{item}</button>))}
             </td>
         </tr>
         <tr align='center'>

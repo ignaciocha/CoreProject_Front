@@ -131,12 +131,6 @@ const NewTeam = () => {
     setWhichTd(loaDungeon)
   },[loaDungeon, loaPosition])
 
-console.log('티던: ',whichTd)
-console.log('포지션:',whichP)
-
-// console.log(loaDungeon)
-// console.log(loaPosition)
-
   const genderCk = (e) => {
     setTGender(e.target.value)
   }
@@ -169,9 +163,9 @@ console.log('포지션:',whichP)
       teamContent: tContentRef.current.value,
       teamGame: selGame,
       teamGender: tGender,
-      teamAge: JSON.stringify(ageArr),
-      teamTD: JSON.stringify(whichTd),
-      teamPosition: JSON.stringify(whichP)
+      teamAge: JSON.parse(ageArr),
+      teamTD: JSON.parse(whichTd),
+      teamPosition: JSON.parse(whichP)
     }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));

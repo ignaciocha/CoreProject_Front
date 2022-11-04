@@ -10,6 +10,8 @@ const TeamCheck = () => {
   const [oneTeam, setOneTeam] = useState('');
   const [teamM, setTeamM] = useState('');
   const [teamAge, setTeamAge] = useState([]);
+  const [teamTD, setTeamTD] = useState([]);
+  const [teamPosition, setTeamPosition] = useState([]);
 
   useEffect(() => {  
     let url = '/api/teamcheck/'+team_seq
@@ -19,6 +21,8 @@ const TeamCheck = () => {
       setOneTeam(res.data.selectOneTeam);
       setTeamM(res.data.selectTm);
       setTeamAge(JSON.parse(res.data.selectOneTeam.team_age))
+      // setTeamTd(JSON.parse(res.data.selectOneTeam.team_td))
+      // setTeamPosition(JSON.parse(res.data.selectOneTeam.team_position))
       console.log(res.data.selectOneTeam);
       console.log(res.data.selectTm);
       console.log(teamAge);
@@ -92,17 +96,15 @@ const TeamCheck = () => {
             <td>{oneTeam.team_game}</td>
         </tr>
         <tr>
-            <td><span id='newTeamSpan'><b>티어</b></span></td>
+            <td><span id='newTeamSpan'><b>{oneTeam.team_game==='로스트아크'?'던전':'티어'}</b></span></td>
             <td>
-                <button type='button' className='tier'>언랭크</button>
-                <button type='button' className='tier'>브론즈</button>
+              {/* {teamTD.map((item)=>(<button type='button' key={item} className='tier'>{item}</button>))} */}
             </td>
         </tr>
         <tr>
             <td><span id='newTeamSpan'><b>포지션</b></span></td>
             <td>
-                <button type='button' className='position'>탑</button>
-                <button type='button' className='position'>정글</button>
+              {/* {teamPosition.map((item)=>(<button type='button' key={item} className='position'>{item}</button>))} */}
             </td>
         </tr>
         <tr align='center'>

@@ -25,11 +25,9 @@ const TeamSearch = ({ item, idx }) => {
 			});
 	}, []);
 
-	//   const filterTeam.map(i => {
-	//   if(i)
-	// })
 	const didMount = useRef(false);
 	useEffect(() => {
+		let nameFilter;
 		console.log('바꿀 값: ', allTeam);
 		if (didMount.current && filterTeam.length !== 0) {
 			axios
@@ -57,7 +55,7 @@ const TeamSearch = ({ item, idx }) => {
 						})
 						.filter((i) => i !== null);
 					// 이름 필터링
-					let nameFilter = allTeam.filter(
+					nameFilter = allTeam.filter(
 						(i) => i.team_game === e.data[0].game_name
 					);
 					try {
@@ -104,10 +102,8 @@ const TeamSearch = ({ item, idx }) => {
 	return (
 		<div>
 			<h3>팀 찾기</h3>
-			<Bubble setFilterTeam={setFilterTeam} filterTeam={filterTeam} />
-			{console.log(allTeam)}
+			<Bubble setFilterTeam={setFilterTeam} />
 			{allTeam && newTeam.map((item, idx) => <Team item={item} key={idx} />)}
-			{console.log(newTeam === null)}
 		</div>
 	);
 };

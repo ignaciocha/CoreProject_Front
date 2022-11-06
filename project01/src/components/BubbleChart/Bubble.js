@@ -141,7 +141,6 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 				isReset={isReset}
 				setIsReset={setIsReset}
 				setFilterTeam={setFilterTeam}
-				filterTeam={filterTeam}
 			/>
 		</div>
 	);

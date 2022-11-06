@@ -31,7 +31,9 @@ const TeamSearch = () => {
         <h3>팀 찾기</h3>
         <Bubble/>
         <FilterBox/>
+        <div id='teamSearchBox'>
         { allTeam.data && allTeam.data.map((item,idx)=>(<Team key={idx} item={item} idx={idx}></Team>))}
+        </div>
     </div>
   )
 }

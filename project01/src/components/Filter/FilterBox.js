@@ -9,7 +9,6 @@ const FilterBox = ({
 	isReset,
 	setIsReset,
 	setFilterTeam,
-	filterTeam,
 }) => {
 	const itemFilterHandler = (id, isFiltered) => {
 		if (isFiltered) {
@@ -35,30 +34,36 @@ const FilterBox = ({
 	};
 
 	const filterList = Object.entries(gameDetail).map((i, idx) => (
-		<>
-			<div className="gameFilterItemList" key={'menu' + idx}>
-				{i[0]}
+		<div className="gameFilterMenuList" key={'menu' + idx}>
+			<h4 className="gameFilterMenu">{i[0]}</h4>
+			<div className="gameFilterItemList">
+				{i[1].map((j, idx) => (
+					<FilterItemList
+						item={j}
+						key={idx}
+						gameDetail={gameDetail}
+						itemFilterHandler={itemFilterHandler}
+						filteredList={filteredList}
+						isReset={isReset}
+						setIsReset={setIsReset}
+					/>
+				))}
 			</div>
-			{i[1].map((j, idx) => (
-				<FilterItemList
-					item={j}
-					key={idx}
-					gameDetail={gameDetail}
-					itemFilterHandler={itemFilterHandler}
-					filteredList={filteredList}
-					isReset={isReset}
-					setIsReset={setIsReset}
-				/>
-			))}
-		</>
+		</div>
 	));
 
 	return (
-		<div className="filterBoxStyle">
+		<div
+			className={'filterBoxStyle' + (gameDetail.length === 0 ? ' hide' : '')}
+		>
 			{filterList}
-			<div>
-				<button onClick={AcceptFilter}>적용</button>
-				<button onClick={onReset}>초기화</button>
+			<div className="filterBoxButton">
+				<button onClick={AcceptFilter} className="acceptButton">
+					적용
+				</button>
+				<button onClick={onReset} className="resetButton">
+					초기화
+				</button>
 			</div>
 		</div>
 	);

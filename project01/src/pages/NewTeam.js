@@ -163,9 +163,9 @@ const NewTeam = () => {
       teamContent: tContentRef.current.value,
       teamGame: selGame,
       teamGender: tGender,
-      teamAge: JSON.parse(ageArr),
-      teamTD: JSON.parse(whichTd),
-      teamPosition: JSON.parse(whichP)
+      teamAge: JSON.stringify(ageArr),
+      teamTD: JSON.stringify(whichTd),
+      teamPosition: JSON.stringify(whichP)
     }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));

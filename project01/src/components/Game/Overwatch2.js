@@ -16,8 +16,10 @@ const Overwatch2 = ({ovchSet, ovchTier, ovchPosition, setOvchPosition, setOvchTi
   const ovchSelectD = (e) => {
     if(e.target.checked === true){
       setOvchTier([...ovchTier, e.target.value])
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
     }else if(e.target.checked === false){
       ovchTier.splice(ovchTier.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setOvchTier([...ovchTier])
     }
   }
@@ -25,8 +27,10 @@ const Overwatch2 = ({ovchSet, ovchTier, ovchPosition, setOvchPosition, setOvchTi
   const ovchSelectP = (e) => {
     if(e.target.checked === true){
       setOvchPosition([...ovchPosition, e.target.value])
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
     }else if(e.target.checked === false){
       ovchPosition.splice(ovchPosition.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setOvchPosition([...ovchPosition])
     }
   }

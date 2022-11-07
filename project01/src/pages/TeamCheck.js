@@ -88,7 +88,6 @@ const TeamCheck = () => {
           <td><span id='newTeamSpan'><b>연령</b></span></td>
           <td>
               {teamAge.map((item)=>(<button type='button' key={item} className='age'>{item}대</button>))}
-              
           </td>
         </tr>
         <tr>

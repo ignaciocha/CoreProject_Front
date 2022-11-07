@@ -16,6 +16,7 @@ import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
+import TeamRoom from './pages/TeamRoom';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 

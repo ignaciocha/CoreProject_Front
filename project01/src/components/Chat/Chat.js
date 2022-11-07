@@ -46,7 +46,7 @@ const Chat = () => {
 
     useEffect(()=>{
         messagesEndRef.current?.scrollIntoView();
-    }, [chatData])
+    }, [chatData.length])
 
 
 

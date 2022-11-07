@@ -1,7 +1,10 @@
 import React from 'react'
-// import Poll from 'react-polls';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import { LeafPoll } from 'react-leaf-polls'
+import 'react-leaf-polls/dist/index.css'
+
 import ItemList from './ItemList';
 
 
@@ -11,35 +14,30 @@ const PollView = () => {
     const [items, setItems] = useState([]);
     const [answer,setAnswer] = useState();
     const [pollRs,setPollRs] = useState([]);
+
+    const customTheme = {
+      textColor: 'black',
+      mainColor: '#00B87B',
+      backgroundColor: 'rgb(255,255,255)',
+      alignment: 'center'
+    }
  
     useEffect(() => {
     axios.post('api/viewpoll',{
       team_seq: 32,
-      vl_seq: 42
+      vl_seq: 59
     })
     .then((res) => {
         console.log(res.data);		//정상 통신 후 응답된 메시지 출력
         setPoll(res.data);
         setItems(JSON.parse(res.data.vl_items));
+        console.log(items)
     })
     .catch((error)=>{
         console.log(error);				//오류발생시 실행
 })
         }, [])      
 
-  // Handling user vote
-  // Increments the votes count of answer when the user votes
-
-//   const handleVote = (e) => {
-//     const { pollAnswers } = this.state
-//     const newPollAnswers = pollAnswers.map(answer => {
-//       if (answer.option === voteAnswer) answer.votes++
-//       return answer
-//     })
-//     this.setState({
-//       pollAnswers: newPollAnswers
-//     })
-//   }
 
 const handleItem = (choice) => {
     console.log('handleItem',choice);
@@ -51,7 +49,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post('api/voting',{
-        vl_seq: 42,
+        vl_seq: 59,
         user_id: 'user_id 055',
         vt_result: answer
     })
@@ -69,7 +67,7 @@ const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post('api/polldetail',{
-        vl_seq: 42,
+        vl_seq: 59,
         vt_items: items
     })
     .then((response) => {
@@ -91,7 +89,7 @@ const handleSubmit = (e) => {
 
 
     axios.post('api/polldetail',{
-      vl_seq: 4,
+      vl_seq: 59,
       vt_items: items
   })
   .then((response) => {
@@ -99,15 +97,11 @@ const handleSubmit = (e) => {
       setPollRs(response.data);
         //정상 통신 후 응답된 메시지 출력
       console.log(pollRs)
-      
-      setPollRs()
 
-      for(let i=0;i<items.length;i++){
-        if(!pollRs[i]){
-          setPollRs(items.concat({item : "" , vote: "0"}))
-        }
+      const pollMap = pollRs.map((item,index)=>{ 
+        const id = index; const text = item.vt_result; const vote = item.vote;});
 
-      }
+        console.log(pollMap)
 
   })
       .catch((error)=>{
@@ -117,12 +111,13 @@ const handleSubmit = (e) => {
 
 
 
+
   return (
     <div>
       <div>
         <span>{poll.vl_subject}</span>
         {items && items.map(item => <ItemList key={item} item={item} handleItem={handleItem}></ItemList> )}
-     
+              
         <div className="mt-5  ">
             <button className="focus-outline-none d-inline-block py-3 font-weight-bold focus-shadow  text-lg w-25 w-md-auto bg-success text-white px-2 shadow-lg hover-shadow-lg to-green-500 rounded-lg"
             onClick={(e) => handleSubmit(e)}>
@@ -139,6 +134,16 @@ const handleSubmit = (e) => {
             </button>
           </div>
       
+          <LeafPoll
+            type='multiple'
+            question={poll.vl_subject}
+            results={pollRs}
+            theme={customTheme}
+            onVote={handleSubmit}
+            isVoted={false}
+    />
+    
+
       </div>
     </div>
   )

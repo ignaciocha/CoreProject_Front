@@ -103,7 +103,9 @@ const TeamSearch = ({ item, idx }) => {
 		<div>
 			<h3>팀 찾기</h3>
 			<Bubble setFilterTeam={setFilterTeam} />
-			{allTeam && newTeam.map((item, idx) => <Team item={item} key={idx} />)}
+			<div id="teamSearchBox">
+				{allTeam && newTeam.map((item, idx) => <Team item={item} key={idx} />)}
+			</div>
 		</div>
 	);
 };

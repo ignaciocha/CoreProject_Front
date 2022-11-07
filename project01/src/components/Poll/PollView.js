@@ -77,6 +77,7 @@ const handleSubmit = (e) => {
         setPollRs(response.data);
         	//정상 통신 후 응답된 메시지 출력
         console.log(pollRs)
+        
  
     })
         .catch((error)=>{
@@ -88,8 +89,33 @@ const handleSubmit = (e) => {
 
     // setPollRs(items.concat({item : "" , vote: ""}))
 
-   console.log(pollRs)
+
+    axios.post('api/polldetail',{
+      vl_seq: 4,
+      vt_items: items
+  })
+  .then((response) => {
+
+      setPollRs(response.data);
+        //정상 통신 후 응답된 메시지 출력
+      console.log(pollRs)
+      
+      setPollRs()
+
+      for(let i=0;i<items.length;i++){
+        if(!pollRs[i]){
+          setPollRs(items.concat({item : "" , vote: "0"}))
+        }
+
+      }
+
+  })
+      .catch((error)=>{
+          console.log(error);				//오류발생시 실행
+      })
 };
+
+
 
   return (
     <div>

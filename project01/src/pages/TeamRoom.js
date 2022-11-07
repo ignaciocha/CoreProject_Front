@@ -3,10 +3,14 @@ import Button from '../components/Button';
 import Modal from '../components/Modal/Modal';
 import Modal2 from '../components/Modal/Modal2';
 import '../styles/TeamRoom.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Calendar from '../components/Calendar';
+import Chat from '../components/Chat/Chat';
 
-const TeamRoom = ({ match }) => {
+const TeamRoom = () => {
+	let { team_seq } = useParams();
+	console.log(team_seq);
+
 	const [modalCal, setModalCal] = useState(false);
 	const openModalCal = () => {
 		setModalCal(true);
@@ -30,9 +34,10 @@ const TeamRoom = ({ match }) => {
 		<div>
 			<div className="calChatBox">
 				<div className="calendarBox">
-					<Calendar eventList={eventList} setEventList={setEventList} />
+					<Calendar team_seq={team_seq} />
 				</div>
-				<div className="chatBox">채팅</div>
+				{/* <div className="chatBox">채팅</div> */}
+				<Chat></Chat>
 			</div>
 			<div className="scheduleVoteBox">
 				<h3 className="scheduleHistory" onClick={openModalCal}>
@@ -59,7 +64,7 @@ const TeamRoom = ({ match }) => {
 				</Modal2>
 			</div>
 			<div className="teamSetting">
-				<Link to="/teamSetting">
+				<Link to={'/teamsetting' + team_seq}>
 					<Button type="basic">팀관리</Button>
 				</Link>
 			</div>

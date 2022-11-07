@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Header from './pages/Header';
 import Main from './pages/Main';
 import TeamSetting from './pages/TeamSetting';
@@ -12,11 +13,13 @@ import TeamSearch from './pages/TeamSearch';
 import './styles/App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/Chart.css';
-import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
 import TeamRoom from './pages/TeamRoom';
+import KakaoLogin from './pages/KakaoLogin';
+import SignUp from './pages/SignUp';
+import JoinSuccess from './pages/JoinSuccess';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
@@ -38,23 +41,29 @@ function App() {
 	return (
 		<div>
 			<Header />
-			{/* <TeamRoom /> */}
-
-
+			{/* <FilterBox/> */}
+			{/* <TeamRoom/> */}
 			<Routes>
 				<Route path="/" element={<Main />}></Route>
-				<Route path="/teamsetting" element={<TeamSetting />}></Route>
+				<Route path="/signup" element={<SignUp />}></Route>
+				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
 				<Route path="/myteam" element={<MyTeam />}></Route>
 				<Route path="/noteam" element={<NoTeam />}></Route>
 				<Route path="/managemember" element={<ManageMember />}></Route>
 				<Route path="/newteam" element={<NewTeam />}></Route>
+				<Route path="/teamroom:team_seq" element={<TeamRoom />}></Route>
+				<Route
+					path="/teamsetting:team_seq/view"
+					element={<TeamSetting />}
+				></Route>
+				<Route path="/" element={<Main />}></Route>
 				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
 				<Route path="/teamsearch" element={<TeamSearch />}></Route>
-				<Route path="/join" element={<Join />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/mypage" element={<MyPage />}></Route>
 				<Route path="/edit" element={<Edit />}></Route>
-				<Route path="/teamroom" element={<TeamRoom />}></Route>
+				<Route path="/joinsuccess" element={<JoinSuccess />}></Route>
+				<Route path="/kakaologin" element={<KakaoLogin />}></Route>
 			</Routes>
 		</div>
 	);

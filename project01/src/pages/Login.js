@@ -80,8 +80,10 @@ function Login() {
           console.log(js.user_id)
           
           console.log(res.data)
-
+          
           if(res.data === "success"){
+            alert("로그인에 성공했습니다")
+            navigate('/')
               localStorage.setItem("user_id", js.user_id)
           }else {
               alert("로그인 실패")

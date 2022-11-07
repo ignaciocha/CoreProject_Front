@@ -1,4 +1,4 @@
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Header from './pages/Header';
 import Main from './pages/Main';
@@ -13,7 +13,6 @@ import TeamSearch from './pages/TeamSearch';
 import './styles/App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './styles/Chart.css';
-import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
@@ -46,7 +45,7 @@ function App() {
 			{/* <TeamRoom/> */}
 			<Routes>
 				<Route path="/" element={<Main />}></Route>
-				<Route path='/signup' element={<SignUp/>}></Route>
+				<Route path="/signup" element={<SignUp />}></Route>
 				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
 				<Route path="/myteam" element={<MyTeam />}></Route>
 				<Route path="/noteam" element={<NoTeam />}></Route>
@@ -60,12 +59,11 @@ function App() {
 				<Route path="/" element={<Main />}></Route>
 				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
 				<Route path="/teamsearch" element={<TeamSearch />}></Route>
-				<Route path="/join" element={<Join />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/mypage" element={<MyPage />}></Route>
 				<Route path="/edit" element={<Edit />}></Route>
-				<Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
-        <Route path='/kakaologin' element={<KakaoLogin/>}></Route>
+				<Route path="/joinsuccess" element={<JoinSuccess />}></Route>
+				<Route path="/kakaologin" element={<KakaoLogin />}></Route>
 			</Routes>
 		</div>
 	);

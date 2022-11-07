@@ -7,7 +7,7 @@ import '../styles/Calendar.css';
 import '../styles/AddEventModal.css';
 import axios from 'axios';
 
-const Calendar = ({ eventList, setEventList }) => {
+const Calendar = ({ eventList, setEventList, team_seq }) => {
 	const [modalOpen, setModalOpen] = useState(false);
 	const calendarRef = useRef(null);
 	const [event, setEvent] = useState({});
@@ -24,7 +24,8 @@ const Calendar = ({ eventList, setEventList }) => {
 
 	const eventAddHandler = async (e) => {
 		await axios
-			.post('/api/teamroom/calendar', {
+			.post(`/api/teamroom/${team_seq}/calendar`, {
+				team_seq: team_seq,
 				start: e.event.startStr,
 				end: e.event.endStr,
 				title: e.event.title,
@@ -41,7 +42,11 @@ const Calendar = ({ eventList, setEventList }) => {
 	/** 캘린더가 로드되면 데이터 불러오기 */
 	const handleDateSet = () => {
 		const response = axios
-			.get(`/api/teamroom/calendar`)
+			.get(`/api/teamroom/${team_seq}/calendar`, {
+				params: {
+					team_seq: team_seq,
+				},
+			})
 			.then((e) => {
 				const viewEvent = e.data.map((i) => ({
 					title: i.cal_schedule,
@@ -54,7 +59,7 @@ const Calendar = ({ eventList, setEventList }) => {
 				console.log('캘린더를 불러올 수 없어요');
 			});
 		// ?start=${moment(data.start)}&end=${moment(data.end)}
-		// setEventList(response.data);
+		setEventList(response.data);
 	};
 
 	return (

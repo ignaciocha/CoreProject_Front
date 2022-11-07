@@ -16,8 +16,10 @@ const Lostark = ({loaSet, setLoaDungeon, loaDungeon, loaPosition, setLoaPosition
   const loaSelectD = (e) => {
     if(e.target.checked === true){
       setLoaDungeon([...loaDungeon, e.target.value])
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
     }else if(e.target.checked === false){
       loaDungeon.splice(loaDungeon.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setLoaDungeon([...loaDungeon])
     }
   }
@@ -25,8 +27,10 @@ const Lostark = ({loaSet, setLoaDungeon, loaDungeon, loaPosition, setLoaPosition
   const loaSelectP = (e) => {
     if(e.target.checked === true){
       setLoaPosition([...loaPosition, e.target.value])
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
     }else if(e.target.checked === false){
       loaPosition.splice(loaPosition.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setLoaPosition([...loaPosition])
     }
   }

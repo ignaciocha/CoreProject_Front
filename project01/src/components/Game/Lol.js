@@ -1,8 +1,17 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useRef } from 'react';
 import '../../styles/Game.css'
 
 const Lol = ({lolSet, setLolTier, lolTier, lolPosition, setLolPosition}) => {
+
+  const btnRef = useRef()
+
+  const ckStyle = {
+    // hover에서 썼던 디자인을 하나 만든다 
+  }
+
+  const unCkStyle = {
+    
+  }
 
   let lolT = [];
   let lolP = [];
@@ -17,22 +26,30 @@ const Lol = ({lolSet, setLolTier, lolTier, lolPosition, setLolPosition}) => {
 
   const lolSelectD = (e) => {
     if(e.target.checked === true){
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
       setLolTier([...lolTier, e.target.value])
     }else if(e.target.checked === false){
       lolTier.splice(lolTier.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setLolTier([...lolTier])
     }
   }
 
   const lolSelectP = (e) => {
     if(e.target.checked === true){
+      e.target.parentNode.style.backgroundColor = 'rgba(128, 0, 128, 0.051)'
       setLolPosition([...lolPosition, e.target.value])
     }else if(e.target.checked === false){
       lolPosition.splice(lolPosition.indexOf(e.target.value), 1)
+      e.target.parentNode.style.backgroundColor = 'rgb(250, 250, 250)'
       setLolPosition([...lolPosition])
     }
   }
   
+  console.log(lolTier)
+  console.log(lolPosition)
+
+
   const lolTList = lolT.map((item, idx)=>
             (<label id='fBtn' key={item+idx}>
               {item}

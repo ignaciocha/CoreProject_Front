@@ -15,12 +15,15 @@ const NoTeam = () => {
 
     <p>아래에서 참여하고 싶은 팀을 찾아보거나 직접 팀을 만들어 보세요</p>
     
-    {/* <Link to="./이동할 페이지 경로/파일명">  */}
-    <button className='noTeamBtn'>모집 중인 팀을 찾아보려면</button>
-    {/* </Link> */}
+    <Link to="/teamsearch" >
+      <button className='noTeamBtn'>모집 중인 팀을 찾아보려면</button>
+    </Link>
 
     <br></br>
+
+    <Link to="/newteam" >
     <button className='noTeamBtn'>직접 새로운 팀을 만드려면</button>
+    </Link>
 
         </div>
 

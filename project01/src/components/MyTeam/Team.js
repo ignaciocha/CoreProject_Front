@@ -21,7 +21,7 @@ const Team = ({ item, idx }) => {
 
   return (
     <div style={containerStyle}>
-      <Link to={urlSource}>
+      <Link className="linkTextStyle" to={urlSource}>
         <div className="teamItemStyle">
           <div>
             {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}

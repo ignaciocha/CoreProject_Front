@@ -38,23 +38,27 @@ function App() {
 	return (
 		<div>
 			<Header />
-			{/* <TeamRoom /> */}
-
-
+			{/* <FilterBox/> */}
+			{/* <TeamRoom/> */}
 			<Routes>
 				<Route path="/" element={<Main />}></Route>
-				<Route path="/teamsetting" element={<TeamSetting />}></Route>
+				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
 				<Route path="/myteam" element={<MyTeam />}></Route>
 				<Route path="/noteam" element={<NoTeam />}></Route>
 				<Route path="/managemember" element={<ManageMember />}></Route>
 				<Route path="/newteam" element={<NewTeam />}></Route>
+				<Route path="/teamroom:team_seq" element={<TeamRoom />}></Route>
+				<Route
+					path="/teamsetting:team_seq/view"
+					element={<TeamSetting />}
+				></Route>
+				<Route path="/" element={<Main />}></Route>
 				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
 				<Route path="/teamsearch" element={<TeamSearch />}></Route>
 				<Route path="/join" element={<Join />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/mypage" element={<MyPage />}></Route>
 				<Route path="/edit" element={<Edit />}></Route>
-				<Route path="/teamroom" element={<TeamRoom />}></Route>
 			</Routes>
 		</div>
 	);

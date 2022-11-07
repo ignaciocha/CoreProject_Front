@@ -38,9 +38,8 @@ function App() {
 	return (
 		<div>
 			<Header />
-			<TeamRoom />
+			{/* <TeamRoom /> */}
 
-			{/* {hello} */}
 
 			<Routes>
 				<Route path="/" element={<Main />}></Route>

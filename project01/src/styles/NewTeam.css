@@ -11,8 +11,8 @@
 	box-shadow: 5px 5px 10px -5px rgb(205, 205, 205);
 }
 
-ul,
-li {
+.plusTeam ul,
+.plusTeam li {
 	list-style: none;
 }
 
@@ -42,15 +42,15 @@ li {
 	font-weight: bolder;
 }
 
-input[type='number'] {
+.plusTeam input[type='number'] {
 	width: 326px;
 }
 
-input[type='checkbox'] {
+.plusTeam input[type='checkbox'] {
 	margin-right: 6px;
 }
 
-li {
+.plusTeam li {
 	margin-bottom: 10px;
 }
 

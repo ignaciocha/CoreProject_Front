@@ -38,6 +38,7 @@ function App() {
 	return (
 		<div>
 			<Header />
+			<TeamRoom />
 
 			{/* {hello} */}
 

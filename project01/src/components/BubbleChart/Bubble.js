@@ -4,7 +4,7 @@ import FilterBox from '../Filter/FilterBox';
 
 const Bubble = ({ setFilterTeam, filterTeam }) => {
 	const style = {
-		area: [50, 100, 80, 120],
+		area: [160, 100, 80, 120],
 		gap: [10, 5, 0, 20],
 	}; // div들을 담고 있는 객체
 	// let checkCircle = ''; // 현재 재생 중인 음성의 index가 무엇인 지 담는다.

@@ -1,9 +1,9 @@
-.JoinPage {
+.LoginPage {
     /* position: absolute; */
     /* top: 0; */
     /* bottom: 0; */
     width: 100%;
-    height: 1000px;
+    height: 800px;
     max-width: 500px;
     padding: 0 20px;
   
@@ -18,22 +18,22 @@
     /* flex-direction: column; */
   }
   
-  .JoinTitleWrap{
+  .LoginTitleWrap{
    margin-top: 87px;
    font-size: 26px;
    font-weight: 700;
     color: #262626;
   }
-  .JoinContentWrap{
+  .LoginContentWrap{
     margin-top: 26px;
     flex: 1;
   }
-  .JoinInputTitle{
+  .LoginInputTitle{
     font-size: 12px;
     font-weight: 600;
     color: #262626;
   }
-  .JoinInputWrap{
+  .LoginInputWrap{
     display: flex;
     border-radius: 8px;
     padding: 16px;
@@ -41,10 +41,10 @@
     background-color: white;
     border: 1px solid #e2e2e2;
   }
-  .JoinInputWrap:focus-within{
+  .LoginInputWrap:focus-within{
     border: 1px solid #8049DB;
   }
-  .JoinInput{
+  .LoginInput{
     width: 100%;
     outline: none;
     border: none;
@@ -54,59 +54,47 @@
     
   }
   
-  .JoinInput::placeholder{
+  .input::placeholder{
     color: #dadada;
   }
   
-  .JoinErrorMessageWrap{
+  .SignUpErrorMessageWrap{
     margin-top: 8px;
     color: #ef0000;
     font-size: 12px;
   }
   
-  .JoinLogo{
+  .LoginLogo{
     height: 90px;
     margin-left: 80px;
     margin-bottom: 20px;
     
   }
   
-  .JoinButton{
+  .LoginButton{
     width: 100%;
     height: 48px;
     border: none;
     font-weight: 700;
     background-color: #841D9E;
-    border-radius: 20px;
+    border-radius: 64px;
     color: white;
     margin: 5px;
     cursor: pointer;
   
   }
   
-  .JoinButton:disabled {
-    background-color: #841D9E;
+  .LoginButton:disabled {
+    background-color: #a98faf;
   }
-  
-  .JoinDate{
-    display: flex;
-    border-radius: 8px;
-    padding: 16px;
-    margin-top: 8px;
-    background-color: white;
-    border: 1px solid #e2e2e2;
-    width: 93.2%;
-  }
+  .hr{
+    position: relative;
+    display: block;
+    width: 100%;
+   
 
-.birthBox{
-  padding: 3px;
-color: gray;
-  width: 80px;
-  font-size: 20px;
+    line-height: 0;
+ 
 }
-.sexBox{
-  padding: 3px;
-  color: gray;
-  width: 10px;
-  font-size: 20px;
-}
+  
+

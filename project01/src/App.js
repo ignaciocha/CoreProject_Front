@@ -1,4 +1,5 @@
-import { Route, Routes } from 'react-router-dom';
+import {Route, Routes} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import Header from './pages/Header';
 import Main from './pages/Main';
 import TeamSetting from './pages/TeamSetting';
@@ -17,6 +18,9 @@ import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
 import TeamRoom from './pages/TeamRoom';
+import KakaoLogin from './pages/KakaoLogin';
+import SignUp from './pages/SignUp';
+import JoinSuccess from './pages/JoinSuccess';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
@@ -42,6 +46,7 @@ function App() {
 			{/* <TeamRoom/> */}
 			<Routes>
 				<Route path="/" element={<Main />}></Route>
+				<Route path='/signup' element={<SignUp/>}></Route>
 				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
 				<Route path="/myteam" element={<MyTeam />}></Route>
 				<Route path="/noteam" element={<NoTeam />}></Route>
@@ -59,6 +64,8 @@ function App() {
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/mypage" element={<MyPage />}></Route>
 				<Route path="/edit" element={<Edit />}></Route>
+				<Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
+        <Route path='/kakaologin' element={<KakaoLogin/>}></Route>
 			</Routes>
 		</div>
 	);

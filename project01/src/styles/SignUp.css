@@ -3,7 +3,7 @@
     /* top: 0; */
     /* bottom: 0; */
     width: 100%;
-    height: 1000px;
+    height: 800px;
     max-width: 500px;
     padding: 0 20px;
   
@@ -58,7 +58,7 @@
     color: #dadada;
   }
   
-  .LoginErrorMessageWrap{
+  .SignUpErrorMessageWrap{
     margin-top: 8px;
     color: #ef0000;
     font-size: 12px;

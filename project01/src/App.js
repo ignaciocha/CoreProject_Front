@@ -1,4 +1,5 @@
 import {Route, Routes} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import Header from './pages/Header';
 import FilterBox from './components/Filter/FilterBox';
 import Main from './pages/Main'
@@ -15,7 +16,6 @@ import TeamSearch from './pages/TeamSearch';
 import './styles/App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import './styles/Chart.css'
-import Join from './pages/Join';
 import Login from './pages/Login';
 import MyPage from './pages/MyPage';
 import Edit from './pages/Edit';
@@ -24,11 +24,10 @@ import SignUp from './pages/SignUp';
 import JoinSuccess from './pages/JoinSuccess';
 
 
+
 ReactModal.setAppElement("#root");
 
 function App() {
-
-  
 
   return (
    <div>
@@ -36,27 +35,26 @@ function App() {
     {/* <FilterBox/> */}
     <TeamRoom/>
 
-    
     <Routes>
-      <Route path='/' element={<Main/>}></Route>
-      <Route path='/teamsetting' element={<TeamSetting/>}></Route>
-      <Route path='/myteam' element={<MyTeam/>}></Route>
-      <Route path='/noteam' element={<NoTeam/>}></Route>
-      <Route path='/managemember' element={<ManageMember/>}></Route>
-      <Route path='/newteam' element={<NewTeam/>}></Route>
-      <Route path='/TeamCheck' element={<TeamCheck/>}></Route>
-      <Route path='/teamsearch' element={<TeamSearch/>}></Route>
-      <Route path='/join' element={<Join/>}></Route>
-      <Route path='/login' element={<Login/>}></Route>
-      <Route path='/mypage' element={<MyPage/>}></Route>
-      <Route path='/Edit' element={<Edit/>}></Route>
-      <Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
-      <Route path='/kakaologin' element={<KakaoLogin/>}></Route>
-      <Route path='/signup' element={<SignUp/>}></Route>
-    </Routes>
-   </div>
+        <Route path='/signup' element={<SignUp/>}></Route>
+        <Route path='/' element={<Main/>}></Route>
+        <Route path='/teamsetting' element={<TeamSetting/>}></Route>
+        <Route path='/myteam' element={<MyTeam/>}></Route>
+        <Route path='/noteam' element={<NoTeam/>}></Route>
+        <Route path='/managemember' element={<ManageMember/>}></Route>
+        <Route path='/newteam' element={<NewTeam/>}></Route>
+        <Route path='/TeamCheck' element={<TeamCheck/>}></Route>
+        <Route path='/teamsearch' element={<TeamSearch/>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/mypage' element={<MyPage/>}></Route>
+        <Route path='/edit' element={<Edit/>}></Route>
+        <Route path='/joinsuccess' element={<JoinSuccess/>}></Route>
+        <Route path='/kakaologin' element={<KakaoLogin/>}></Route>
+        </Routes>
+
+</div>
   );
-}
+};
 
 export default App;
 

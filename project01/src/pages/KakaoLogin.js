@@ -2,6 +2,11 @@ import React, { useEffect } from 'react'
 import { useNavigate , useLocation} from 'react-router-dom';
 import {REST_API_KEY, REDIRECT_URI } from '../components/Kakao';
 
+
+
+
+
+
 function KakaoLogin() {
     const location = useLocation();
     const navigate = useNavigate();

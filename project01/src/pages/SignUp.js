@@ -5,6 +5,7 @@ import {Formik, ErrorMessage} from "formik";
 import * as Yup from "yup";
 import {Button, TextField} from "@mui/material";
 import {useNavigate} from "react-router-dom";
+import dayjs from 'dayjs'
 
 
 const SignUp = () => {
@@ -45,14 +46,14 @@ const SignUp = () => {
         password: password,
         age: age,
         gender: gender,
-        joindate: new Date()
+        joindate: dayjs().format('YYYY-MM-DD HH:MM')
       });
       toast.success(<h3>회원가입이 완료되었습니다.<br/>추가정보를 입력하세요😸</h3>, {
         position: "top-center",
         autoClose: 2000
       });
       setTimeout(()=> {
-        navigate("/login");
+        navigate("/Edit");
       }, 2000);
 
     } catch (e) {
@@ -146,7 +147,7 @@ const SignUp = () => {
                         30대<input type='radio' name='age' value='30'/>
                         40대<input type='radio' name='age' value='40'/>
                         50대<input type='radio' name='age' value='50'/>
-                        비공개<input type='radio' name='age' value='secret'/>
+                        비공개<input type='radio' name='age' value='N'/>
                 </div>
               
              
@@ -159,9 +160,9 @@ const SignUp = () => {
                 value={values.gender}
                 name="gender"
                 onChange={handleChange}>
-                    남자<input type='radio' name='gender' value='m'/>
-                    여자<input type='radio' name='gender' value='w'/>
-                    비공개<input type='radio' name='gender' value='s'/>
+                    남자<input type='radio' name='gender' value='M'/>
+                    여자<input type='radio' name='gender' value='W'/>
+                    비공개<input type='radio' name='gender' value='N'/>
               </div>
                 <div className="error-message">
                   {errors.gender}

@@ -1,0 +1,124 @@
+li {
+    list-style-type: none;
+  }
+  
+  input,
+  textarea {
+    padding: 0.5rem;
+    background-color: #eee;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  
+
+  .pollBtn {
+    padding: 0.5rem;
+    background-color: #E0BFE6;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.5s;
+    max-width: 12rem;
+  }
+  
+  .pollBtn:focus,
+  .pollBtn:hover {
+    background-color: #841D9E;
+  }
+  
+  .poll {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .poll-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .poll-author-img {
+    height: 40px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+  
+  .poll-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5 rem;
+  }
+  
+  .poll-option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .poll-option {
+    border-radius: 5px;
+    padding: 0.75rem;
+    border: 0.25px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .poll-option-locked {
+    cursor: not-allowed;
+  }
+  
+  .poll-option-text {
+    position: relative;
+    width: 100%;
+  }
+  
+  .poll-option-count {
+    position: absolute;
+    right: 0;
+    font-weight: 700;
+  }
+  
+  .poll-footer-list {
+    display: flex;
+    padding: 0.2rem 1rem;
+    justify-content: space-between;
+  }
+  
+  .poll-form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 1rem;
+  }
+  
+  .poll-form-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 250px;
+
+  }
+  
+  .poll-form-option-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .poll-form-expiry {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: space-between;
+  }
+  
+  .poll-form-expiry input {
+    width: 80px;
+  }
+  

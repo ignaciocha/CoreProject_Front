@@ -1,0 +1,51 @@
+#fBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95px;
+    height: 30px;
+    border-radius: 10px;
+    border: 0px;
+    background-color: rgb(250, 250, 250);
+    margin-right: 5px;
+    margin-bottom: 10px;
+}
+
+#fBtn:hover {
+    background-color: rgba(128, 0, 128, 0.051);
+    font-weight: bold;
+}
+
+#fSpanBox {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    width: 400px;
+}
+
+#fSpanBox > li{
+    display: flex;
+    flex-wrap: wrap;
+    width: 450px;
+}
+
+#fSpan {
+    display: flex;
+    border: 1px dashed plum;
+    width: 100px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+#fList {
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
+#settingCb {
+    display: none;
+}

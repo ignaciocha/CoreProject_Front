@@ -1,21 +1,21 @@
-import { DatePicker, Space } from 'antd';
-import React, { useState } from 'react';
+import { Space } from 'antd';
+import dayjs, { Dayjs } from 'dayjs';
+import dayjsGenerateConfig from 'rc-picker/lib/generate/dayjs';
+import generatePicker from 'antd/es/date-picker/generatePicker';
+import React, { useState, useEffect } from 'react';
 import ReactModal from 'react-modal';
-import moment from 'moment'
-import 'moment/locale/ko';
 import locale from 'antd/es/date-picker/locale/ko_KR';
-import { useEffect } from 'react';
-// import Datetime from 'react-datetime'
-// import  "react-datetime/css/react-datetime.css" ;
 
 const AddEventModal = ({isOpen, onClose, onEventAdded, event}) => {
   const [title, setTitle] = useState(event.title);
   const [start, setStart] = useState(event.start);
   const [end, setEnd] = useState(event.end);
 
+  const DatePicker = generatePicker(dayjsGenerateConfig);
   const {RangePicker} = DatePicker;
   
   useEffect(() => {
+    
     setTitle(event.title)
     setStart(event.start)
     setEnd(event.end)
@@ -49,11 +49,16 @@ const AddEventModal = ({isOpen, onClose, onEventAdded, event}) => {
           <label>날짜</label>
           <Space direction="vertical">
             <RangePicker 
-            value={[moment(event.start), moment(event.end)]}
+            value={[dayjs(start), dayjs(end)]}
+            showTime={{
+              format: 'HH:mm'
+            }}
+            format="YYYY-MM-DD HH:mm"
             locale={locale}
             onChange={date => {
-              setStart(date[0].format('YYYY-MM-DD'))
-              setEnd(date[1].format('YYYY-MM-DD'))
+              setStart(date[0].toDate())
+              setEnd(date[1].toDate())
+              console.log('모달에서 클릭',start, end);
             }} />
           </Space>
         </div>

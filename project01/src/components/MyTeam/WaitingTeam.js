@@ -9,14 +9,14 @@ const WaitingTeam = ({item, idx}) => {
     <div className='waitingTeamStyle'>
         <div>
             <div>
-                {item.gameName ==='lol' && <img src={logo1} width='50px' className='gamelogoStyle'></img>}
-                {item.gameName ==='오버워치2' && <img src={logo2} width='50px' className='gamelogoStyle'></img>}
-                {item.gameName==='발로란트' && <img src={logo3} width='50px' className='gamelogoStyle'></img>}
-                {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='gamelogoStyle'></img>}
+                {item.game_name ==='lol' && <img src={logo1} width='50px' className='gamelogoStyle'></img>}
+                {item.game_name ==='오버워치2' && <img src={logo2} width='50px' className='gamelogoStyle'></img>}
+                {item.game_name ==='발로란트' && <img src={logo3} width='50px' className='gamelogoStyle'></img>}
+                {item.game_name ==='로스트아크' && <img src={logo4} width='50px' className='gamelogoStyle'></img>}
             </div>
             <div>
-                <span>{item.teamName}</span>
-                <span>/가입신청일</span>
+                <span>{item.team_name}</span>
+                <span>/가입신청일{item.tm_date.substring(0,10)}</span>
             </div>
         </div>
     </div>

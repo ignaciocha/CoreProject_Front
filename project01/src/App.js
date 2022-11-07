@@ -49,7 +49,7 @@ useEffect(
       </div>
     <Routes>
       <Route path='/' element={<Main/>}></Route>
-      <Route path='/teamsetting' element={<TeamSetting/>}></Route>
+      <Route path='/teamsetting:team_seq' element={<TeamSetting/>}></Route>
       <Route path='/myteam' element={<MyTeam/>}></Route>
       <Route path='/noteam' element={<NoTeam/>}></Route>
       <Route path='/managemember' element={<ManageMember/>}></Route>
@@ -60,6 +60,9 @@ useEffect(
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/mypage' element={<MyPage/>}></Route>
       <Route path='/edit' element={<Edit/>}></Route>
+      <Route path='/teamroom:team_seq' element={<TeamRoom/>}></Route>
+      <Route path='/teamsetting:team_seq/view' element={<TeamSetting/>}></Route>
+
 
     </Routes>
    </div>

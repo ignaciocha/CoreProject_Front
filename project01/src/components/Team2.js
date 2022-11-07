@@ -20,9 +20,10 @@ const Team2 = ({item, idx}) => {
     padding: '10px',
   }
 
+  
   return (
     <div style={containerStyle}>
-          <Link to='/teamcheck'>
+          <Link className='linkTextStyle' to='/teamcheck'>
         <div className = 'teamItemStyle'>
           <div>
           {item.team_game ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}

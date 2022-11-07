@@ -37,10 +37,15 @@ const PollForm = () => {
     axios.post('api/newpoll',{
     	desc: desc,
       endtime: endtime,
-      options: optionsData
+      options: optionsData,
+      team_seq: 32,
+      user_id: 'user_id 055'
     })
     .then((response) => {
         console.log(response.data);		//정상 통신 후 응답된 메시지 출력
+        setDesc('');
+        setEndtime('');
+        setOptions([]);
     })
     .catch((error)=>{
         console.log(error);				//오류발생시 실행

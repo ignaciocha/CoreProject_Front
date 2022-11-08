@@ -26,26 +26,19 @@ import React, { useState, useEffect } from 'react';
 ReactModal.setAppElement('#root');
 
 function App() {
-	//   useEffect(() => {
-	//     axios.get('/hello')
-	//     .then(response => console.log(response.data))
-	//     .catch(error => console.log(error))
-	// }, []);
-
-	// ** axios로 데이터 전송하기 (백엔드에)
-	// axios                       : 비동기적으로 데이터를 요청
-	//    .post(url,{보낼데이터})  : 전송할 데이터, url
-	//           .then(()=>{})
-	//           .catch(()=>{})
+	const [isLogin, setIsLogin] = useState(false);
 
 	return (
 		<div>
-			<Header />
+			<Header isLogin={isLogin} setIsLogin={setIsLogin} />
 			{/* <FilterBox/> */}
 			{/* <TeamRoom/> */}
 			<Routes>
 				<Route path="/" element={<Main />}></Route>
-				<Route path="/signup" element={<SignUp />}></Route>
+				<Route
+					path="/signup"
+					element={<SignUp setIsLogin={setIsLogin} />}
+				></Route>
 				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
 				<Route path="/myteam" element={<MyTeam />}></Route>
 				<Route path="/noteam" element={<NoTeam />}></Route>
@@ -59,7 +52,10 @@ function App() {
 				<Route path="/" element={<Main />}></Route>
 				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
 				<Route path="/teamsearch" element={<TeamSearch />}></Route>
-				<Route path="/login" element={<Login />}></Route>
+				<Route
+					path="/login"
+					element={<Login setIsLogin={setIsLogin} />}
+				></Route>
 				<Route path="/mypage" element={<MyPage />}></Route>
 				<Route path="/edit" element={<Edit />}></Route>
 				<Route path="/joinsuccess" element={<JoinSuccess />}></Route>

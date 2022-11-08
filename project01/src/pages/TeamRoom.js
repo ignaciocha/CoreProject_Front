@@ -64,7 +64,7 @@ const TeamRoom = () => {
 				</Modal2>
 			</div>
 			<div className="teamSetting">
-				<Link to={'/teamsetting' + team_seq}>
+				<Link to={`/teamsetting/${team_seq}`}>
 					<Button type="basic">팀관리</Button>
 				</Link>
 			</div>

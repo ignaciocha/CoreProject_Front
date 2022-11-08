@@ -6,6 +6,7 @@ import '../styles/TeamRoom.css';
 import { Link, useParams } from 'react-router-dom';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat/Chat';
+import dayjs from 'dayjs';
 
 const TeamRoom = () => {
 	let { team_seq } = useParams();
@@ -28,13 +29,17 @@ const TeamRoom = () => {
 	};
 
 	const [eventList, setEventList] = useState([]);
-	const today = new Date();
+	const today = dayjs(new Date()).format('YYYY-MM-DD');
 
 	return (
 		<div>
 			<div className="calChatBox">
 				<div className="calendarBox">
-					<Calendar team_seq={team_seq} />
+					<Calendar
+						eventList={eventList}
+						setEventList={setEventList}
+						team_seq={team_seq}
+					/>
 				</div>
 				{/* <div className="chatBox">채팅</div> */}
 				<Chat></Chat>
@@ -46,11 +51,34 @@ const TeamRoom = () => {
 				<Modal open={modalCal} close={closeModalCal} header="일정">
 					<h3>다가오는 일정</h3>
 					<div className="scheduleList">
-						<span>{eventList.title}</span>
-						<span>{eventList.start}</span>
-						<span>{eventList.end}</span>
+						{eventList &&
+							eventList.map((i) => {
+								if (today <= i.end)
+									return (
+										<div className="calendarModalList">
+											<span className="calendarModalTitle">{i.title}</span>
+											<span className="calendarModalStart">{i.start}</span>
+											<span>~</span>
+											<span className="calendarModalEnd">{i.end}</span>
+										</div>
+									);
+								else return null;
+							})}
 					</div>
 					<h3>지난 일정</h3>
+					{eventList &&
+						eventList.map((i) => {
+							if (today >= i.end)
+								return (
+									<div className="calendarModalList">
+										<span className="calendarModalTitle">{i.title}</span>
+										<span className="calendarModalStart">{i.start}</span>
+										<span>~</span>
+										<span className="calendarModalEnd">{i.end}</span>
+									</div>
+								);
+							else return null;
+						})}
 					<div className="scheduleList"></div>
 				</Modal>
 				<h3 className="voteHistory" onClick={openModalVote}>

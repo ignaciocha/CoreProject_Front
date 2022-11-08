@@ -3,7 +3,7 @@ import logo from '../assets/img/gameus_logo_width.svg';
 import '../styles/Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillBellFill } from 'react-icons/io';
-import Notifications from '../components/Modal/Notifications';
+import Notifications from './Modal/Notifications';
 
 const Header = ({ isLogin, setIsLogin }) => {
 	// const dispatch = useDispatch();
@@ -16,6 +16,24 @@ const Header = ({ isLogin, setIsLogin }) => {
 		localStorage.removeItem('user_id');
 		setIsLogin(false);
 		navigate('/');
+	};
+
+	const goToMyTeam = () => {
+		if (isLogin) {
+			navigate('/myteam');
+		} else {
+			alert('로그인을 해주세요');
+			navigate('/login');
+		}
+	};
+
+	const goToNewTeam = () => {
+		if (isLogin) {
+			navigate('/newteam');
+		} else {
+			alert('로그인을 해주세요');
+			navigate('/login');
+		}
 	};
 
 	// useEffect(() => {
@@ -46,36 +64,36 @@ const Header = ({ isLogin, setIsLogin }) => {
 					></img>
 				</Link>
 				<Link className="textLink" to="/teamsearch">
-					<div className="topStyle">팀찾기</div>
+					<nav className="topStyle">팀찾기</nav>
 				</Link>
-				<Link className="textLink" to="/newteam">
-					<div className="topStyle">팀만들기</div>
-				</Link>
-				<Link className="textLink" to="/myteam">
-					<div className="topStyle">내팀보기</div>
-				</Link>
+				<nav className="topStyle" onClick={goToNewTeam}>
+					팀만들기
+				</nav>
+				<nav className="topStyle" onClick={goToMyTeam}>
+					내팀보기
+				</nav>
 			</div>
 			{isLogin ? (
 				<div className="rightStyle">
 					<Link className="textLink" to="/">
-						<div className="loginStyle" onClick={onLogout}>
+						<nav className="loginStyle" onClick={onLogout}>
 							로그아웃
-						</div>
+						</nav>
 					</Link>
 
 					<Link className="text-link">
-						<div className="loginStyle">
+						<nav className="loginStyle">
 							<Notifications />
-						</div>
+						</nav>
 					</Link>
 				</div>
 			) : (
 				<div className="rightStyle">
 					<Link className="textLink" to="/signup">
-						<div className="loginStyle">회원가입</div>
+						<nav className="loginStyle">회원가입</nav>
 					</Link>
 					<Link className="textLink" to="/login">
-						<div className="loginStyle">로그인</div>
+						<nav className="loginStyle">로그인</nav>
 					</Link>
 				</div>
 			)}

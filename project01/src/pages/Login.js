@@ -83,7 +83,7 @@ function Login({ setIsLogin }) {
 				if (res.data === 'success') {
 					alert('로그인에 성공했습니다');
 					localStorage.setItem('user_id', js.user_id);
-					setIsLogin(true);
+					setIsLogin(js.user_id);
 					navigate('/');
 				} else {
 					alert('로그인 실패');

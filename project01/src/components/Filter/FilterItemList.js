@@ -14,6 +14,7 @@ const FilterItemList = ({
 
 	const [isFiltered, setIsFiltered] = useState(false);
 
+	// 필터링 된 목록
 	const filterHandler = (e) => {
 		setIsFiltered(!isFiltered);
 		itemFilterHandler(e.target.id, e.target.checked);

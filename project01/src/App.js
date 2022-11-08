@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import Header from './pages/Header';
+import Header from './components/Header';
 import Main from './pages/Main';
 import TeamSetting from './pages/TeamSetting';
 import ReactModal from 'react-modal';
@@ -22,6 +22,7 @@ import SignUp from './pages/SignUp';
 import JoinSuccess from './pages/JoinSuccess';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import Footer from './components/Footer';
 
 ReactModal.setAppElement('#root');
 
@@ -30,37 +31,45 @@ function App() {
 
 	return (
 		<div>
-			<Header isLogin={isLogin} setIsLogin={setIsLogin} />
-			{/* <FilterBox/> */}
-			{/* <TeamRoom/> */}
-			<Routes>
-				<Route path="/" element={<Main />}></Route>
-				<Route
-					path="/signup"
-					element={<SignUp setIsLogin={setIsLogin} />}
-				></Route>
-				<Route path="/teamsetting:team_seq" element={<TeamSetting />}></Route>
-				<Route path="/myteam" element={<MyTeam />}></Route>
-				<Route path="/noteam" element={<NoTeam />}></Route>
-				<Route path="/managemember" element={<ManageMember />}></Route>
-				<Route path="/newteam" element={<NewTeam />}></Route>
-				<Route path="/teamroom:team_seq" element={<TeamRoom />}></Route>
-				<Route
-					path="/teamsetting:team_seq/view"
-					element={<TeamSetting />}
-				></Route>
-				<Route path="/" element={<Main />}></Route>
-				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
-				<Route path="/teamsearch" element={<TeamSearch />}></Route>
-				<Route
-					path="/login"
-					element={<Login setIsLogin={setIsLogin} />}
-				></Route>
-				<Route path="/mypage" element={<MyPage />}></Route>
-				<Route path="/edit" element={<Edit />}></Route>
-				<Route path="/joinsuccess" element={<JoinSuccess />}></Route>
-				<Route path="/kakaologin" element={<KakaoLogin />}></Route>
-			</Routes>
+			<header>
+				<Header isLogin={isLogin} setIsLogin={setIsLogin} />
+			</header>
+			<main>
+				<Routes>
+					<Route path="/" element={<Main />}></Route>
+					<Route
+						path="/signup"
+						element={<SignUp setIsLogin={setIsLogin} />}
+					></Route>
+					<Route
+						path="/teamsetting/:team_seq"
+						element={<TeamSetting />}
+					></Route>
+					<Route path="/myteam" element={<MyTeam />}></Route>
+					<Route path="/noteam" element={<NoTeam />}></Route>
+					<Route path="/managemember" element={<ManageMember />}></Route>
+					<Route path="/newteam" element={<NewTeam />}></Route>
+					<Route path="/teamroom/:team_seq" element={<TeamRoom />}></Route>
+					<Route
+						path="/teamsetting/:team_seq/view"
+						element={<TeamSetting />}
+					></Route>
+					<Route path="/" element={<Main />}></Route>
+					<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
+					<Route path="/teamsearch" element={<TeamSearch />}></Route>
+					<Route
+						path="/login"
+						element={<Login setIsLogin={setIsLogin} />}
+					></Route>
+					<Route path="/mypage" element={<MyPage />}></Route>
+					<Route path="/edit" element={<Edit />}></Route>
+					<Route path="/joinsuccess" element={<JoinSuccess />}></Route>
+					<Route path="/kakaologin" element={<KakaoLogin />}></Route>
+				</Routes>
+			</main>
+			<footer>
+				<Footer />
+			</footer>
 		</div>
 	);
 }

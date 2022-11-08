@@ -16,7 +16,7 @@ const Header = () => {
 
   const onLogout = () => {
     localStorage.removeItem('user_id');
-
+    setIsLogin(false);
     navigate('/');
   };
 
@@ -57,7 +57,7 @@ const Header = () => {
           <div className="topStyle">내팀보기</div>
         </Link>
       </div>
-      {!isLogin ? (
+      {isLogin ? (
         <div className="rightStyle">
           <Link className="textLink" to="/">
             <div className="loginStyle" onClick={onLogout}>
@@ -76,7 +76,7 @@ const Header = () => {
           <Link className="textLink" to="/signup">
             <div className="loginStyle">회원가입</div>
           </Link>
-          <Link className="textLink" to="/login">
+          <Link setIsLogin={setIsLogin} className="textLink" to="/login">
             <div className="loginStyle">로그인</div>
           </Link>
         </div>

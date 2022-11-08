@@ -30,7 +30,7 @@ function App() {
     <div>
       <Header />
       {/* <FilterBox/> */}
-      <TeamRoom />
+      {/* <TeamRoom /> */}
 
       <Routes>
         <Route path="/signup" element={<SignUp />}></Route>

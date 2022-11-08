@@ -11,7 +11,7 @@ import axios from 'axios';
 //   email: 'test@naver.com    ',
 //   pw: 'test1234!'
 // }
-function Login() {
+function Login({ setIsLogin }) {
   // const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   // const handleLogin = () => {
@@ -83,6 +83,7 @@ function Login() {
         if (res.data === 'success') {
           alert('로그인에 성공했습니다');
           localStorage.setItem('user_id', js.user_id);
+          setIsLogin(true);
           navigate('/');
         } else {
           alert('로그인 실패');

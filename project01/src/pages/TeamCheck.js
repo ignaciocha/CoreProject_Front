@@ -17,15 +17,22 @@ const TeamCheck = () => {
     let url = '/api/teamcheck/'+team_seq
     const config = {"Content-Type": 'application/json'};
 
-    axios.get(url, {},config).then((res)=>{
+    axios.post(url, {
+        team_seq : Number(team_seq),
+        user_id : localStorage.getItem("user_id")
+      }
+    ,config).then((res)=>{
       setOneTeam(res.data.selectOneTeam);
       setTeamM(res.data.selectTm);
       setTeamAge(JSON.parse(res.data.selectOneTeam.team_age))
       setTeamTD(JSON.parse(res.data.selectOneTeam.team_td))
       setTeamPosition(JSON.parse(res.data.selectOneTeam.team_position))
+      setIsJoined(res.data.isJoined)
       console.log(res.data.selectOneTeam);
       console.log(res.data.selectTm);
-      console.log(teamAge);
+      console.log(res.data.isJoined);
+
+      console.log('전부:',res);
       })
     .catch((error)=>{
       console.log(error)
@@ -33,20 +40,50 @@ const TeamCheck = () => {
     }, []
 );
 
+  const [isJoined, setIsJoined] = useState()
+
+  // useEffect(()=>{
+
+  //   const config = {"Content-Type": 'application/json'};
+
+  //   axios.post('/api/isjoined', {
+  //     team_seq : Number(team_seq),
+  //     user_id : localStorage.getItem("user_id")
+  //   },config).then((res)=>{
+  //     // setIsJoined()
+  //     console.log(res.data);
+  //     console.log(res);
+  //     })
+  //   .catch((error)=>{
+  //     console.log(error)
+  //   })
+
+  // },[])
 
   const teamJoinHandle = (event) => {
     event.preventDefault();
 
     const config = {"Content-Type": 'application/json'};
 
-    axios.post('/api/teamjoin', {
-      team_seq : Number(team_seq)
-    }, config).then((res)=>{
-      console.log(res);
-    }).catch((error)=>{
-      console.log(error);
-    })
+    if(isJoined === 0){
+      axios.post('/api/teamjoin', {
+        team_seq : Number(team_seq),
+        user_id : localStorage.getItem("user_id")
+      }, config).then((res)=>{
+        console.log(res.config.data)
+        console.log(res);
+        console.log(res.data)
+        setIsJoined(res.data)
+      }).catch((error)=>{
+        console.log(error);
+      })
+    }else if(isJoined === 'n'){
+      alert('중복 가입 ㄴㄴ')
+    }else if(isJoined === 'y'){
+      alert('팀 룸으로 보내주기!!')
+    }
   }
+
 
   return (
     <div className='plusTeam'>
@@ -107,7 +144,13 @@ const TeamCheck = () => {
             </td>
         </tr>
         <tr align='center'>
-            <td colSpan='2'><input type='submit' value='신청하기' id='subBtn'/></td>
+            <td colSpan='2'>
+              {isJoined === 'n' ?
+              <input type='submit' value='이미 신청한 팀입니다' id='subBtn'/>
+              : isJoined === 'y'?
+              <input type='submit' value='이미 참여중인 팀입니다' id='subBtn'/> : 
+              <input type='submit' value='신청하기' id='subBtn'/>}
+            </td>
             <td></td>
         </tr>
       </table>

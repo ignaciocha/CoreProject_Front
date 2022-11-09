@@ -158,6 +158,7 @@ const NewTeam = () => {
     const config = {"Content-Type": 'application/json'};
 
     axios.post('/api/team', {
+      user_id: localStorage.getItem("user_id"),
       teamName: tNameRef.current.value,
       teamMax: tMaxRef.current.value,
       teamContent: tContentRef.current.value,
@@ -170,9 +171,10 @@ const NewTeam = () => {
 
     }).catch((error)=>console.log(error));
 
-
+    
   }
 
+  
   return (
       <div className='plusTeam'>
           <form onSubmit={handleSubmit} post='get'>

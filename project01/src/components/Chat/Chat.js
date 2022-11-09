@@ -13,7 +13,7 @@ const Chat = () => {
 	const { team_seq } = useParams;
 	const inputRef = useRef(null);
 	const [teamName, setTeamName] = useState('룰루랄라');
-	const [talker, setTalker] = useState('test');
+	const [talker, setTalker] = useState('ㅎㅇ');
 	const [cr_seq, setCr_seq] = useState(5);
 	const [chatData, setChatData] = useState([]);
 	const [user_id, setUser_id] = useState('test');

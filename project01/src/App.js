@@ -28,6 +28,11 @@ ReactModal.setAppElement('#root');
 
 function App() {
 	const [isLogin, setIsLogin] = useState(false);
+	useEffect(() => {
+		if (localStorage.getItem('user_id') !== null) {
+			setIsLogin(true);
+		}
+	}, []);
 
 	return (
 		<div>

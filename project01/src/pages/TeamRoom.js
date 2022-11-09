@@ -43,7 +43,7 @@ const TeamRoom = () => {
 					/>
 				</div>
 				{/* <div className="chatBox">채팅</div> */}
-				<Chat></Chat>
+				{/* <Chat></Chat> */}
 			</div>
 			<div className="scheduleVoteBox">
 				<h3 className="scheduleHistory" onClick={openModalCal}>

@@ -9,10 +9,11 @@ import locale from 'antd/es/date-picker/locale/ko_KR';
 const AddEventModal = ({
 	isOpen,
 	onClose,
-	onEventAdded,
+	onEventAdd,
 	event,
 	modalState,
 	onEventUpdate,
+	onEventDelete,
 }) => {
 	const [title, setTitle] = useState(event.title);
 	const [start, setStart] = useState(event.start);
@@ -31,7 +32,7 @@ const AddEventModal = ({
 	const onSubmit = (e) => {
 		e.preventDefault();
 
-		onEventAdded({
+		onEventAdd({
 			title,
 			start,
 			end,
@@ -40,12 +41,16 @@ const AddEventModal = ({
 	};
 
 	const onUpdate = (e) => {
-		e.preventDefault();
 		onEventUpdate({
 			title,
 			start,
 			end,
 		});
+		onClose();
+	};
+
+	const onDelete = (e) => {
+		onEventDelete();
 		onClose();
 	};
 
@@ -86,7 +91,10 @@ const AddEventModal = ({
 					</button>
 				)}
 				{modalState === 'update' && (
-					<button onClick={onUpdate}> 일정 수정</button>
+					<>
+						<button onClick={onUpdate}> 일정 수정</button>
+						<button onClick={onDelete}> 일정 삭제</button>
+					</>
 				)}
 			</div>
 		</ReactModal>

@@ -15,7 +15,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 	const [modalState, setModalState] = useState('');
 
 	/** 캘린더에 이벤트 추가 */
-	const onEventAdded = (e) => {
+	const onEventAdd = (e) => {
 		console.log('이벤트 추가 ', e);
 		const calendarApi = calendarRef.current.getApi();
 		calendarApi.addEvent({
@@ -26,8 +26,8 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 		});
 	};
 
-	const eventAddHandler = async (e) => {
-		await axios
+	const eventAddHandler = (e) => {
+		axios
 			.post(`/api/teamroom/${team_seq}/calendar`, {
 				user_id: localStorage.getItem('user_id'),
 				start: e.event.startStr,
@@ -47,15 +47,15 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 		axios
 			.patch(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`, {
 				title: e.title,
-				start: dayjs(e.start).toDate(),
-				end: dayjs(e.end).toDate(),
+				start: dayjs(e.start).format('YYYY-MM-DD hh:mm'),
+				end: dayjs(e.end).format('YYYY-MM-DD hh:mm'),
 			})
 			.then((e) => console.log('업뎃 성공: ', e))
 			.catch((e) => console.log('업뎃 실패:', e));
 
-		let newEvent = eventList.filter((i) => i.id !== event.cal_seq);
+		const newUpdate = eventList.filter((i) => i.id !== Number(event.cal_seq));
 		setEventList([
-			...newEvent,
+			...newUpdate,
 			{
 				groupId: localStorage.getItem('user_id'),
 				id: event.cal_seq,
@@ -64,6 +64,17 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 				end: e.end,
 			},
 		]);
+	};
+
+	const onEventDelete = (e) => {
+		axios
+			.delete(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`)
+			.then((e) => console.log('삭제 성공'))
+			.catch((e) => console.log('삭제 실패', e));
+
+		const newDelete = eventList.filter((i) => i.id !== Number(event.cal_seq));
+
+		setEventList([...newDelete]);
 	};
 
 	/** 캘린더가 로드되면 데이터 불러오기 */
@@ -84,6 +95,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			.catch((e) => {
 				console.log('캘린더를 불러올 수 없어요', e);
 			});
+
 		// ?start=${moment(data.start)}&end=${moment(data.end)}
 		// setEventList(response.data);
 	};
@@ -98,7 +110,8 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 					height="auto"
 					events={eventList}
 					ref={calendarRef}
-					eventAdd={(e) => eventAddHandler(e)}
+					editable={true}
+					// eventAdd={(e) => eventAddHandler(e)}
 					datesSet={(date) => handleDateSet(date)}
 					select={(e) => {
 						setEvent({
@@ -121,16 +134,16 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 						setModalState('update');
 						setModalOpen(() => true);
 					}}
-					event={true}
 				/>
 			</div>
 			<AddEventModal
 				isOpen={modalOpen}
 				onClose={() => setModalOpen(false)}
-				onEventAdded={(e) => onEventAdded(e)}
+				onEventAdd={(e) => onEventAdd(e)}
 				event={event}
 				modalState={modalState}
 				onEventUpdate={onEventUpdate}
+				onEventDelete={onEventDelete}
 			/>
 		</>
 	);

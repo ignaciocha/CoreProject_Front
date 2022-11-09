@@ -5,7 +5,7 @@ import Main from './pages/Main';
 import TeamSetting from './pages/TeamSetting';
 import ReactModal from 'react-modal';
 import MyTeam from './pages/MyTeam';
-import ManageMember from './components/ManageMember/ManageMember';
+// import ManageMember from './components/ManageMember/ManageMember';
 import NoTeam from './pages/NoTeam';
 import NewTeam from './pages/NewTeam';
 import TeamCheck from './pages/TeamCheck';

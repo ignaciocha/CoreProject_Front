@@ -7,6 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat/Chat';
 import dayjs from 'dayjs';
+import PollMain from '../components/Poll/PollMain';
 
 const TeamRoom = () => {
 	let { team_seq } = useParams();
@@ -85,14 +86,16 @@ const TeamRoom = () => {
 					투표내역
 				</h3>
 				<Modal2 open={modalVote} close={closeModalVote} header="투표">
-					<h3>다가오는 투표</h3>
-					<div className="voteList"></div>
-					<h3>지난 투표</h3>
-					<div className="voteList"></div>
+					{/* <h3>다가오는 투표</h3>
+          <div className="voteList"></div>
+          <h3>지난 투표</h3>
+          <div className="voteList"></div> */}
+					{/* <PollView/> */}
+					<PollMain />
 				</Modal2>
 			</div>
 			<div className="teamSetting">
-				<Link to={`/teamsetting/${team_seq}`}>
+				<Link to={'/teamsetting/' + team_seq}>
 					<Button type="basic">팀관리</Button>
 				</Link>
 			</div>

@@ -5,7 +5,8 @@ import axios from 'axios';
 import Message from './Message';
 import ChatDate from './ChatDate';
 
-import '../../styles/Chat.css';
+import '../../styles/Chat.css'
+
 import { useEffect } from 'react';
 
 const Chat = () => {
@@ -35,10 +36,19 @@ const Chat = () => {
 				[chatData]
 			);
 
-		//   return () => {
-		//     console.log('에엥')
-		//   }
-	});
+    useEffect(()=>{
+        let url = '/api/chat/receive'
+        axios.post(url,{
+            cr_seq: cr_seq
+          })
+          .then((res) => {
+              console.log(res.data);		//정상 통신 후 응답된 메시지 출력
+            setChatData(res.data);
+            })
+          .catch((error)=>{
+              console.log(error);				//오류발생시 실행
+            
+      },[chatData])
 
 	useEffect(() => {
 		messagesEndRef.current?.scrollIntoView();
@@ -84,23 +94,18 @@ const Chat = () => {
 							dateNow.getMonth() !== chatData.msg_time?.toDate().getMonth() ||
 							dateNow.getYear() !== chatData.msg_time?.toDate().getYear();
 
-						return (
-							<>
-								{showDate && (
-									<ChatDate
-										date={chatData.msg_time?.toDate()}
-										showFullDate={showFullDate}
-									/>
-								)}
-								<Message
-									talker={item.talker}
-									msg={item.msg}
-									msg_time={item.msg_time}
-									isSender={item.talker === user_id}
-								/>
-							</>
-						);
-					})}
+    const sendMessage = (e) => {
+        let url = '/api/chat/send'
+        e.preventDefault();
+        axios.post(url,{
+          talker: talker,
+          msg: inputRef.current.value,
+          cr_seq: cr_seq
+        //user_icon도 같이 보내버리는 편이 나을 수도?
+        }
+        )
+        .then((response) => {
+            console.log(response.data);		//정상 통신 후 응답된 메시지 출력
 
 					<div ref={messagesEndRef} />
 				</div>
@@ -116,4 +121,56 @@ const Chat = () => {
 	);
 };
 
-export default Chat;
+
+  return (
+    <div className='app_body'>
+        <div className='chat'>
+            <div className='chat_header'>
+                <div className='chat_headerInfo'>
+                <h3>{teamName}</h3>
+                </div>
+
+            </div>
+            
+            <div className='chat_body'>
+
+
+                {chatData.map((item, index)=> {
+                    const prevMessage = chatData[index-1];
+                    const showDate = !prevMessage || (chatData?.msg_time?.seconds - prevMessage?.msg_time?.seconds) > 60;
+                    const dateNow = new Date();
+                    const showFullDate = ((dateNow.getDate() !== chatData.msg_time?.toDate().getDate()) ||
+                        (dateNow.getMonth() !== chatData.msg_time?.toDate().getMonth()) ||
+                        dateNow.getYear() !== chatData.msg_time?.toDate().getYear())
+
+                    return (
+                    <>
+                    {showDate && <ChatDate date={chatData.msg_time?.toDate()} showFullDate={showFullDate} />}
+                    <Message talker={item.talker}
+                                    msg={item.msg}
+                                    msg_time={item.msg_time}
+                                    isSender={item.talker === user_id}/>
+                    </>
+                )
+                })}
+
+            <div ref={messagesEndRef} />
+
+        </div>
+        
+            </div>
+
+        <div className="chat_footer">
+                <form>
+                    <input ref={inputRef} type="text" />
+                    <button onClick={sendMessage} type="Submit"></button>
+                </form>
+                전송버튼
+        </div>
+
+
+    </div>
+  )
+}
+
+export default Chat

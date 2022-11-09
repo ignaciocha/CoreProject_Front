@@ -1,12 +1,12 @@
 import React from 'react';
-import TeamMember2 from '../components/ManageMember/TeamMember copy';
+import TeamMember from '../components/ManageMember/TeamMember';
 
 const TeamSetting = () => {
 	return (
 		<div>
 			<div className="settingBox"></div>
 			<div className="settingTeamName"></div>
-			<TeamMember2></TeamMember2>
+			<TeamMember></TeamMember>
 		</div>
 	);
 };

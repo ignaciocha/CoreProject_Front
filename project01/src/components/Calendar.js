@@ -16,7 +16,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 
 	/** 캘린더에 이벤트 추가 */
 	const onEventAdd = (e) => {
-		console.log('이벤트 추가 ', e);
 		const calendarApi = calendarRef.current.getApi();
 		calendarApi.addEvent({
 			user_id: localStorage.getItem('user_id'),
@@ -111,7 +110,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 					events={eventList}
 					ref={calendarRef}
 					editable={true}
-					// eventAdd={(e) => eventAddHandler(e)}
+					eventAdd={(e) => eventAddHandler(e)}
 					datesSet={(date) => handleDateSet(date)}
 					select={(e) => {
 						setEvent({

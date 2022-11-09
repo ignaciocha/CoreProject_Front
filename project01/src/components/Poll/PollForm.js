@@ -1,20 +1,14 @@
-import { SyntheticEvent, useState } from "react";
+import { useState } from "react";
 import '../../styles/PollForm.css';
 import axios from "axios";
-import { json } from "react-router-dom";
 
 
-const PollForm = () => {
+const PollForm = (props) => {
   const [desc, setDesc] = useState("");
   const [options, setOptions] = useState(["", ""]);
   const [endtime, setEndtime] = useState("");
-  const [days, setDays] = useState(0);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
 
-  const polls = JSON.parse(
-    JSON.stringify(window?.localStorage?.getItem("polls"))
-  );
+  const [formCk,setFormCk] = useState(true);
 
   const handleOptions = (index, value) => {
     setOptions([
@@ -34,7 +28,9 @@ const PollForm = () => {
     let optionsData = JSON.stringify(options);
     console.log(optionsData);
 
-    axios.post('api/newpoll',{
+    let url = '/api/newpoll'
+
+    axios.post(url,{
     	desc: desc,
       endtime: endtime,
       options: optionsData,
@@ -46,9 +42,11 @@ const PollForm = () => {
         setDesc('');
         setEndtime('');
         setOptions([]);
+        props.propFunction(!formCk);
     })
     .catch((error)=>{
         console.log(error);				//오류발생시 실행
+        alert('다시 시도해주세요')
 })
   };
 
@@ -78,41 +76,13 @@ const PollForm = () => {
           />
         ))}
       </ul>
-      {options.length < 10 && (
+      {options.length < 6 && (
         <button onClick={addOption} className="pollBtn" type="button">
           옵션 추가
         </button>
       )}
       <p> 투표 마감 설정: </p>
-      {/* <ul className="poll-form-expiry">
-        <li className="poll-form-input">
-          <label htmlFor="days">Days</label>
-          <input
-            id="days"
-            type="number"
-            value={days}
-            onChange={(e) => setDays(e.target.valueAsNumber)}
-          />
-        </li>
-        <li className="poll-form-input">
-          <label htmlFor="hours">Hours</label>
-          <input
-            id="hours"
-            type="number"
-            value={hours}
-            onChange={(e) => setHours(e.target.valueAsNumber)}
-          />
-        </li>
-        <li className="poll-form-input">
-          <label htmlFor="minutes">Minutes</label>
-          <input
-            id="minutes"
-            type="number"
-            value={minutes}
-            onChange={(e) => setMinutes(e.target.valueAsNumber)}
-          />
-        </li>
-      </ul> */}
+
       <input
             id="pollendtime"
             className="poll-form-option"
@@ -124,6 +94,9 @@ const PollForm = () => {
       <footer className="poll-form-footer">
         <button type="submit" className="pollBtn" onClick={(e) => handleSubmit(e)}>
           투표 생성
+        </button>
+        <button type="submit" className="pollBtn" onClick={(e) => props.propFunction(!formCk)}>
+          뒤로 가기
         </button>
       </footer>
     </form>

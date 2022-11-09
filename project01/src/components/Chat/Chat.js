@@ -26,7 +26,8 @@ const Chat = () => {
     const messagesEndRef = useRef(null);
 
     useEffect(()=>{
-        axios.post('api/chat/receive',{
+        let url = '/api/chat/receive'
+        axios.post(url,{
             cr_seq: cr_seq
           })
           .then((res) => {
@@ -51,8 +52,9 @@ const Chat = () => {
 
 
     const sendMessage = (e) => {
+        let url = '/api/chat/send'
         e.preventDefault();
-        axios.post('api/chat/send',{
+        axios.post(url,{
           talker: talker,
           msg: inputRef.current.value,
           cr_seq: cr_seq

@@ -6,6 +6,7 @@ import logo2 from '../assets/img/gameLogo/2.png'
 import logo3 from '../assets/img/gameLogo/3.png'
 import logo4 from '../assets/img/gameLogo/4.jpg'
 import TeamCheck from '../pages/TeamCheck'
+import '../styles/TeamList.css'
 
 const Team = ({item, idx}) => {
   const containerStyle = {
@@ -22,7 +23,7 @@ const Team = ({item, idx}) => {
   
   return (
     <div style={containerStyle}>
-          <Link className='linkTextStyle' to={'/teamcheck/'+item.team_seq}>
+      <Link className='linkTextStyle' to={'/teamcheck/'+item.team_seq}>
         <div className = 'teamItemStyle'>
           <div>
           {item.team_game ==='리그오브레전드' && <img src={logo1} width='50px' className='imgStyle'></img>}
@@ -37,10 +38,11 @@ const Team = ({item, idx}) => {
         <span>팀 설명: {item.team_content}</span><br></br>
         <span>팀 정원: {item.team_max}</span><br></br>
         <span>팀장: {item.user_id}</span><br></br>
-        </div>
-        </div>
+            </div>
+
+          </div>
         </Link>
-        </div>
+      </div>
   )
 }
 

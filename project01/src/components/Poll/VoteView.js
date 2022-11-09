@@ -47,6 +47,7 @@ useEffect(() => {
    setAnswer()
    setResultCk(false);
    setPollRs(0);
+   setPossible(true)
 
    let url = '/api/polldetail'
    axios.post(url,{
@@ -105,7 +106,7 @@ const handleSubmit = (e) => {
     let sum = 0
     for(let i = 0; i < pollRs.length; i++){
         sum = sum + (pollRs[i].vote-1);
-        console.log(sum);
+        // console.log(sum);
         setPollSum(sum);
     }
     setVoting( pollRs.map((item,idx)=> <PollResult key={item.sum+item.vote+idx} item={item}></PollResult>)
@@ -124,7 +125,8 @@ const handleSubmit = (e) => {
         }
      
         var getToday = year+"-"+month+"-"+day; // 오늘 날짜 (2017-02-07)
-        {getToday > poll.vl_end_dt?setPossible(false):setPossible(true)}
+        {getToday > poll.vl_end_dt?
+            setPossible(false):setPossible(true)}
     }
               
 

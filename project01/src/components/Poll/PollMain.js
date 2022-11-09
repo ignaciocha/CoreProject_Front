@@ -63,7 +63,7 @@ const PollMain = () => {
 
   // 모달 화면 전환 - 투표 폼 새로 만들 땐 투표 목록 안 보이게
   const handleForm = (pollRs) => { 
-    setRecentCk(false)
+    setRecentCk(!recentCk)
     setListCk(!listCk)
     setFormCk(!formCk) }
 

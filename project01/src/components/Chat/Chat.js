@@ -6,9 +6,7 @@ import Message from './Message'
 import ChatDate from './ChatDate';
 
 import '../../styles/Chat.css'
-import RecordVoiceOverOutlinedIcon from '@material-ui/icons/RecordVoiceOverOutlined';
-import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
-import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+
 import { useEffect } from 'react';
 
 
@@ -112,13 +110,11 @@ const Chat = () => {
             </div>
 
         <div className="chat_footer">
-                <RecordVoiceOverOutlinedIcon />
                 <form>
                     <input ref={inputRef} type="text" />
                     <button onClick={sendMessage} type="Submit"></button>
                 </form>
-                <SentimentVerySatisfiedIcon />
-                <AddCircleOutlineOutlinedIcon />
+                전송버튼
         </div>
 
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { BsFillBellFill } from 'react-icons/bs'
+import { BsFillPersonPlusFill } from 'react-icons/bs'
+import { BsFillPersonFill } from 'react-icons/bs'
 import { useState } from 'react';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import '../../styles/Noti.css'
@@ -29,7 +30,9 @@ return (
   <div>
 
     <div className='notiab'>
-        <BsFillBellFill onClick={toggleShow} className="noti" color='purple'/>
+      {notiList.length>0?<BsFillPersonPlusFill onClick={toggleShow} className="noti" color='purple'/>
+       :<BsFillPersonFill onClick={toggleShow} className="noti" color='purple'/>
+      }
     </div>
         <div className='notiCon'>
         <ToastContainer position="top-end" className="p-3">

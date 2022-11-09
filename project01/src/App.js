@@ -60,7 +60,7 @@ function App() {
 				<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
 				<Route path="/teamsearch" element={<TeamSearch />}></Route>
 				<Route path="/login" element={<Login />}></Route>
-				<Route path="/mypage" element={<MyPage />}></Route>
+				{/* <Route path="/mypage" element={<MyPage />}></Route> */}
 				<Route path="/edit" element={<Edit />}></Route>
 				<Route path="/joinsuccess" element={<JoinSuccess />}></Route>
 				<Route path="/kakaologin" element={<KakaoLogin />}></Route>

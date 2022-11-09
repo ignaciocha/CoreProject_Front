@@ -15,8 +15,8 @@ const AddEventModal = ({
 	onEventUpdate,
 }) => {
 	const [title, setTitle] = useState(event.title);
-	const [start, setStart] = useState(dayjs(event.start));
-	const [end, setEnd] = useState(dayjs(event.end));
+	const [start, setStart] = useState(event.start);
+	const [end, setEnd] = useState(event.end);
 
 	const DatePicker = generatePicker(dayjsGenerateConfig);
 	const { RangePicker } = DatePicker;
@@ -51,6 +51,7 @@ const AddEventModal = ({
 
 	return (
 		<ReactModal isOpen={isOpen} onRequestClose={onClose}>
+			{console.log(start)}
 			<div className="calendarForm">
 				<label htmlFor="scheduleTitle">일정</label>
 				<input
@@ -71,9 +72,9 @@ const AddEventModal = ({
 							format="YYYY-MM-DD HH:MM"
 							locale={locale}
 							onChange={(date) => {
-								console.log('date', date);
-								setStart(date[0].format('YYYY-MM-DD HH:MM'));
-								setEnd(date[1].format('YYYY-MM-DD HH:MM'));
+								console.log('date', date[0].toDate());
+								setStart(date[0].toDate());
+								setEnd(date[1].toDate());
 							}}
 						/>
 					</Space>

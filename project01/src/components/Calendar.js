@@ -6,6 +6,7 @@ import AddEventModal from './Modal/AddEventModal';
 import '../styles/Calendar.css';
 import '../styles/AddEventModal.css';
 import axios from 'axios';
+import dayjs from 'dayjs';
 
 const Calendar = ({ eventList, setEventList, team_seq }) => {
 	const [modalOpen, setModalOpen] = useState(false);
@@ -46,14 +47,15 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 		axios
 			.patch(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`, {
 				title: e.title,
-				start: e.start,
-				end: e.end,
+				start: dayjs(e.start).toDate(),
+				end: dayjs(e.end).toDate(),
 			})
 			.then((e) => console.log('업뎃 성공: ', e))
 			.catch((e) => console.log('업뎃 실패:', e));
 
 		let newEvent = eventList.filter((i) => i.id !== event.cal_seq);
 		setEventList([
+			...newEvent,
 			{
 				groupId: localStorage.getItem('user_id'),
 				id: event.cal_seq,
@@ -61,7 +63,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 				start: e.start,
 				end: e.end,
 			},
-			...newEvent,
 		]);
 	};
 

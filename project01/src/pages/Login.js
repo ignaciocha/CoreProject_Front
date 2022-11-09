@@ -61,7 +61,9 @@ function Login() {
   
   };
   
-  const onClickLogin = () => {
+  const onClickLogin = (event) => {
+      event.preventDefault();
+
       console.log("click login");
       console.log("ID : ", inputId);
       console.log("PW : ", inputPw);
@@ -152,7 +154,7 @@ function Login() {
       </div>
 
 
-      <button type="submit" onClick={onClickLogin} disabled={notAllow} className="LoginButton">
+      <button type="submit" onClick={(event)=>onClickLogin(event)} disabled={notAllow} className="LoginButton">
         로그인
       </button>
       <div><button className="LoginButton" onClick={goToSignUp}>

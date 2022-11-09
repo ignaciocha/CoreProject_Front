@@ -21,9 +21,9 @@ const Main = () => {
 			<div className="centerStyle">
 				<TeamList />
 			</div>
-			<PollForm></PollForm>
+			{/* <PollForm></PollForm>
 			<PollMain></PollMain>
-			<PollView></PollView>
+			<PollView></PollView> */}
 		</div>
 	);
 };

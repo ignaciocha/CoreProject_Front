@@ -52,7 +52,7 @@ const Header = () => {
           <div className="topStyle">내팀보기</div>
         </Link>
       </div>
-      {isLogin ? (
+      {!isLogin ? (
         <div className="rightStyle">
           <Link className="textLink" to='/mypage'>
             <div className="loginStyle">내정보</div>

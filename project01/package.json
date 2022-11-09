@@ -13,6 +13,7 @@
 		"@mui/styled-engine-sc": "^5.10.6",
 		"@mui/system": "^5.10.10",
 		"@react-icons/all-files": "^4.1.0",
+		"@stomp/stompjs": "^6.1.2",
 		"@testing-library/jest-dom": "^5.16.5",
 		"@testing-library/react": "^13.4.0",
 		"@testing-library/user-event": "^13.5.0",
@@ -41,6 +42,8 @@
 		"react-toastify": "^9.1.1",
 		"recharts": "^2.1.15",
 		"serve": "^14.0.1",
+		"sockjs": "^0.3.24",
+		"sockjs-client": "^1.6.1",
 		"styled-components": "^5.3.6",
 		"web-vitals": "^2.1.4",
 		"yup": "^0.32.11"

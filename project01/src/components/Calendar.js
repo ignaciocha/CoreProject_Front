@@ -59,7 +59,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 				console.log('캘린더를 불러올 수 없어요');
 			});
 		// ?start=${moment(data.start)}&end=${moment(data.end)}
-		setEventList(response.data);
+		// setEventList(response.data);
 	};
 
 	return (

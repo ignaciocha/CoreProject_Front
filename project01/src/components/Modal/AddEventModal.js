@@ -15,8 +15,8 @@ const AddEventModal = ({
 	onEventUpdate,
 }) => {
 	const [title, setTitle] = useState(event.title);
-	const [start, setStart] = useState(event.start);
-	const [end, setEnd] = useState(event.end);
+	const [start, setStart] = useState(dayjs(event.start));
+	const [end, setEnd] = useState(dayjs(event.end));
 
 	const DatePicker = generatePicker(dayjsGenerateConfig);
 	const { RangePicker } = DatePicker;
@@ -41,7 +41,11 @@ const AddEventModal = ({
 
 	const onUpdate = (e) => {
 		e.preventDefault();
-		onEventUpdate();
+		onEventUpdate({
+			title,
+			start,
+			end,
+		});
 		onClose();
 	};
 
@@ -51,8 +55,7 @@ const AddEventModal = ({
 				<label htmlFor="scheduleTitle">일정</label>
 				<input
 					id="scheduleTitle"
-					defaultValue=""
-					value={event.title}
+					defaultValue={event.title}
 					placeholder="일정"
 					onChange={(e) => setTitle(e.target.value)}
 				/>
@@ -63,14 +66,14 @@ const AddEventModal = ({
 						<RangePicker
 							value={[dayjs(start), dayjs(end)]}
 							showTime={{
-								format: 'HH:mm',
+								format: 'HH:MM',
 							}}
-							format="YYYY-MM-DD HH:mm"
+							format="YYYY-MM-DD HH:MM"
 							locale={locale}
 							onChange={(date) => {
-								setStart(date[0].toDate());
-								setEnd(date[1].toDate());
-								console.log('모달에서 클릭', start, end);
+								console.log('date', date);
+								setStart(date[0].format('YYYY-MM-DD HH:MM'));
+								setEnd(date[1].format('YYYY-MM-DD HH:MM'));
 							}}
 						/>
 					</Space>

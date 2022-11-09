@@ -15,9 +15,10 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 
 	/** 캘린더에 이벤트 추가 */
 	const onEventAdded = (e) => {
+		console.log('이벤트 추가 ', e);
 		const calendarApi = calendarRef.current.getApi();
 		calendarApi.addEvent({
-			id: localStorage.getItem('user_id'),
+			user_id: localStorage.getItem('user_id'),
 			start: e.start,
 			end: e.end,
 			title: e.title,
@@ -27,7 +28,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 	const eventAddHandler = async (e) => {
 		await axios
 			.post(`/api/teamroom/${team_seq}/calendar`, {
-				id: localStorage.getItem('user_id'),
+				user_id: localStorage.getItem('user_id'),
 				start: e.event.startStr,
 				end: e.event.endStr,
 				title: e.event.title,
@@ -42,13 +43,26 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 	};
 
 	const onEventUpdate = (e) => {
-		const calendarApi = calendarRef.current.getApi();
-		calendarApi.updateEvent({
-			id: e.id,
-			start: e.start,
-			end: e.end,
-			title: e.title,
-		});
+		axios
+			.patch(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`, {
+				title: e.title,
+				start: e.start,
+				end: e.end,
+			})
+			.then((e) => console.log('업뎃 성공: ', e))
+			.catch((e) => console.log('업뎃 실패:', e));
+
+		let newEvent = eventList.filter((i) => i.id !== event.cal_seq);
+		setEventList([
+			{
+				groupId: localStorage.getItem('user_id'),
+				id: event.cal_seq,
+				title: e.title,
+				start: e.start,
+				end: e.end,
+			},
+			...newEvent,
+		]);
 	};
 
 	/** 캘린더가 로드되면 데이터 불러오기 */
@@ -57,8 +71,8 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			.get(`/api/teamroom/${team_seq}/calendar`)
 			.then((e) => {
 				const viewEvent = e.data.map((i) => ({
-					id: i.user_id,
-					cal_seq: i.cal_seq,
+					groupId: i.user_id,
+					id: i.cal_seq,
 					title: i.cal_schedule,
 					start: i.cal_s_dt,
 					end: i.cal_e_dt,
@@ -71,13 +85,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			});
 		// ?start=${moment(data.start)}&end=${moment(data.end)}
 		// setEventList(response.data);
-	};
-
-	const onUpdate = () => {
-		axios
-			.get(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`)
-			.then((e) => console.log('업뎃 성공: ', e))
-			.catch((e) => console.log('업뎃 실패:', e));
 	};
 
 	return (
@@ -102,16 +109,16 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 						setModalOpen(true);
 					}}
 					eventClick={(e) => {
+						console.log('클릭', e.event);
 						setEvent({
-							id: e.event.id,
-							cal_seq: e.event.cal_seq,
+							user_id: e.event.groupId,
+							cal_seq: e.event.id,
 							title: e.event.title,
 							start: e.event.start,
 							end: e.event.end,
 						});
 						setModalState('update');
 						setModalOpen(() => true);
-						console.log('클릭', e.id);
 					}}
 					event={true}
 				/>

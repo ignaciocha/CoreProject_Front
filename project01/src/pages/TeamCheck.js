@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import '../styles/TeamCheck.css'
+import { Button, Modal } from 'antd';
 import axios from 'axios'
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const TeamCheck = () => {
 
@@ -41,24 +42,7 @@ const TeamCheck = () => {
 );
 
   const [isJoined, setIsJoined] = useState()
-
-  // useEffect(()=>{
-
-  //   const config = {"Content-Type": 'application/json'};
-
-  //   axios.post('/api/isjoined', {
-  //     team_seq : Number(team_seq),
-  //     user_id : localStorage.getItem("user_id")
-  //   },config).then((res)=>{
-  //     // setIsJoined()
-  //     console.log(res.data);
-  //     console.log(res);
-  //     })
-  //   .catch((error)=>{
-  //     console.log(error)
-  //   })
-
-  // },[])
+  const navigate = useNavigate();
 
   const teamJoinHandle = (event) => {
     event.preventDefault();
@@ -79,10 +63,15 @@ const TeamCheck = () => {
       })
     }else if(isJoined === 'n'){
       alert('중복 가입 ㄴㄴ')
+
     }else if(isJoined === 'y'){
-      alert('팀 룸으로 보내주기!!')
+      // alert('팀 룸으로 보내주기!!')
+      let url = '/teamroom/'+team_seq
+
+      navigate(url)
     }
   }
+
 
 
   return (

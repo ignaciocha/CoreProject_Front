@@ -13,7 +13,6 @@ const TeamMember = ({ item, idx }) => {
 		message.success('탈퇴 처리하였습니다');
 	};
 
-const TeamMember = () => {
   let {team_seq}= useParams();
   const [data,setData] = useState([]);
   const [targetUser,SetTargetUser] = useState('');
@@ -161,7 +160,7 @@ const TeamMember = () => {
         };  
 
   useEffect(() => {
-    const url = '/api/teamsetting'+team_seq
+    const url = '/api/teamsetting/'+team_seq
     axios.get(url, {})
     .then((res) => {
         console.log(res.data);		//정상 통신 후 응답된 메시지 출력
@@ -186,5 +185,5 @@ const TeamMember = () => {
     </div>
   )
 }
-}
+
 export default TeamMember

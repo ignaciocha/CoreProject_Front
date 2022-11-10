@@ -5,6 +5,7 @@ import Overwatch2 from '../components/Game/Overwatch2'
 import Lostark from '../components/Game/Lostark'
 import '../styles/NewTeam.css'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const NewTeam = () => {
 
@@ -152,6 +153,8 @@ const NewTeam = () => {
     }
   }
   
+  const navigate = useNavigate();
+  
   const handleSubmit = (event) => {
     event.preventDefault();
     
@@ -170,8 +173,8 @@ const NewTeam = () => {
     }, config).then((res)=>{console.log(res.config.data)
 
     }).catch((error)=>console.log(error));
-
     
+    navigate('/myteam'); 
   }
 
   

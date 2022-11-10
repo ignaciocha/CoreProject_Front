@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../styles/TeamCheck.css'
-import { Button, Modal } from 'antd';
+import { Button,} from 'antd';
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom';
+import JoinCheckModal from '../components/Modal/JoinCheckModal';
+// import Modal from '../components/Modal/Modal';
+
 
 const TeamCheck = () => {
 
@@ -41,12 +44,29 @@ const TeamCheck = () => {
     }, []
 );
 
+
   const [isJoined, setIsJoined] = useState()
+  const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+
+
+  const modalRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(()=>{
+
+  //     const handler = (e) => {
+  //         if(modalRef.current && !modalRef.current.contain(e.target)){
+  //             setIsOpen(false);
+  //         }
+  //     }
+  // },[])
+
+  const handler = (e) => {
+    console.log(modalRef.current.contain(e.target))
+  }
 
   const teamJoinHandle = (event) => {
     event.preventDefault();
-
     const config = {"Content-Type": 'application/json'};
 
     if(isJoined === 0){
@@ -63,7 +83,7 @@ const TeamCheck = () => {
       })
     }else if(isJoined === 'n'){
       alert('중복 가입 ㄴㄴ')
-
+      setIsOpen(true)
     }else if(isJoined === 'y'){
       // alert('팀 룸으로 보내주기!!')
       let url = '/teamroom/'+team_seq
@@ -144,6 +164,15 @@ const TeamCheck = () => {
         </tr>
       </table>
     </form>
+
+
+    <JoinCheckModal isOpen={isOpen}
+				onClose={() => setIsOpen(false)}>
+      
+   </JoinCheckModal>
+
+
+
     </div>
   )
 }

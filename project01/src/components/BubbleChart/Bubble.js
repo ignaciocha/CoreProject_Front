@@ -1,18 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import lol from '../../assets/img/teamSearchImg/롤.jpg';
+import lostark from '../../assets/img/teamSearchImg/로아.jpg';
+import overwatch2 from '../../assets/img/teamSearchImg/옵치.jpg';
+import valorant from '../../assets/img/teamSearchImg/발로.jpg';
 import FilterBox from '../Filter/FilterBox';
 
 const Bubble = ({ setFilterTeam, filterTeam }) => {
 	const style = {
-		area: [160, 100, 80, 120],
-		gap: [10, 5, 0, 20],
+		area: [lol, overwatch2, lostark, valorant]
 	}; // div들을 담고 있는 객체
 	// let checkCircle = ''; // 현재 재생 중인 음성의 index가 무엇인 지 담는다.
-
-	//   for (let i = 0; i < 10; i++) {
-	//     style.area.push(Math.ceil(Math.random() * (100 - 40) + 40)); // 동그라미
-	//     style.gap.push(Math.ceil(Math.random() * (10 - 5) + 5)); // 간격
-	//   }
 
 	// ** 사용자가 누른 div만 정해진 색상으로 활성화 **
 	// const changeColor = (index) => {
@@ -105,34 +103,29 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 
 	return (
 		<div>
+		<div className='bubbleFlex'>
 			<div className="bubbleChart">
 				{style.area.map((item, index) => {
 					return (
 						<label key={item}>
-							<input
+							<div className='selGmImgContainer'>
+								<img src={item}
+								className='selGmImg'
+									id={index}
+								/>
+								<input
 								type="checkbox"
-								style={{ display: 'none' }}
 								value={gameDBTitle[index]}
+								style={{ display: 'none' }}
 								onClick={(e) => gameClick(e)}
-							/>
-							<p
-								className="circle"
-								id={index}
-								style={{
-									width: `${item}px`,
-									height: `${item}px`,
-									backgroundColor: 'grey',
-									borderRadius: '50%',
-									marginRight: `${style.gap[index]}px`,
-									marginBottom: `-${style.gap[index]}px`,
-								}}
-							>
-								{gameTitle[index]}
-							</p>
+								/>
+								<h3 className='imgH3'>{gameDBTitle[index]}</h3>
+							</div>
 						</label>
 					);
 				})}
 			</div>
+		</div>
 			<FilterBox
 				filteredList={filteredList}
 				setFilteredList={setFilteredList}

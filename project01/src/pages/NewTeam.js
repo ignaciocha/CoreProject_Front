@@ -180,7 +180,8 @@ const NewTeam = () => {
   
   return (
       <div className='plusTeam'>
-          <form onSubmit={handleSubmit} post='get'>
+        <div className='newTeamForm'>
+          <form onSubmit={handleSubmit}>
             <ul id="title" align='left'>
                 <li><h3><b>팀만들기</b></h3></li>
                 <small>팀을 생성해주세요!</small>
@@ -267,6 +268,7 @@ const NewTeam = () => {
                 <li><input type='submit' value='팀 만들기' id='newBtn'/></li>
               </ul>
         </form>
+       </div>
       </div>
     )
   }

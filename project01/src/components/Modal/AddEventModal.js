@@ -40,7 +40,7 @@ const AddEventModal = ({
 		onClose();
 	};
 
-	const onUpdate = (e) => {
+	const onUpdate = () => {
 		onEventUpdate({
 			title,
 			start,
@@ -56,7 +56,6 @@ const AddEventModal = ({
 
 	return (
 		<ReactModal isOpen={isOpen} onRequestClose={onClose}>
-			{console.log(start)}
 			<div className="calendarForm">
 				<label htmlFor="scheduleTitle">일정</label>
 				<input
@@ -77,7 +76,6 @@ const AddEventModal = ({
 							format="YYYY-MM-DD HH:MM"
 							locale={locale}
 							onChange={(date) => {
-								console.log('date', date[0].toDate());
 								setStart(date[0].toDate());
 								setEnd(date[1].toDate());
 							}}
@@ -85,12 +83,12 @@ const AddEventModal = ({
 					</Space>
 				</div>
 
-				{modalState === 'add' && (
+				{modalState.state === 'add' && (
 					<button disabled={!title} onClick={onSubmit}>
 						일정 추가
 					</button>
 				)}
-				{modalState === 'update' && (
+				{modalState.state === 'update' && (
 					<>
 						<button onClick={onUpdate}> 일정 수정</button>
 						<button onClick={onDelete}> 일정 삭제</button>

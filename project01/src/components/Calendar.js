@@ -17,30 +17,46 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 	/** 캘린더에 이벤트 추가 */
 	const onEventAdd = (e) => {
 		const calendarApi = calendarRef.current.getApi();
-		calendarApi.addEvent({
-			user_id: localStorage.getItem('user_id'),
-			start: e.start,
-			end: e.end,
-			title: e.title,
-		});
-	};
 
-	const eventAddHandler = (e) => {
+		console.log(e);
 		axios
 			.post(`/api/teamroom/${team_seq}/calendar`, {
 				user_id: localStorage.getItem('user_id'),
-				start: e.event.startStr,
-				end: e.event.endStr,
-				title: e.event.title,
+				start: dayjs(e.start).format('YYYY-MM-DD hh:mm'),
+				end: dayjs(e.end).format('YYYY-MM-DD hh:mm'),
+				title: e.title,
 			})
 			.then((response) => {
-				console.log('성공 응답');
-				console.log('성공 event', response);
+				console.log('성공 응답', response);
+				calendarApi.addEvent({
+					id: response.data,
+					GroupId: localStorage.getItem('user_id'),
+					start: e.start,
+					end: e.end,
+					title: e.title,
+				});
 			})
 			.catch(() => {
 				console.log('실패', e.event);
 			});
 	};
+
+	// const eventAddHandler = (e) => {
+	// 	axios
+	// 		.post(`/api/teamroom/${team_seq}/calendar`, {
+	// 			user_id: localStorage.getItem('user_id'),
+	// 			start: e.event.startStr,
+	// 			end: e.event.endStr,
+	// 			title: e.event.title,
+	// 		})
+	// 		.then((response) => {
+	// 			console.log('성공 응답', response);
+	// 			response.data;
+	// 		})
+	// 		.catch(() => {
+	// 			console.log('실패', e.event);
+	// 		});
+	// };
 
 	const onEventUpdate = (e) => {
 		axios
@@ -51,29 +67,29 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			})
 			.then((e) => console.log('업뎃 성공: ', e))
 			.catch((e) => console.log('업뎃 실패:', e));
+		modalState.thisEvent.event.setStart(e.start);
+		modalState.thisEvent.event.setEnd(e.end);
+		modalState.thisEvent.event.setProp('title', e.title);
 
-		const newUpdate = eventList.filter((i) => i.id !== Number(event.cal_seq));
-		setEventList([
-			...newUpdate,
-			{
-				groupId: localStorage.getItem('user_id'),
-				id: event.cal_seq,
-				title: e.title,
-				start: e.start,
-				end: e.end,
-			},
-		]);
+		// const newUpdate = eventList.filter((i) => i.id !== Number(event.cal_seq));
+		// setEventList([
+		// 	...newUpdate,
+		// 	{
+		// 		groupId: localStorage.getItem('user_id'),
+		// 		id: event.cal_seq,
+		// 		title: e.title,
+		// 		start: e.start,
+		// 		end: e.end,
+		// 	},
+		// ]);
 	};
 
-	const onEventDelete = (e) => {
+	const onEventDelete = () => {
 		axios
 			.delete(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`)
 			.then((e) => console.log('삭제 성공'))
 			.catch((e) => console.log('삭제 실패', e));
-
-		const newDelete = eventList.filter((i) => i.id !== Number(event.cal_seq));
-
-		setEventList([...newDelete]);
+		modalState.thisEvent.event.remove();
 	};
 
 	/** 캘린더가 로드되면 데이터 불러오기 */
@@ -89,7 +105,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 					end: i.cal_e_dt,
 				}));
 				setEventList(viewEvent);
-				console.log('캘린더 로드: ', viewEvent);
 			})
 			.catch((e) => {
 				console.log('캘린더를 불러올 수 없어요', e);
@@ -110,7 +125,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 					events={eventList}
 					ref={calendarRef}
 					editable={true}
-					eventAdd={(e) => eventAddHandler(e)}
+					// eventAdd={(e) => eventAddHandler(e)}
 					datesSet={(date) => handleDateSet(date)}
 					select={(e) => {
 						setEvent({
@@ -118,19 +133,20 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 							end: e.end,
 						});
 						console.log(e);
-						setModalState('add');
+						setModalState({ state: 'add' });
 						setModalOpen(true);
 					}}
 					eventClick={(e) => {
-						console.log('클릭', e.event);
+						console.log('클릭', e);
 						setEvent({
 							user_id: e.event.groupId,
 							cal_seq: e.event.id,
 							title: e.event.title,
 							start: e.event.start,
 							end: e.event.end,
+							state: e.event,
 						});
-						setModalState('update');
+						setModalState({ state: 'update', thisEvent: e });
 						setModalOpen(() => true);
 					}}
 				/>

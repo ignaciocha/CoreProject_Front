@@ -65,7 +65,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 				start: dayjs(e.start).format('YYYY-MM-DD hh:mm'),
 				end: dayjs(e.end).format('YYYY-MM-DD hh:mm'),
 			})
-			.then((e) => console.log('업뎃 성공: ', e))
+			.then()
 			.catch((e) => console.log('업뎃 실패:', e));
 		modalState.thisEvent.event.setStart(e.start);
 		modalState.thisEvent.event.setEnd(e.end);
@@ -87,7 +87,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 	const onEventDelete = () => {
 		axios
 			.delete(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`)
-			.then((e) => console.log('삭제 성공'))
+			.then()
 			.catch((e) => console.log('삭제 실패', e));
 		modalState.thisEvent.event.remove();
 	};
@@ -137,7 +137,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 						setModalOpen(true);
 					}}
 					eventClick={(e) => {
-						console.log('클릭', e);
 						setEvent({
 							user_id: e.event.groupId,
 							cal_seq: e.event.id,

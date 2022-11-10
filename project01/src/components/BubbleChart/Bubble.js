@@ -54,25 +54,37 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 					let newTier = [];
 					let newPosition = [];
 					let newDungeon = [];
+					let gender = [];
+					let age = [];
+					console.log('e.data', e.data);
 					e.data.map((i) => {
 						if (i.game_section === '티어') {
 							newTier.push(i);
 						} else if (i.game_section === '포지션') {
 							newPosition.push(i);
-						} else {
+						} else if (i.game_section === '던전') {
 							newDungeon.push(i);
+						} else if (i.game_section === '성별') {
+							gender.push(i);
+						} else {
+							age.push(i);
 						}
 						return null;
 					});
+					console.log('newData', newData);
 					if (e.data[0].game_name === '로스트아크') {
 						newData = {
-							포지션: newPosition,
 							던전: newDungeon,
+							포지션: newPosition,
+							성별: gender,
+							나이: age,
 						};
 					} else {
 						newData = {
 							티어: newTier,
 							포지션: newPosition,
+							성별: gender,
+							나이: age,
 						};
 					}
 				};

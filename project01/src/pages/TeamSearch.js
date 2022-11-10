@@ -28,7 +28,7 @@ const TeamSearch = ({ item, idx }) => {
 	const didMount = useRef(false);
 	useEffect(() => {
 		let nameFilter;
-		console.log('바꿀 값: ', allTeam);
+		console.log('팀 리스트: ', allTeam);
 		if (didMount.current && filterTeam.length !== 0) {
 			axios
 				.get('/api/teamsearch/filter', {
@@ -37,7 +37,7 @@ const TeamSearch = ({ item, idx }) => {
 					},
 				})
 				.then((e) => {
-					console.log('새값:', e.data);
+					console.log('필터링 값:', e.data);
 					// 필터에서 선택한 값 중 티어, 던전만
 					const tdDetail = e.data
 						.map((i) => {
@@ -54,10 +54,28 @@ const TeamSearch = ({ item, idx }) => {
 							else return null;
 						})
 						.filter((i) => i !== null);
+					console.log('positionDetail', positionDetail);
+					// 필터링 값 중 성별만
+					const genderDetail = e.data
+						.map((i) => {
+							if (i.game_section === '성별') return i.game_detail;
+							else return null;
+						})
+						.filter((i) => i !== null);
+					console.log('genderDetail', genderDetail);
+					// 필터링 값 중 나이만
+					const ageDetail = e.data
+						.map((i) => {
+							if (i.game_section === '나이') return i.game_detail;
+							else return null;
+						})
+						.filter((i) => i !== null);
+					console.log('ageDetail', ageDetail);
 					// 이름 필터링
 					nameFilter = allTeam.filter(
 						(i) => i.team_game === e.data[0].game_name
 					);
+					console.log('nameFilter', nameFilter);
 					try {
 						// 티어, 포지션 파싱
 						nameFilter.map((i) => (i.team_td = JSON.parse(i.team_td)));
@@ -65,6 +83,7 @@ const TeamSearch = ({ item, idx }) => {
 						nameFilter.map(
 							(i) => (i.team_position = JSON.parse(i.team_position))
 						);
+						nameFilter.map((i) => (i.team_age = JSON.parse(i.team_age)));
 					} catch {}
 					console.log('이름필터: ', nameFilter);
 					// 티어, 던전 필터링
@@ -86,7 +105,17 @@ const TeamSearch = ({ item, idx }) => {
 								.length === 0
 					);
 					console.log('포지션필터: ', positionFilter);
-					setNewTeam(positionFilter);
+
+					const genderFilter = positionFilter.filter(
+						(x) =>
+							genderDetail.filter((y) => !x.team_gender.includes(y)).length ===
+							0
+					);
+
+					const ageFilter = genderFilter.filter(
+						(x) => ageDetail.filter((y) => !x.team_age.includes(y)).length === 0
+					);
+					setNewTeam(ageFilter);
 				})
 				.catch(() => {
 					alert('데이터를 불러올 수 없습니다');

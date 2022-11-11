@@ -75,11 +75,9 @@ const Header = ({ isLogin, setIsLogin }) => {
 			</div>
 			{isLogin ? (
 				<div className="rightStyle">
-					<Link className="textLink" to="/">
-						<nav className="loginStyle" onClick={onLogout}>
-							로그아웃
-						</nav>
-					</Link>
+					<nav className="loginStyle" onClick={onLogout}>
+						로그아웃
+					</nav>
 
 					<Link className="text-link">
 						<nav className="loginStyle">

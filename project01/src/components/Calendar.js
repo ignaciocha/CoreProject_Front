@@ -41,23 +41,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			});
 	};
 
-	// const eventAddHandler = (e) => {
-	// 	axios
-	// 		.post(`/api/teamroom/${team_seq}/calendar`, {
-	// 			user_id: localStorage.getItem('user_id'),
-	// 			start: e.event.startStr,
-	// 			end: e.event.endStr,
-	// 			title: e.event.title,
-	// 		})
-	// 		.then((response) => {
-	// 			console.log('성공 응답', response);
-	// 			response.data;
-	// 		})
-	// 		.catch(() => {
-	// 			console.log('실패', e.event);
-	// 		});
-	// };
-
+	/** 캘린더에 이벤트 업데이트 */
 	const onEventUpdate = (e) => {
 		axios
 			.patch(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`, {
@@ -70,20 +54,9 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 		modalState.thisEvent.event.setStart(e.start);
 		modalState.thisEvent.event.setEnd(e.end);
 		modalState.thisEvent.event.setProp('title', e.title);
-
-		// const newUpdate = eventList.filter((i) => i.id !== Number(event.cal_seq));
-		// setEventList([
-		// 	...newUpdate,
-		// 	{
-		// 		groupId: localStorage.getItem('user_id'),
-		// 		id: event.cal_seq,
-		// 		title: e.title,
-		// 		start: e.start,
-		// 		end: e.end,
-		// 	},
-		// ]);
 	};
 
+	/** 캘린더에 이벤트 삭제 */
 	const onEventDelete = () => {
 		axios
 			.delete(`/api/teamroom/${team_seq}/calendar/${event.cal_seq}`)
@@ -97,6 +70,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 		axios
 			.get(`/api/teamroom/${team_seq}/calendar`)
 			.then((e) => {
+				console.log('받는 값', e);
 				const viewEvent = e.data.map((i) => ({
 					groupId: i.user_id,
 					id: i.cal_seq,
@@ -126,7 +100,7 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 					ref={calendarRef}
 					editable={true}
 					// eventAdd={(e) => eventAddHandler(e)}
-					datesSet={(date) => handleDateSet(date)}
+					datesSet={() => handleDateSet()}
 					select={(e) => {
 						setEvent({
 							start: e.start,

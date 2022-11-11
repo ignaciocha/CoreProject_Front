@@ -26,9 +26,11 @@ const TeamSearch = ({ item, idx }) => {
 	}, []);
 
 	const didMount = useRef(false);
+
 	useEffect(() => {
 		let nameFilter;
 		console.log('팀 리스트: ', allTeam);
+		// useEffect 첫 실행 막기
 		if (didMount.current && filterTeam.length !== 0) {
 			axios
 				.get('/api/teamsearch/filter', {
@@ -83,7 +85,10 @@ const TeamSearch = ({ item, idx }) => {
 						nameFilter.map(
 							(i) => (i.team_position = JSON.parse(i.team_position))
 						);
+						// 나이 파싱
 						nameFilter.map((i) => (i.team_age = JSON.parse(i.team_age)));
+						// 성별 파싱
+						nameFilter.map((i) => (i.team_gender = JSON.parse(i.team_gender)));
 					} catch {}
 					console.log('이름필터: ', nameFilter);
 					// 티어, 던전 필터링
@@ -105,13 +110,13 @@ const TeamSearch = ({ item, idx }) => {
 								.length === 0
 					);
 					console.log('포지션필터: ', positionFilter);
-
+					// 성별 필터
 					const genderFilter = positionFilter.filter(
 						(x) =>
 							genderDetail.filter((y) => !x.team_gender.includes(y)).length ===
 							0
 					);
-
+					// 나이 필터
 					const ageFilter = genderFilter.filter(
 						(x) => ageDetail.filter((y) => !x.team_age.includes(y)).length === 0
 					);

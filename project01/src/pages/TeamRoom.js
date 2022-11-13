@@ -67,7 +67,7 @@ const TeamRoom = () => {
 						team_seq={team_seq}
 					/>
 				</div>
-				{/* <div className="chatBox">채팅</div> */}
+				<div className="chatBox">채팅</div>
 				<Chat team_seq={team_seq} team_name={team_name}></Chat>
 			</div>
 			<div className='scheduleVoteBox'>

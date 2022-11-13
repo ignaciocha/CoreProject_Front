@@ -49,18 +49,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    /* border: 1px solid rgba(128, 0, 128, 0.213); */
     margin-top: 20px;
+    margin-bottom: 10px;
+    /* border-radius: 10px; */
 }
 
 .gameName {
     display: flex;
-    width: 400px;
+    width: 500px;
     height: 40px;
-    background-color: rgba(128, 0, 128, 0.213);
+    background-color: antiquewhite;
     align-items: center;
     justify-content: center;
-    /* font-size: px; */
 }
 
 .goBackBtn {
@@ -70,4 +71,18 @@
     margin: 5px;
     border-radius: 10px;
     background-color: whitesmoke;
+}
+
+.gameDetailBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+}
+
+.noGame {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    color: rgb(184, 184, 184);
 }

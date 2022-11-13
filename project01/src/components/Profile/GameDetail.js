@@ -45,8 +45,8 @@ const GameDetail = ({myGame}) => {
         <div className='gameName'>
             리그오브레전드
         </div>
-        {myLolT.length === 0? "설정된 값이 없습니다":
-            <div className=''>
+        {myLolT.length === 0? <span className='noGame'>설정된 값이 없습니다</span>:
+            <div className='gameDetailBox'>
         티어 : {myLolT.map((item)=>(<span key={item}>{item}</span>))}
         포지션 : {myLolP.map((item)=>(<span key={item}>{item}</span>))}
             </div>
@@ -55,9 +55,9 @@ const GameDetail = ({myGame}) => {
             오버워치2
             </div>
 
-            {myOvT.length === 0? "설정된 값이 없습니다":
-            <div>
-
+            {myOvT.length === 0? <span className='noGame'>설정된 값이 없습니다</span>:
+            <div className='gameDetailBox'>
+                
         티어 : {myOvT.map((item)=>(<span key={item}>{item}</span>))}
         포지션 : {myOvP.map((item)=>(<span key={item}>{item}</span>))}
             </div>
@@ -65,8 +65,8 @@ const GameDetail = ({myGame}) => {
         <div className='gameName'>
             로스트아크
         </div>
-        {myLoaD.length === 0? "설정된 값이 없습니다":
-            <div>
+        {myLoaD.length === 0? <span className='noGame'>설정된 값이 없습니다</span>:
+            <div className='gameDetailBox'>
 
         던전 : {myLoaD.map((item)=>(<span key={item}>{item}</span>))}
         포지션 : {myLoaP.map((item)=>(<span key={item}>{item}</span>))}
@@ -75,8 +75,8 @@ const GameDetail = ({myGame}) => {
         <div className='gameName'>
             발로란트
         </div>
-        {myValT.length === 0? "설정된 값이 없습니다":
-            <div>
+        {myValT.length === 0? <span className='noGame'>설정된 값이 없습니다</span>:
+            <div className='gameDetailBox'>
 
         티어 : {myValT.map((item)=>(<span key={item}>{item}</span>))}
         포지션 : {myValP.map((item)=>(<span key={item}>{item}</span>))}

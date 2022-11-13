@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '../components/Button';
 import Modal from '../components/Modal/Modal';
 import Modal2 from '../components/Modal/Modal2';
 import '../styles/TeamRoom.css';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import Calendar from '../components/Calendar';
 import Chat from '../components/Chat/Chat';
 import dayjs from 'dayjs';

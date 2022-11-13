@@ -83,9 +83,6 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			.catch((e) => {
 				console.log('캘린더를 불러올 수 없어요', e);
 			});
-
-		// ?start=${moment(data.start)}&end=${moment(data.end)}
-		// setEventList(response.data);
 	};
 
 	return (
@@ -93,9 +90,9 @@ const Calendar = ({ eventList, setEventList, team_seq }) => {
 			<div style={{ position: 'relative', zIndex: 0 }}>
 				<FullCalendar
 					plugins={[dayGridPlugin, interactionPlugin]}
-					initialView="dayGridMonth"
-					selectable="true"
-					height="auto"
+					initialView='dayGridMonth'
+					selectable='true'
+					height='auto'
 					events={eventList}
 					ref={calendarRef}
 					editable={true}

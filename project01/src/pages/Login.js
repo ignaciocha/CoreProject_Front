@@ -72,21 +72,21 @@ function Login({ setIsLogin }) {
 			})
 			.then((res) => {
 				console.log(res);
-				console.log(res.data);
+				console.log("로그인 시 데이터: ",res.data);
 
-				console.log(res.config.data);
+				console.log("로그인 시 받아오는 데이터: ",res.config.data);
 				const js = JSON.parse(res.config.data);
 				console.log(js.user_id);
 
 				console.log(res.data);
 
-				if (res.data === 'success') {
+				if (res.data === 'fail') {
+					alert('로그인 실패');
+				} else {
 					alert('로그인에 성공했습니다');
 					localStorage.setItem('user_id', js.user_id);
 					setIsLogin(js.user_id);
 					navigate('/');
-				} else {
-					alert('로그인 실패');
 				}
 			})
 			.catch((error) => console.log(error));

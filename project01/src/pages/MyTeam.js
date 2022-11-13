@@ -9,10 +9,15 @@ const MyTeam = () => {
 	const [belongTeam, setBelongTeam] = useState([]);
 	const [waitingTeam, setWaitingTeam] = useState([]);
 
+	// let { applicant } = useParams();
+
 	useEffect(() => {
+
+		let url = '/api/myteam'
+
 		axios
-			.post('api/myteam', {
-				applicant: 'user_id 004',
+			.post(url, {
+				applicant: localStorage.getItem("user_id"),
 				confirm_yn: 'y',
 			})
 			.then((res) => {
@@ -22,7 +27,27 @@ const MyTeam = () => {
 			.catch((error) => {
 				console.log(error); //오류발생시 실행
 			});
-	}, []);
+
+	}, [belongTeam.length]);
+
+	useEffect(() => {
+
+		let url = '/api/myteam'
+
+		axios
+			.post(url, {
+				applicant: localStorage.getItem("user_id"),
+				confirm_yn: 'n',
+			})
+			.then((res) => {
+				console.log(res.data); //정상 통신 후 응답된 메시지 출력
+				setWaitingTeam(res.data);
+			})
+			.catch((error) => {
+				console.log(error); //오류발생시 실행
+			});
+			
+	}, [waitingTeam.length]);
 
 	return (
 		<div>

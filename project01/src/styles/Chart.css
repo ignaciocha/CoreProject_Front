@@ -1,16 +1,57 @@
 .bubbleChart {
-    border: 1px solid black;
-    width: 500px;
-    height: 300px;
+    margin-top: 45px;
+    width: auto;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px;
-    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-.circle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.selGmImgContainer {
+    position: relative;
+    margin-right: 10px;
+    margin-left: 10px;
 }
+
+.selGmImg {
+    width: 210px;
+    height: 260px;
+}
+
+.imgH3 {
+    position: absolute;
+    padding-top: 55%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgb(0, 0, 0);
+}
+
+.selGmImgContainer:hover .imgH3{
+    opacity: 0.7;
+}
+
+.imgH3 {
+    color: white;
+    font-size: 25px;
+    /* position: absolute; */
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    justify-content: center;
+  }
+
+  .bubbleFlex{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }

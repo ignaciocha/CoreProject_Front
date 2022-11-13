@@ -1,0 +1,73 @@
+.profileBox {
+    margin-top: 50px;
+    border: 2px solid #F3F1F1;
+    width: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px -7px rgb(205, 205, 205);
+
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 1px dashed purple;
+    margin-bottom: 10px;
+}
+
+.profileImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+.profileTitle {
+    margin: 10px;
+    background-color: yellow;
+    font-size: large;
+    font-style: italic;
+}
+
+.profileFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 20px;
+}
+
+.gameName {
+    display: flex;
+    width: 400px;
+    height: 40px;
+    background-color: rgba(128, 0, 128, 0.213);
+    align-items: center;
+    justify-content: center;
+    /* font-size: px; */
+}
+
+.goBackBtn {
+    width: 80px;
+    height: 30px;
+    border: none;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}

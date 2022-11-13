@@ -23,6 +23,7 @@ import JoinSuccess from './pages/JoinSuccess';
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
 
 ReactModal.setAppElement('#root');
 
@@ -33,6 +34,12 @@ function App() {
 			setIsLogin(true);
 		}
 	}, []);
+
+	useEffect(() => {
+		if (localStorage.getItem('user_id') !== null) {
+		  setIsLogin(true);
+		}
+	  }, []);
 
 	return (
 		<div>
@@ -60,6 +67,7 @@ function App() {
 					></Route>
 					<Route path="/" element={<Main />}></Route>
 					<Route path="/Teamcheck/:team_seq" element={<TeamCheck />}></Route>
+					<Route path="/profile" element={<Profile />}></Route>
 					<Route path="/teamsearch" element={<TeamSearch />}></Route>
 					<Route
 						path="/login"

@@ -2,18 +2,17 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Space, Table} from 'antd';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { message, Popconfirm } from 'antd';
 import 'antd/dist/antd.css';
 import { Button, Popover } from 'antd';
 
-const TeamMember = ({ item, idx }) => {
+const TeamMember = () => {
 	const confirm = (e) => {
 		console.log(e);
 		message.success('탈퇴 처리하였습니다');
 	};
 
-const TeamMember = () => {
   let {team_seq}= useParams();
   const [data,setData] = useState([]);
   const [targetUser,SetTargetUser] = useState('');
@@ -33,20 +32,22 @@ const TeamMember = () => {
       key: 'user_icon',
       dataIndex: 'user_icon',
       render: (_, record) => (
-          <img src='record.user_icon'></img>
+          <img width='50px' src={`/${record.user_icon}`}></img>
       )
     },
     {
       title: '닉네임',
       dataIndex: 'user_nick',
       key: 'user_nick',
-    },
-    {
-      title: '가입일',
-      dataIndex: 'user_joindate',
-      key: 'user_joindate',
       render: (_, record) => (
-        <span>{record.user_joindate.substring(0,10)}</span>
+          <Link to={`/profile?user_nick=${record.user_nick}`}>{record.user_nick}</Link>
+      )
+      },{
+      title: '가입일',
+      dataIndex: 'tm_date',
+      key: 'tm_date',
+      render: (_, record) => (
+        <span>{record.tm_date.substring(0,10)}</span>
       )
     },
     {
@@ -161,7 +162,7 @@ const TeamMember = () => {
         };  
 
   useEffect(() => {
-    const url = '/api/teamsetting'+team_seq
+    const url = '/api/teamsetting/'+team_seq
     axios.get(url, {})
     .then((res) => {
         console.log(res.data);		//정상 통신 후 응답된 메시지 출력
@@ -186,5 +187,5 @@ const TeamMember = () => {
     </div>
   )
 }
-}
+
 export default TeamMember

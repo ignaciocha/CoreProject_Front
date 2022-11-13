@@ -7,7 +7,7 @@ import { TeamList } from '../components/TeamList';
 const Main = () => {
 	return (
 		<div>
-			{' '}
+			{/* {' '} */}
 			{/* 전체 컨테이너 */}
 			{/* 슬라이드 컨테이너 */}
 			<div className="container mt-5 carousel">

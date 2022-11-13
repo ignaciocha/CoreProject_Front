@@ -12,7 +12,7 @@ const BelongTeam = ({item, idx}) => {
 
   return (
     <div className='waitingTeamStyle'>
-        <Link style={linkStyle} className = 'linkTextStyle' to={'/teamroom'+item.team_seq}>
+        <Link style={linkStyle} className = 'linkTextStyle' to={'/teamroom/'+item.team_seq}>
         <div className='teamItemTitle'>
             <div>
                 {item.game_name ==='lol' && <img src={logo1} width='50px' className='gamelogoStyle'></img>}

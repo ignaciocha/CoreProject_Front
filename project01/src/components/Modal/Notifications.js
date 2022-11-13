@@ -1,6 +1,6 @@
 import React from 'react'
-import { BsFillPersonPlusFill } from 'react-icons/bs'
-import { BsFillPersonFill } from 'react-icons/bs'
+import { HiBellAlert } from 'react-icons/hi2'
+import { HiBell } from 'react-icons/hi2'
 import { useState } from 'react';
 import ToastContainer from 'react-bootstrap/ToastContainer';
 import '../../styles/Noti.css'
@@ -30,8 +30,8 @@ return (
   <div>
 
     <div className='notiab'>
-      {notiList.length>0?<BsFillPersonPlusFill onClick={toggleShow} className="noti" color='purple'/>
-       :<BsFillPersonFill onClick={toggleShow} className="noti" color='purple'/>
+      {notiList.length>0?<HiBellAlert onClick={toggleShow} className="noti" color='purple'/>
+       :<HiBell onClick={toggleShow} className="noti" color='purple'/>
       }
     </div>
         <div className='notiCon'>

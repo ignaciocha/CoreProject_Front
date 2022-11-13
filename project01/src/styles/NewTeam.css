@@ -3,65 +3,79 @@
 	justify-content: center;
 	align-items: center;
 	margin-top: 50px;
-	border: 3px solid #f3f1f1;
+	border: 3px solid #F3F1F1;
 	border-radius: 10px;
 	padding-top: 20px;
+	box-shadow: 5px 5px 10px -5px rgb(205, 205, 205);
 	padding-bottom: 1px;
 	width: 650px;
-	box-shadow: 5px 5px 10px -5px rgb(205, 205, 205);
-}
+	margin-left: auto;
+	margin-right: auto;
+  }
+  
+  .plusTeam > form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+  }
 
-.plusTeam ul,
-.plusTeam li {
+  .plusTeam ul,
+  .plusTeam li {
 	list-style: none;
-}
+	margin-left: 2.5rem;
+  }
 
-#playGame {
+  #playGame ul {
+	margin-left: 0.3rem;
+  }
+
+  #playGame {
 	padding: 0px;
-}
+  }
 
-#newBtn {
+  #newBtn {
 	width: 440px;
 	background: rgba(128, 0, 128, 0.213);
 	border-radius: 5px;
 	border: none;
 	color: black;
 	height: 40px;
-}
+  }
 
-.gameSelect {
+  .gameSelect {
 	margin: 5px;
 	border: none;
 	width: 215px;
 	height: 40px;
 	border-radius: 5px;
-}
+  }
 
-.gameSelect:hover {
+  .gameSelect:hover {
 	background: rgba(128, 0, 128, 0.213);
 	font-weight: bolder;
-}
+  }
 
-.plusTeam input[type='number'] {
+  .plusTeam input[type="number"] {
 	width: 326px;
-}
+  }
 
-.plusTeam input[type='checkbox'] {
+  .plusTeam input[type="checkbox"] {
 	margin-right: 6px;
-}
+  }
 
-.plusTeam li {
+  .plusTeam li {
 	margin-bottom: 10px;
-}
+  }
 
-#newTeamSpan {
-    display: flex;
-    border: 1px solid gray;
-    width: 100px;
-    height: 30px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
+  #newTeamSpan {
+	display: flex;
+	border: 1px solid gray;
+	width: 100px;
+	height: 30px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+  }

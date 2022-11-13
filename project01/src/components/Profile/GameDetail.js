@@ -1,6 +1,6 @@
 import React from 'react'
 
-const GameDetail = ({myGame, setMyGame}) => {
+const GameDetail = ({myGame}) => {
 
     let myLolT = [];
     let myLolP = [];
@@ -39,11 +39,6 @@ const GameDetail = ({myGame, setMyGame}) => {
         }
     }
 
-    if(myLolT.length === 0){
-
-        console.log("배열이 비었슈")
-    }
-
   return (
     <div>
         <div className='gameBox'>
@@ -51,8 +46,7 @@ const GameDetail = ({myGame, setMyGame}) => {
             리그오브레전드
         </div>
         {myLolT.length === 0? "설정된 값이 없습니다":
-            <div>
-
+            <div className=''>
         티어 : {myLolT.map((item)=>(<span key={item}>{item}</span>))}
         포지션 : {myLolP.map((item)=>(<span key={item}>{item}</span>))}
             </div>

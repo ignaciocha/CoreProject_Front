@@ -3,8 +3,11 @@ import '../styles/Profile.css'
 import axios from 'axios'
 import { useState } from 'react'
 import GameDetail from '../components/Profile/GameDetail'
+import { useNavigate } from 'react-router-dom'
 
 const Profile = () => {
+
+    const navigate = useNavigate();
 
     const [userInfo, setUserInfo] = useState([
         {
@@ -61,32 +64,33 @@ const Profile = () => {
         },[gameInfo])
 
 
-
+        const goBack = () => {
+            navigate(-1)
+        }
 
   return (
     <div className='profileFlex'>
         <div className='profileBox'>
-            <div>
-                Profile
+            <div className='profileTitle'>
+            💜{userInfo && userInfo[0].user_nick}님의 Profile💜
+            </div>
+            <div className='imgDiv'>
+            <img className='profileImg' src={`/${userInfo && userInfo[0].user_icon}`}></img>
             </div>
             <div>
-             {/* {userInfo[0].user_nick}
-             {userInfo.game_category} */}
-
-            <img className='profileImg' src={`/${userInfo && userInfo[0].user_icon}`}></img>
+                <span>닉네임</span>
                 {userInfo && userInfo[0].user_nick}
                 {userInfo && userInfo[0].user_gender}
-                {userInfo && userInfo[0].user_favor}
-                {userInfo && userInfo[0].user_joindate}
                 {userInfo && userInfo[0].user_birthdate}
-
-                {userInfo && userInfo.map((item, idx)=>(<span key={item+idx} item={item}>{item.game_category}</span>))}
+                {userInfo && userInfo[0].user_favor}
+                {/* {userInfo && userInfo[0].user_joindate} */}
             </div>
             <div>
                 {/* {myGame && myGame.map((item)=><span key={item} item={item}>{item.game_name}</span>)} */}
-                <GameDetail myGame={myGame} setMyGame={setMyGame}/>
+                <GameDetail myGame={myGame}/>
             </div>
-        </div>
+                <button className='goBackBtn' onClick={goBack}>돌아가기</button>
+            </div>
     </div>
   )
 }

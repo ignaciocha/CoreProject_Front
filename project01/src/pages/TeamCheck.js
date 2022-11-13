@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import '../styles/TeamCheck.css'
-import { Button,} from 'antd';
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom';
 import JoinCheckModal from '../components/Modal/JoinCheckModal';
@@ -49,9 +48,6 @@ const TeamCheck = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
 
-
-  const modalRef = useRef<HTMLDivElement>(null);
-
   // useEffect(()=>{
 
   //     const handler = (e) => {
@@ -60,10 +56,6 @@ const TeamCheck = () => {
   //         }
   //     }
   // },[])
-
-  const handler = (e) => {
-    console.log(modalRef.current.contain(e.target))
-  }
 
   const teamJoinHandle = (event) => {
     event.preventDefault();
@@ -113,7 +105,7 @@ const TeamCheck = () => {
         <tr>
             <td><span id='newTeamSpan'><b>방장 닉네임</b></span></td>
             <td>
-                {oneTeam.user_id}
+                {oneTeam.user_nick}
             </td>
         </tr>
         <tr>
@@ -133,7 +125,7 @@ const TeamCheck = () => {
         <tr>
           <td><span id='newTeamSpan'><b>연령</b></span></td>
           <td>
-              {teamAge.map((item)=>(<button type='button' key={item} className='age'>{item}대</button>))}
+              {teamAge.map((item)=>(<button type='button' key={item} className='age'>{item}</button>))}
           </td>
         </tr>
         <tr>
@@ -165,14 +157,8 @@ const TeamCheck = () => {
       </table>
     </form>
 
-
     <JoinCheckModal isOpen={isOpen}
-				onClose={() => setIsOpen(false)}>
-      
-   </JoinCheckModal>
-
-
-
+				onClose={() => setIsOpen(false)}/>
     </div>
   )
 }

@@ -1,0 +1,15 @@
+.profileBox {
+    border: 1px solid black;
+    width: 500px;
+}
+
+.profileImg{
+    border-radius: 50%;
+    width: 100px;
+}
+
+.profileFlex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

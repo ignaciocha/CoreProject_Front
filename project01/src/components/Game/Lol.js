@@ -1,17 +1,6 @@
-import { useRef } from 'react';
 import '../../styles/Game.css'
 
 const Lol = ({lolSet, setLolTier, lolTier, lolPosition, setLolPosition}) => {
-
-  const btnRef = useRef()
-
-  const ckStyle = {
-    // hover에서 썼던 디자인을 하나 만든다 
-  }
-
-  const unCkStyle = {
-    
-  }
 
   let lolT = [];
   let lolP = [];

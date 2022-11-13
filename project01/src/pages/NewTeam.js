@@ -220,11 +220,11 @@ const NewTeam = () => {
               </tr>
               <tr>
                 <td><span id="newTeamSpan"><b>연령</b></span></td>
-                <td>10대 <input type='checkbox' name='age' value='10' onChange={addAgeArr} onClick={delAgeArr}/>
-                    20대 <input type='checkbox' name='age' value='20' onChange={addAgeArr} onClick={delAgeArr}/>
-                    30대 <input type='checkbox' name='age' value='30' onChange={addAgeArr} onClick={delAgeArr}/>
-                    40대 <input type='checkbox' name='age' value='40' onChange={addAgeArr} onClick={delAgeArr}/>
-                    50대 이상 <input type='checkbox' name='age' value='50' onChange={addAgeArr} onClick={delAgeArr}/>
+                <td>10대 <input type='checkbox' name='age' value='10대' onChange={addAgeArr} onClick={delAgeArr}/>
+                    20대 <input type='checkbox' name='age' value='20대' onChange={addAgeArr} onClick={delAgeArr}/>
+                    30대 <input type='checkbox' name='age' value='30대' onChange={addAgeArr} onClick={delAgeArr}/>
+                    40대 <input type='checkbox' name='age' value='40대' onChange={addAgeArr} onClick={delAgeArr}/>
+                    50대 이상 <input type='checkbox' name='age' value='50대 이상' onChange={addAgeArr} onClick={delAgeArr}/>
                     </td>
               </tr>
             </table>

@@ -6,9 +6,14 @@ import * as Yup from 'yup';
 import { Button, TextField } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import dayjs from 'dayjs';
+import Edit from '../pages/Edit'
+import { useState } from 'react';
 
 const SignUp = ({ setIsLogin }) => {
+	
 	const navigate = useNavigate();
+	const [userG, setUserG] = useState([])
+
 	const validationSchema = Yup.object().shape({
 		email: Yup.string()
 			.email('올바른 이메일 형식이 아닙니다!')
@@ -34,7 +39,7 @@ const SignUp = ({ setIsLogin }) => {
 			.required('필수 입력 값입니다!'),
 	});
 	const submit = async (values) => {
-		const { email, username, password, age, gender } = values;
+		const { email, username, password, age, gender, game } = values;
 		try {
 			await axios.post('/api/signup', {
 				email: email,
@@ -43,14 +48,15 @@ const SignUp = ({ setIsLogin }) => {
 				age: age,
 				gender: gender,
 				joindate: dayjs().format('YYYY-MM-DD HH:MM'),
+				gameCategory: userG
 			});
 			setIsLogin(true);
 			localStorage.setItem('user_id', email);
 			toast.success(
 				<h3>
-					회원가입이 완료되었습니다.
-					<br />
-					추가정보를 입력하세요😸
+					회원가입이 완료되었습니다.😸
+					{/* <br />
+					추가정보를 입력하세요 */}
 				</h3>,
 				{
 					position: 'top-center',
@@ -135,17 +141,15 @@ const SignUp = ({ setIsLogin }) => {
 								<div className="input-label">연령대</div>
 								<div value={values.age} name="age" onChange={handleChange}>
 									10대
-									<input type="radio" name="age" value="10" />
+									<input type="radio" name="age" value="10대" />
 									20대
-									<input type="radio" name="age" value="20" />
+									<input type="radio" name="age" value="20대" />
 									30대
-									<input type="radio" name="age" value="30" />
+									<input type="radio" name="age" value="30대" />
 									40대
-									<input type="radio" name="age" value="40" />
+									<input type="radio" name="age" value="40대" />
 									50대
-									<input type="radio" name="age" value="50" />
-									비공개
-									<input type="radio" name="age" value="N" />
+									<input type="radio" name="age" value="50대 이상" />
 								</div>
 							</div>
 
@@ -158,13 +162,26 @@ const SignUp = ({ setIsLogin }) => {
 									onChange={handleChange}
 								>
 									남자
-									<input type="radio" name="gender" value="M" />
+									<input type="radio" name="gender" value="남자" />
 									여자
-									<input type="radio" name="gender" value="W" />
-									비공개
-									<input type="radio" name="gender" value="N" />
+									<input type="radio" name="gender" value="여자" />
 								</div>
 								<div className="error-message">{errors.gender}</div>
+							</div>
+
+							<div className="input-forms-item">
+								<div className="input-label">플레이게임</div>
+
+								<div
+									value={values.game}
+									name="game"
+									onChange={handleChange}
+								>
+									<Edit
+									setUserG={setUserG}
+									userG={userG}/>
+								</div>
+								<div className="error-message">{errors.game}</div>
 							</div>
 
 							<Button

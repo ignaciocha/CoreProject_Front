@@ -11,9 +11,6 @@ const MyTeam = () => {
 
 	// let { applicant } = useParams();
 
-	console.log(localStorage.getItem("user_id").split("@")[0])
-
-
 	useEffect(() => {
 
 		let url = '/api/myteam'

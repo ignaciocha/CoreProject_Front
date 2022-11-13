@@ -1,31 +1,126 @@
+/* .waitingTeamStyle {
+  height: 100px;
+  border-color: transparent;
+  border-bottom: gainsboro;
+  border-style: solid;
+  border-width: 2px;
+  display: "flex";
+  flex-wrap: "wrap";
+} */
+
 .waitingTeamStyle {
-    height: 100px;
-    border-color: transparent;
-    border-bottom: gainsboro;
-    border-style: solid;
-    border-width: 2px;
-    display : 'flex';
-    flex-wrap : 'wrap';
-  }
+  height: 100px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  border-color: gainsboro;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 0px;
+  display: "flex";
+  flex-wrap: "wrap";
+  margin: 3%;
+  width: 350px;
+}
 
+h1 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
 
-  .waitingTeamStyle:hover{
-    background:#E0BFE6;
-  }
+.teamItemTitle {
+  display: flex;
+  align-items: center;
+  color: black;
+}
 
-  h1{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-  }
+.linkTextStyle {
+  text-decoration: none;
+}
 
-  .teamItemTitle{
-    display: flex;
-    align-items: center;
+.waitingTeamText {
+  display: flex;
+  flex-direction: column;
+}
 
-  }
+.waiting-sub-con {
+  display: flex;
+  margin: 4%;
+}
 
-  .linkTextStyle{
-    text-decoration: none;
-  }
+.waiting-container {
+  display: grid;
+  grid: auto / repeat(auto-fit, minmax(350px, auto));
+}
+
+.waiting-team-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.waiting-team-logo {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+}
+
+.waiting-font-setting {
+  color: rgba(0, 0, 0, 0.748);
+}
+
+/* 참여 중인 팀 */
+.belongTeamStyle {
+  height: 100px;
+  box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
+  border-color: gainsboro;
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 0px;
+  display: "flex";
+  flex-wrap: "wrap";
+  margin: 3%;
+  min-width: 800px;
+}
+
+.belongTeamStyle:hover {
+  background: #e0bfe6;
+}
+
+.belong-sub-con {
+  /* margin: 2%; */
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.belong-game-logo {
+}
+
+.belong-text-line {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+}
+.teamItemAlign {
+  display: flex;
+}
+
+.myTeamFlex {
+  display: flex;
+}
+
+.belongteamItemTitle {
+  display: flex;
+  align-items: center;
+  color: black;
+  height: 100px;
+}
+
+.belongTeamContainer {
+  margin-bottom: 10%;
+  margin-top: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

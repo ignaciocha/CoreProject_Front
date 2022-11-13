@@ -1,3 +1,21 @@
+main {
+	min-height: 100%;
+	height: auto;
+	position: relative;
+	padding-bottom: 5rem;
+	/* padding-bottom: 200px; */
+
+	margin-top: 8rem;
+	margin-left: 23%;
+	margin-right: 23%;
+}
+
+body {
+	margin-top: 8rem;
+	margin-left: 23%;
+	margin-right: 23%;
+}
+
 .mainH3 {
 	text-align: center;
 }
@@ -40,19 +58,51 @@
 }
 
 .mainTeamStyle {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	align-content: center;
+	/* display: flex; */
+	/* flex-wrap: wrap; */
+	/* flex-direction: row; */
+	/* align-content: center; */
+	list-style: none;
+	padding: 0;
+
+	display: grid;
+	grid: auto / repeat(auto-fit, minmax(500px, auto));
 	justify-content: center;
+}
+
+#teamSearchBox {
+	overflow: auto;
+	width: 700px;
+	height: 500px;
+}
+
+#teamSearchBox::-webkit-scrollbar {
+	width: 10px;
+}
+#teamSearchBox::-webkit-scrollbar-thumb {
+	background-color: rgba(128, 0, 128, 0.213);
+	border-radius: 10px;
+}
+#teamSearchBox::-webkit-scrollbar-track {
+	background-color: whitesmoke;
+	border-radius: 10px;
+}
+
+.mainArticle {
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-between;
+	/* justify-content: center; */
 	align-items: center;
 }
 
-.mainTeamStyle {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row;
-	align-content: center;
-	justify-content: center;
-	align-items: center;
+.mainMoreBtn {
+	background-color: transparent;
+	border: none;
+	color: black;
+}
+
+.carousel-img {
+	height: 350px;
+	width: 100%;
 }

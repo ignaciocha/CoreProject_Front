@@ -1,41 +1,55 @@
 .headerStyle {
-	display: flex;
-	background-color: #f3f1f1;
-	height: 80px;
-	margin-top: 20px;
-	box-shadow: 0px 10px 20px -10px grey;
+  display: flex;
+  background-color: #f3f1f1;
+  height: 80px;
+  /* box-shadow: 0px 10px 20px -10px grey; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  margin-bottom: 4rem;
 }
 
 .leftStyle {
-	display: flex;
-	align-items: center;
-	flex-grow: 1;
-	margin-left: 200px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  margin-left: 100px;
+  margin-left: 23%;
 }
 
 .rightStyle {
-	display: flex;
-	align-items: center;
-	margin-right: 200px;
+  display: flex;
+  align-items: center;
+  margin-right: 100px;
+  margin-right: 21%;
 }
 
 .topStyle {
-	margin-right: 30px;
-	font-size: 1em;
-	cursor: pointer;
+  margin-right: 30px;
+  font-size: 1em;
+  cursor: pointer;
 }
 
 .loginStyle {
-	margin-right: 30px;
-	font-size: 0.95em;
-	cursor: pointer;
+  margin-right: 30px;
+  font-size: 0.95em;
 }
 
 .logoStyle {
-	width: 150px;
-	margin-right: 70px;
+  width: 150px;
+  margin-right: 70px;
+}
+
+.textLink {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .alertIcon {
-	color: black;
+  color: black;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 50;
 }

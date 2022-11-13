@@ -1,9 +1,10 @@
 import React, { useRef } from 'react';
 import Bubble from '../components/BubbleChart/Bubble';
-import '../styles/TeamSearch.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Team from '../components/MyTeam/Team';
+import '../styles/Main.css';
+import '../styles/TeamSearch.css';
 
 const TeamSearch = ({ item, idx }) => {
 	const [allTeam, setAllTeam] = useState();
@@ -136,10 +137,12 @@ const TeamSearch = ({ item, idx }) => {
 	return (
 		<div>
 			<Bubble setFilterTeam={setFilterTeam} />
+			{/* <div className="mainTeamStyle"> */}
 			<div className='tsBoxFlex'>
-			<div id="teamSearchBox">
-				{allTeam && newTeam.map((item, idx) => <Team item={item} key={idx} />)}
-			</div>
+				<div id='teamSearchBox'>
+					{allTeam &&
+						newTeam.map((item, idx) => <Team item={item} key={idx} />)}
+				</div>
 			</div>
 		</div>
 	);

@@ -1,0 +1,50 @@
+/* .appfooter {
+  display: flex;
+  background-color: #f3f1f1;
+  border-top: 1px solid #dee5e7; */
+/* min-height: 100%; */
+/* margin-top: 5rem; */
+/* color: rgba(0, 0, 0, 0.748);
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  height: 7.5rem;
+  display: block;
+  margin-top: 0; */
+/* transform: translateY(-100%); */
+/* } */
+
+.footer {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.appfooter {
+  display: flex;
+  border-top: 1px solid #dee5e7;
+}
+
+.companyInfo {
+  padding-top: 1rem;
+  list-style: none;
+  text-align: center;
+}
+
+.footerCopyright {
+  padding-bottom: 0.5rem;
+}
+
+/* #wrap {
+  min-height: 100vh;
+  position: relative;
+  width: 100%;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

@@ -1,49 +1,67 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo1 from '../../assets/img/gameLogo/1.png';
-import logo2 from '../../assets/img/gameLogo/2.png';
-import logo3 from '../../assets/img/gameLogo/3.png';
-import logo4 from '../../assets/img/gameLogo/4.jpg';
+import React from "react";
+import { Link } from "react-router-dom";
+import logo1 from "../../assets/img/gameLogo/1.png";
+import logo2 from "../../assets/img/gameLogo/2.png";
+import logo3 from "../../assets/img/gameLogo/3.png";
+import logo4 from "../../assets/img/gameLogo/4.jpg";
+import "../../styles/TeamList.css";
+
+import { Tag } from "antd";
 
 const Team = ({ item, idx }) => {
-  const containerStyle = {
-    border: "1px solid gray",
-    display: "flex",
-    flexDirection: "column",
-    width: "500px",
-    borderRadius: "15px",
-    margin: "10px",
-    boxShadow: "1px 1px 10px -2px gray",
-    padding: "10px",
-  };
-
   let urlSource = "/teamcheck/" + item.team_seq;
+  const position = JSON.parse(item.team_position);
+  const td = JSON.parse(item.team_td);
+  const content = item.team_content;
 
   return (
-    <div style={containerStyle}>
+    <div data-aos="fade-up" className="teamBox">
       <Link className="linkTextStyle" to={urlSource}>
         <div className="teamItemStyle">
-          <div>
-            {item.gameName ==='lol' && <img src={logo1} width='50px' className='imgStyle'></img>}
-          {item.gameName ==='오버워치2' && <img src={logo2} width='50px' className='imgStyle'></img>}
-          {item.gameName==='발로란트' && <img src={logo3} width='50px' className='imgStyle'></img>}
-          {item.gameName==='로스트아크' && <img src={logo4} width='50px' className='imgStyle'></img>}
-          </div>
-          <div>
-            <span>{item.team_name}</span>
-            <br></br>
-            <span>{item.team_opendate} </span>
-            <br></br>
-            <span>{item.team_content}</span>
-            <br></br>
-            <span>{item.team_max}</span>
-            <br></br>
-            <span>{item.user_id}</span>
-            <br></br>
-            <span>{item.user_id}</span>
-            <br></br>
-            <span>{item.user_id}</span>
-            <br></br>
+          <div className="teamIntroStyle">
+            <div className="gameLogoStyle">
+              {item.team_game === "리그오브레전드" && (
+                <img src={logo1} width="50px" className="imgStyle"></img>
+              )}
+              {item.team_game === "오버워치2" && (
+                <img src={logo2} width="50px" className="imgStyle"></img>
+              )}
+              {item.team_game === "발로란트" && (
+                <img src={logo3} width="50px" className="imgStyle"></img>
+              )}
+              {item.team_game === "로스트아크" && (
+                <img src={logo4} width="50px" className="imgStyle"></img>
+              )}
+            </div>
+            <div className="teamTextStyle">
+              <div className="teamTextLineStyle">
+                <strong className="team-name">{item.team_name} </strong>
+                <span>
+                  ({item.member_count}/{item.team_max})
+                </span>
+                <p>{/* <span>팀장 {item.user_id}</span> */}</p>
+                <p>
+                  {content.length > 26
+                    ? content.substring(0, 25) + " ..."
+                    : content}
+                </p>
+              </div>
+
+              <span>
+                {position.map((item, idx) => (
+                  <Tag key={idx} item={item} idx={idx}>
+                    {item}
+                  </Tag>
+                ))}
+              </span>
+              <span>
+                {td.map((item, idx) => (
+                  <Tag color="purple" key={idx} item={item} idx={idx}>
+                    {item}
+                  </Tag>
+                ))}
+              </span>
+            </div>
           </div>
         </div>
       </Link>

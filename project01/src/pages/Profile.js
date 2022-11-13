@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import '../styles/Profile.css'
 import axios from 'axios'
 import { useState } from 'react'
+import GameDetail from '../components/Profile/GameDetail'
 
 const Profile = () => {
 
@@ -28,8 +29,6 @@ const Profile = () => {
 
     
     useEffect(()=>{
-        
-        
         axios.post('/api/profile', proDetail
         ).then((res)=>{
             let userGameInfo = [];
@@ -48,13 +47,18 @@ const Profile = () => {
         
         console.log('게임정보', gameInfo)
 
-            
-            axios.post('/api/usergame', {
-                usergame: gameInfo
-            }).then((res)=>{
-                console.log(res.data)
-                console.log(res.config.data)
+        const [myGame, setMyGame] = useState([])
+        
+        useEffect(()=>{
+
+            axios.post('/api/usergame', gameInfo
+                ).then((res)=>{
+                console.log('보내는 값',res.config.data)
+                console.log('받아오는 값',res.data)
+                setMyGame(res.data)
             }).catch((error)=>(console.log(error)))
+
+        },[gameInfo])
 
 
 
@@ -78,7 +82,10 @@ const Profile = () => {
 
                 {userInfo && userInfo.map((item, idx)=>(<span key={item+idx} item={item}>{item.game_category}</span>))}
             </div>
-            {/* <img src="/profile_diva.jpg" className='profileImg'/> */}
+            <div>
+                {/* {myGame && myGame.map((item)=><span key={item} item={item}>{item.game_name}</span>)} */}
+                <GameDetail myGame={myGame} setMyGame={setMyGame}/>
+            </div>
         </div>
     </div>
   )

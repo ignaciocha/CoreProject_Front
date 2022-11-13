@@ -77,12 +77,28 @@ const Profile = () => {
             <div className='imgDiv'>
             <img className='profileImg' src={`/${userInfo && userInfo[0].user_icon}`}></img>
             </div>
-            <div>
-                <span>닉네임</span>
-                {userInfo && userInfo[0].user_nick}
-                {userInfo && userInfo[0].user_gender}
-                {userInfo && userInfo[0].user_birthdate}
-                {userInfo && userInfo[0].user_favor}
+            <div className='myDetail'>
+                <span className='leftSpan'>닉네임</span>
+                    <span className='rightSpan'>
+                      {userInfo && userInfo[0].user_nick}
+                    </span>
+
+                <span className='leftSpan'>성별</span>
+                    <span className='rightSpan'>
+                        {userInfo && userInfo[0].user_gender}
+                    </span>
+
+                <span className='leftSpan'>연령대</span>
+                    <span className='rightSpan'>
+                        {userInfo && userInfo[0].user_birthdate}
+                    </span>
+
+                <span className='leftSpan'>호감도</span>
+                    <span className='rightSpan'>
+                      {userInfo && userInfo[0].user_favor} POINT
+                    </span>
+
+                
                 {/* {userInfo && userInfo[0].user_joindate} */}
             </div>
             <div>

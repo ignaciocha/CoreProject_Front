@@ -13,6 +13,7 @@ function Message({ talker, msg, user_icon, msg_time, isSender }) {
       {Number(user_icon).length > 1 ? (
         <img alt="" width="50px" src={`/${user_icon}`}></img>
       ) : (
+        // <img alt="" width="50px" src="http://placeimg.com/50/50/any"></img>
         <Avatar icon={<UserOutlined />} />
       )}
       {/* <Avatar variant="square" className="message__avatar" src={user_icon} /> */}

@@ -15,15 +15,6 @@ const Main = () => {
       <div className="carousel-container">
         <MainCarousel />
       </div>
-      <div className="mainArticle">
-        <h3 className="mainH3">
-          <b>최근에 모집을 시작한 팀👀</b>
-        </h3>
-
-        <Link to={"/teamsearch"}>
-          <button className="mainMoreBtn">더보기</button>
-        </Link>
-      </div>
       {/* 팀 목록 div */}
       <div className="centerStyle">
         <TeamList />

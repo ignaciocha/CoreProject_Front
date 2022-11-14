@@ -10,6 +10,8 @@ const BelongTeam = ({ item, idx }) => {
     textDecoration: "none",
   };
 
+  const user = localStorage.getItem("user_id");
+
   return (
     <div>
       <Link
@@ -54,8 +56,9 @@ const BelongTeam = ({ item, idx }) => {
               </div>
               <div className="teamItemTitle">
                 <div className="waitingTeamText">
-                  <div className="waitingCancle">
+                  <div className="belongLeader">
                     <span>{item.team_name}</span>
+                    {user == item.user_id && <span>👑</span>}
                   </div>
                 </div>
               </div>

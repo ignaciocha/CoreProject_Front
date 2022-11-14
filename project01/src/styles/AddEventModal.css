@@ -35,13 +35,38 @@
 	background-color: rgba(0, 0, 0, 0.3);
 }
 
-.calendarForm button {
+.calendarForm .calendarAddBtn {
 	border: none;
 	background-color: plum;
 	color: white;
 	border-radius: 5px;
 	margin-left: 200px;
 	margin-top: 50px;
+	padding: 10px;
+	font-size: 1.25rem;
+}
+.calendarForm .calendarUDBtn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 30px;
+}
+
+.calendarForm .calendarUpdateBtn {
+	border: none;
+	background-color: plum;
+	color: white;
+	border-radius: 5px;
+	padding: 10px;
+	font-size: 1.25rem;
+	margin-right: 30px;
+}
+
+.calendarForm .calendarDeleteBtn {
+	border: none;
+	background-color: plum;
+	color: white;
+	border-radius: 5px;
 	padding: 10px;
 	font-size: 1.25rem;
 }

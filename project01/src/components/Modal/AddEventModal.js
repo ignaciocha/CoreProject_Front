@@ -95,15 +95,25 @@ const AddEventModal = ({
 				</label>
 
 				{modalState.state === 'add' && (
-					<button disabled={!title} onClick={onSubmit}>
+					<button
+						className='calendarAddBtn'
+						disabled={!title}
+						onClick={onSubmit}
+					>
 						일정 추가
 					</button>
 				)}
 				{modalState.state === 'update' && (
-					<>
-						<button onClick={onUpdate}> 일정 수정</button>
-						<button onClick={onDelete}> 일정 삭제</button>
-					</>
+					<div className='calendarUDBtn'>
+						<button className='calendarUpdateBtn' onClick={onUpdate}>
+							{' '}
+							일정 수정
+						</button>
+						<button className='calendarDeleteBtn' onClick={onDelete}>
+							{' '}
+							일정 삭제
+						</button>
+					</div>
 				)}
 			</div>
 		</ReactModal>

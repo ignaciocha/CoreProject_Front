@@ -66,14 +66,6 @@ const TeamMember = ({ item, idx }) => {
       render: (_, record) => (
         <div>
           <span>{record.user_favor}</span>
-          {/* <Popconfirm
-          title={record.user_favor}
-          onConfirm={favorUpdate}
-          okText="Yes"
-          cancelText="No">
-          <button value={record.user_id} onClick={handle}>💗</button>
-                  </Popconfirm> */}
-
           <button
             value={record.applicant}
             className="teamSettingBtnStyle"

@@ -1,11 +1,15 @@
 .teamMemberStyle {
-    border: 1px solid #B2B3B7;
-    display: flex;
-    width: 500px;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px;
-    align-items: center;
-    margin: auto;
-  }
+  border: 1px solid #b2b3b7;
+  display: flex;
+  width: 500px;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  align-items: center;
+  margin: auto;
+}
 
+.teamSettingBtnStyle {
+  background-color: transparent;
+  border: none;
+}

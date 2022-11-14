@@ -9,6 +9,17 @@
     margin-bottom: 15px;
 }
 
+#subBtn2 {
+    width: 440px;
+    background: rgb(207, 207, 207);
+    border-radius: 5px;
+    border: none;
+    color: black;
+    height: 40px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
 .tier, .gender, .age, .position {
     border: none;
     background: rgba(128, 0, 128, 0.051);
@@ -17,4 +28,28 @@
     width: 95px;
     height: 30px;
     border-radius: 10px;
+}
+
+.modalDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: aqua; */
+}
+
+.modalDiv > p {
+    margin: 0px;
+}
+
+.plusTeam {
+    width: 550px;
+    height: auto;
+    display: flex;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.teamCkH3{
+    margin-bottom: 20px;
 }

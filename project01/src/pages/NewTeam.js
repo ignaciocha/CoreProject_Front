@@ -182,14 +182,15 @@ const NewTeam = () => {
       <div className='plusTeam'>
         <div className='newTeamForm'>
           <form onSubmit={handleSubmit}>
-            <ul id="title" align='left'>
-                <li><h3><b>팀만들기</b></h3></li>
+            <table className='plusTeamTable'>
+              <tr>
+                <h3><b>팀만들기</b></h3>
                 <small>팀을 생성해주세요!</small>
-            </ul>
-            <table>
+              </tr>
+              <li></li>
               <tr>
                 <td><span id="newTeamSpan"><b>팀 이름</b></span></td>
-                <td><input type="text" name='teamName' size='39'
+                <td><input type="text" name='teamName' size='33'
                     ref={tNameRef}/></td>
               </tr>
               <tr>
@@ -206,7 +207,7 @@ const NewTeam = () => {
               </tr>
               <tr>
                 <td colSpan='2'>
-                  <textarea cols='55' rows='3' name='teamContent'
+                  <textarea cols='50' rows='3' name='teamContent'
                   ref={tContentRef}/></td>
                 <td></td>
               </tr>
@@ -230,7 +231,7 @@ const NewTeam = () => {
             </table>
               <ul id="playGame">
                 <li></li>
-                <li><b>플레이 게임</b></li>
+                <li><b className='pgB'>플레이 게임</b></li>
                 <li>
                   <button type="button" className='gameSelect' name='game' value="리그오브레전드" onClick={lolBtnCk}>리그오브레전드</button>
                   <button type="button" className='gameSelect' name='game' value="오버워치2" onClick={ovchBtnCk}>오버워치2</button>

@@ -74,7 +74,6 @@ const TeamCheck = () => {
         console.log(error);
       })
     }else if(isJoined === 'n'){
-      alert('중복 가입 ㄴㄴ')
       setIsOpen(true)
     }else if(isJoined === 'y'){
       // alert('팀 룸으로 보내주기!!')
@@ -89,11 +88,17 @@ const TeamCheck = () => {
   return (
     <div className='plusTeam'>
     <form onSubmit={teamJoinHandle}>
-      <ul id="title" align='left'>
-          <li><h3><b>{oneTeam.team_name}</b></h3></li>
-          <small>팀 상세 조회</small>
-      </ul>
       <table width='430px'>
+        <tr>
+          <td>
+            <small>팀 상세 조회</small>
+          </td>
+        </tr>
+        <tr>
+          <td colSpan='2'>
+            <h3 className='teamCkH3'><b>{oneTeam.team_name}</b></h3>
+          </td>
+        </tr>
         <tr>
           <td>
             {teamM===oneTeam.team_max?
@@ -147,7 +152,7 @@ const TeamCheck = () => {
         <tr align='center'>
             <td colSpan='2'>
               {isJoined === 'n' ?
-              <input type='submit' value='이미 신청한 팀입니다' id='subBtn'/>
+              <input type='submit' value='이미 신청한 팀입니다' id='subBtn2'/>
               : isJoined === 'y'?
               <input type='submit' value='이미 참여중인 팀입니다' id='subBtn'/> : 
               <input type='submit' value='신청하기' id='subBtn'/>}

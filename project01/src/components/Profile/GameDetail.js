@@ -41,7 +41,7 @@ const GameDetail = ({myGame}) => {
 
   return (
     <div>
-        <div className='gameBox'>
+        <div className='gameBox2'>
         <div className='gameName'>
             리그오브레전드
         </div>

@@ -17,7 +17,7 @@ const ItemList = ({ item, handleItem }) => {
             className="poll-item-view"
             onChange={itemCh}
           />
-          <h4 className="poll-item-h">{item}</h4>
+          <h5 className="poll-item-h">{item}</h5>
         </div>
       </div>
     </div>

@@ -90,6 +90,7 @@ const TeamSearch = ({ item, idx }) => {
 						nameFilter.map((i) => (i.team_age = JSON.parse(i.team_age)));
 						// 성별 파싱
 						nameFilter.map((i) => (i.team_gender = JSON.parse(i.team_gender)));
+						console.log('nameFilter', nameFilter);
 					} catch {}
 					console.log('이름필터: ', nameFilter);
 					// 티어, 던전 필터링

@@ -115,6 +115,10 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 
 	return (
 		<div>
+			<div className='tsDiv'>
+			<h3><b>팀찾기</b></h3>
+			<small>게임을 고른 후 필터를 선택해주세요!</small>
+			</div>
 		<div className='bubbleFlex'>
 			<div className="bubbleChart">
 				{style.area.map((item, index) => {

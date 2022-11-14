@@ -26,7 +26,10 @@ const WaitingTeam = ({ item, idx }) => {
         </div>
         <div className="teamItemTitle">
           <div className="waitingTeamText">
-            <span>{item.team_name}</span>
+            <div className="waitingCancle">
+              <span>{item.team_name}</span>
+              <span>➖</span>
+            </div>
             <span className="waiting-font-setting">
               신청일 {item.tm_date.substring(0, 10)}
             </span>

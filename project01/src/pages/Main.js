@@ -16,7 +16,9 @@ const Main = () => {
         <MainCarousel />
       </div>
       <div className="mainArticle">
-        <h3 className="mainH3">최근에 모집을 시작한 팀👀</h3>
+        <h3 className="mainH3">
+          <b>최근에 모집을 시작한 팀👀</b>
+        </h3>
 
         <Link to={"/teamsearch"}>
           <button className="mainMoreBtn">더보기</button>

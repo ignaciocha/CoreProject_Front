@@ -114,7 +114,7 @@ const PollMain = ({ team_seq }) => {
           dataSource={allPoll}
           size="small"
           pagination={{
-            pageSize: 4,
+            pageSize: 2,
           }}
         />
       )}

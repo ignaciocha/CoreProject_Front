@@ -43,7 +43,9 @@ const MyTeam = () => {
     <div>
       {belongTeam[0] && (
         <div>
-          <h3>참여 중인 팀</h3>
+          <h3>
+            <b>참여 중인 팀</b>
+          </h3>
         </div>
       )}
       <div className="belongTeamContainer">
@@ -59,7 +61,9 @@ const MyTeam = () => {
 
       {waitingTeam[0] && (
         <div>
-          <h3>참여 신청한 팀</h3>
+          <h3>
+            <b>참여 신청한 팀</b>
+          </h3>
         </div>
       )}
       <div className="waiting-container">

@@ -1,7 +1,7 @@
 .profileBox {
     margin-top: 50px;
     border: 2px solid #F3F1F1;
-    width: 500px;
+    width: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,11 +57,12 @@
 
 .gameName {
     display: flex;
-    width: 500px;
+    width: 600px;
     height: 40px;
     background-color: whitesmoke;
     align-items: center;
     justify-content: center;
+    font-weight: bold;
 }
 
 .goBackBtn {
@@ -69,6 +70,7 @@
     height: 30px;
     border: none;
     margin: 5px;
+    margin-top: 10px;
     border-radius: 10px;
     background-color: whitesmoke;
 }
@@ -110,17 +112,24 @@
 
 .gameDetailBox {
     display: flex;
+    margin-top: 20px;
     justify-content: center;
     flex-direction: row;
     align-items: center;
-    height: 100px;
 }
 
 .gameDetailSpan {
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: row;
-    width: 100px;
-    background-color: aqua;
+    width: 95px;
+    height: 30px;
+    margin-bottom: 5px;
+    background-color: rgba(221, 160, 221, 0.187);
+    border-radius: 5px;
+    margin-right: 5px;
+    /* position: absolute; */
 }
 
 .noGame {
@@ -134,12 +143,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80px;
+    width: 95px;
     height: 30px;
     border-radius: 5px;
     margin-right: 15px;
-    margin: 5px;
-    background-color: yellowgreen;
+    margin-bottom: 5px;
+    /* background-color: yellowgreen; */
+    border: 1px dashed plum;
+    /* position: absolute; */
 }
 
 .gDetailLBox{
@@ -155,10 +166,24 @@
 .gDetailLBox > li {
     display: flex;
     flex-wrap: wrap;
-    width: 300px;
+    width: 420px;
 }
 
 .gDetailRight > span {
     display: flex;
     flex-direction: row;
+}
+
+.gameDetailRight{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+li::marker {
+    display: none;
+}
+
+ul {
+    padding: 0px;
 }

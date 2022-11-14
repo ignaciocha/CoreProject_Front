@@ -46,26 +46,28 @@ const GameDetail = ({myGame}) => {
             리그오브레전드
         </div>
         {myLolT.length === 0? <span className='noGame'>설정된 정보가 없습니다</span>:
-            <div className='gameDetailBox'>
-        티어 : {myLolT.map((item)=>(<span key={item}>{item}</span>))}
-        포지션 : {myLolP.map((item)=>(<span key={item}>{item}</span>))}
+        <div className='gameDetailBox'>
+        <ul className='gDetailLBox'>
+          <li>
+            <span className='gameDetailLeft'>티어</span>
+              <div className='gameDetailRight'>
+                 {myLolT.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
+              </div>
+          </li>
+          <li>
+            <span className='gameDetailLeft'>포지션</span>
+            <div className='gameDetailRight'>
+              {myLolP.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
             </div>
+          </li>
+        </ul>
+      </div> 
 }
         <div className='gameName'>
             오버워치2
             </div>
 
             {myOvT.length === 0? <span className='noGame'>설정된 정보가 없습니다</span>:
-    //         <div className='gameDetailBox'>
-    //             <div className='gDetailLBox'>
-    //             <span className='gameDetailLeft'>티어</span>
-    //             <span className='gameDetailLeft'>포지션</span>
-    // </div>
-    // <div className='gDetailRBox'>
-       
-        
-    //         </div>
-    //         </div>
       <div className='gameDetailBox'>
         <ul className='gDetailLBox'>
           <li>
@@ -88,21 +90,43 @@ const GameDetail = ({myGame}) => {
             로스트아크
         </div>
         {myLoaD.length === 0? <span className='noGame'>설정된 정보가 없습니다</span>:
-            <div className='gameDetailBox'>
-
-        던전 : {myLoaD.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
-        포지션 : {myLoaP.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
+        <div className='gameDetailBox'>
+        <ul className='gDetailLBox'>
+          <li>
+            <span className='gameDetailLeft'>던전</span>
+              <div className='gameDetailRight'>
+                 {myLoaD.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
+              </div>
+          </li>
+          <li>
+            <span className='gameDetailLeft'>포지션</span>
+            <div className='gameDetailRight'>
+              {myLoaP.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
             </div>
+          </li>
+        </ul>
+      </div> 
 }
         <div className='gameName'>
             발로란트
         </div>
         {myValT.length === 0? <span className='noGame'>설정된 정보가 없습니다</span>:
-            <div className='gameDetailBox'>
-
-        티어 : {myValT.map((item)=>(<span key={item}>{item}</span>))}
-        포지션 : {myValP.map((item)=>(<span key={item}>{item}</span>))}
+        <div className='gameDetailBox'>
+        <ul className='gDetailLBox'>
+          <li>
+            <span className='gameDetailLeft'>던전</span>
+              <div className='gameDetailRight'>
+                 {myValT.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
+              </div>
+          </li>
+          <li>
+            <span className='gameDetailLeft'>포지션</span>
+            <div className='gameDetailRight'>
+              {myValP.map((item)=>(<span className='gameDetailSpan' key={item}>{item}</span>))}
             </div>
+          </li>
+        </ul>
+      </div> 
 }
         </div>
     </div>

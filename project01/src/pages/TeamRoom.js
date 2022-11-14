@@ -67,19 +67,34 @@ const TeamRoom = () => {
 						team_seq={team_seq}
 					/>
 				</div>
-				<div className="chatBox">채팅</div>
 				<Chat team_seq={team_seq} team_name={team_name}></Chat>
 			</div>
-			<div className='scheduleVoteBox'>
-				<h3 className='scheduleHistory' onClick={openModalCal}>
-					일정내역
-				</h3>
-				<Modal open={modalCal} close={closeModalCal} header='일정'>
-					<h3>다가오는 일정</h3>
-					<div className='scheduleList'>
+			<div className='teamRoomBottom'>
+				<div className='scheduleVoteBox'>
+					<h3 className='scheduleHistory' onClick={openModalCal}>
+						일정내역
+					</h3>
+					<Modal open={modalCal} close={closeModalCal} header='일정'>
+						<h3>다가오는 일정</h3>
+						<div className='scheduleList'>
+							{eventList &&
+								eventList.map((i) => {
+									if (today <= i.end)
+										return (
+											<div className='calendarModalList'>
+												<span className='calendarModalTitle'>{i.title}</span>
+												<span className='calendarModalStart'>{i.start}</span>
+												<span>~</span>
+												<span className='calendarModalEnd'>{i.end}</span>
+											</div>
+										);
+									else return null;
+								})}
+						</div>
+						<h3>지난 일정</h3>
 						{eventList &&
 							eventList.map((i) => {
-								if (today <= i.end)
+								if (today >= i.end)
 									return (
 										<div className='calendarModalList'>
 											<span className='calendarModalTitle'>{i.title}</span>
@@ -90,33 +105,17 @@ const TeamRoom = () => {
 									);
 								else return null;
 							})}
-					</div>
-					<h3>지난 일정</h3>
-					{eventList &&
-						eventList.map((i) => {
-							if (today >= i.end)
-								return (
-									<div className='calendarModalList'>
-										<span className='calendarModalTitle'>{i.title}</span>
-										<span className='calendarModalStart'>{i.start}</span>
-										<span>~</span>
-										<span className='calendarModalEnd'>{i.end}</span>
-									</div>
-								);
-							else return null;
-						})}
-					<div className='scheduleList'></div>
-				</Modal>
-				<h3 className='voteHistory' onClick={openModalVote}>
-					투표내역
-				</h3>
-				<Modal2 open={modalVote} close={closeModalVote} header='투표'>
-					<PollMain team_seq={team_seq} />
-				</Modal2>
-			</div>
-			<div className='teamSetting'>
-				<Link to={'/teamsetting/' + team_seq}>
-					<Button type='basic'>팀관리</Button>
+						<div className='scheduleList'></div>
+					</Modal>
+					<h3 className='voteHistory' onClick={openModalVote}>
+						투표내역
+					</h3>
+					<Modal2 open={modalVote} close={closeModalVote} header='투표'>
+						<PollMain team_seq={team_seq} />
+					</Modal2>
+				</div>
+				<Link className='teamSetting' to={'/teamsetting/' + team_seq}>
+					팀관리
 				</Link>
 			</div>
 		</div>

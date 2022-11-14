@@ -55,25 +55,31 @@ const AddEventModal = ({
 	};
 
 	return (
-		<ReactModal isOpen={isOpen} onRequestClose={onClose}>
-			<div className="calendarForm">
-				<label htmlFor="scheduleTitle">일정</label>
-				<input
-					id="scheduleTitle"
-					defaultValue={event.title}
-					placeholder="일정"
-					onChange={(e) => setTitle(e.target.value)}
-				/>
+		<ReactModal
+			className={'calendarModal'}
+			isOpen={isOpen}
+			onRequestClose={onClose}
+		>
+			<div className='calendarForm'>
+				<label>
+					<h4>일정</h4>
+					<input
+						id='scheduleTitle'
+						defaultValue={event.title}
+						placeholder='일정'
+						onChange={(e) => setTitle(e.target.value)}
+					/>
+				</label>
 
-				<div>
-					<label>날짜</label>
-					<Space direction="vertical">
+				<label>
+					<h4>날짜</h4>
+					<Space direction='vertical'>
 						<RangePicker
 							value={[dayjs(start), dayjs(end)]}
 							showTime={{
 								format: 'HH:MM',
 							}}
-							format="YYYY-MM-DD HH:MM"
+							format='YYYY-MM-DD HH:MM'
 							locale={locale}
 							onChange={(date) => {
 								setStart(date[0].toDate());
@@ -81,7 +87,7 @@ const AddEventModal = ({
 							}}
 						/>
 					</Space>
-				</div>
+				</label>
 
 				{modalState.state === 'add' && (
 					<button disabled={!title} onClick={onSubmit}>

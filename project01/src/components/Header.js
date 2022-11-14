@@ -81,7 +81,7 @@ const Header = ({ isLogin, setIsLogin }) => {
 					</nav>
 
 					<Link className='text-link'>
-						<nav className={'loginStyle text-link'}>
+						<nav className={'loginStyle'}>
 							<Notifications />
 						</nav>
 					</Link>

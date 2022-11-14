@@ -61,10 +61,15 @@ const AddEventModal = ({
 			onRequestClose={onClose}
 		>
 			<div className='calendarForm'>
+				{modalState.state === 'update' ? (
+					<h2 className='calendarFormTitle'>일정 수정</h2>
+				) : (
+					<h2 className='calendarFormTitle'>일정 등록</h2>
+				)}
 				<label>
 					<h4>일정</h4>
 					<input
-						id='scheduleTitle'
+						className='scheduleTitle'
 						defaultValue={event.title}
 						placeholder='일정'
 						onChange={(e) => setTitle(e.target.value)}

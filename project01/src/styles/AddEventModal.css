@@ -16,21 +16,34 @@
 	overflow: hidden;
 }
 
-.ReactModal__Content {
-	margin: auto auto;
-	width: 800px;
-	height: 600px;
-}
-
-.ReactModal__Content > .calendarForm {
+.calendarModal {
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	margin: 200px auto;
+	width: 600px;
+	height: 500px;
+	border-radius: 20px;
+	box-shadow: 0px 0px 5px grey;
+	background-color: white;
+}
+
+.calendarModal > .calendarForm {
 	flex-direction: column;
 }
 
 .calendarForm button:disabled {
 	background-color: rgba(0, 0, 0, 0.3);
+}
+
+.calendarForm button {
+	border: none;
+	background-color: plum;
+	color: white;
+	border-radius: 5px;
+	margin-left: 200px;
+	margin-top: 50px;
+	padding: 10px;
+	font-size: 1.25rem;
 }
 
 .calendarForm label {
@@ -40,4 +53,21 @@
 
 .calendarForm h4 {
 	margin: 0 10px;
+}
+
+.calendarForm .scheduleTitle {
+	width: 408px;
+}
+
+.calendarFormTitle {
+	margin-bottom: 100px;
+	margin-top: 50px;
+}
+
+.fc-event-title-container {
+	background-color: rgb(167, 74, 255);
+}
+
+.fc-daygrid-block-event {
+	border: 1px solid rgb(167, 74, 255);
 }

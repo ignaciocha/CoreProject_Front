@@ -115,7 +115,7 @@ const TeamRoom = () => {
 					</Modal2>
 				</div>
 				<Link className='teamSetting' to={'/teamsetting/' + team_seq}>
-					팀관리
+					팀원목록
 				</Link>
 			</div>
 		</div>

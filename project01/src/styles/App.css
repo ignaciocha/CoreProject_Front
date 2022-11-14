@@ -25,3 +25,7 @@ a {
 	--bs-link-color: none;
 	text-decoration: none;
 }
+
+a:active {
+	color: black;
+}

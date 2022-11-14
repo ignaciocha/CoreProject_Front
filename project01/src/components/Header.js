@@ -4,12 +4,13 @@ import '../styles/Header.css';
 import { Link, useNavigate } from 'react-router-dom';
 import { BsFillBellFill } from 'react-icons/io';
 import Notifications from './Modal/Notifications';
+import { isThisTypeNode } from '../../node_modules/typescript/lib/typescript';
 
 const Header = ({ isLogin, setIsLogin }) => {
 	// const dispatch = useDispatch();
 	//const navigate = useNavigate();
 	// const token = useSelector(state => state.Auth.token);
-
+	const [visit, setVisit] = useState(false);
 	const navigate = useNavigate();
 
 	const onLogout = () => {
@@ -27,7 +28,7 @@ const Header = ({ isLogin, setIsLogin }) => {
 		}
 	};
 
-	const goToNewTeam = () => {
+	const goToNewTeam = (e) => {
 		if (isLogin) {
 			navigate('/newteam');
 		} else {
@@ -54,45 +55,45 @@ const Header = ({ isLogin, setIsLogin }) => {
 	// };
 
 	return (
-		<div className="headerStyle">
-			<div className="leftStyle">
-				<Link to="./">
+		<div className='headerStyle'>
+			<div className='leftStyle'>
+				<Link to='./'>
 					<img
 						src={logo}
-						alt="이미지를 불러올 수 없습니다."
-						className="logoStyle"
+						alt='이미지를 불러올 수 없습니다.'
+						className='logoStyle'
 					></img>
 				</Link>
-				<Link className="textLink" to="/teamsearch">
-					<nav className="topStyle">팀찾기</nav>
-				</Link>
-				<nav className="topStyle" onClick={goToNewTeam}>
+				<nav className={'topStyle'} onClick={() => navigate('/teamsearch')}>
+					팀찾기
+				</nav>
+				<nav className={'topStyle'} onClick={(e) => goToNewTeam(e)}>
 					팀만들기
 				</nav>
-				<nav className="topStyle" onClick={goToMyTeam}>
+				<nav className={'topStyle'} onClick={goToMyTeam}>
 					내팀보기
 				</nav>
 			</div>
 			{isLogin ? (
-				<div className="rightStyle">
-					<nav className="loginStyle" onClick={onLogout}>
+				<div className='rightStyle'>
+					<nav className={'loginStyle'} onClick={onLogout}>
 						로그아웃
 					</nav>
 
-					<Link className="text-link">
-						<nav className="loginStyle">
+					<Link className='text-link'>
+						<nav className={'loginStyle text-link'}>
 							<Notifications />
 						</nav>
 					</Link>
 				</div>
 			) : (
-				<div className="rightStyle">
-					<Link className="textLink" to="/signup">
-						<nav className="loginStyle">회원가입</nav>
-					</Link>
-					<Link className="textLink" to="/login">
-						<nav className="loginStyle">로그인</nav>
-					</Link>
+				<div className='rightStyle'>
+					<nav className={'loginStyle'} onClick={() => navigate('/signup')}>
+						회원가입
+					</nav>
+					<nav className={'loginStyle'} onClick={() => navigate('/login')}>
+						로그인
+					</nav>
 				</div>
 			)}
 		</div>

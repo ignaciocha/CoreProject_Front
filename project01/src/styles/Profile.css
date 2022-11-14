@@ -144,6 +144,7 @@
     justify-content: center;
     align-items: center;
     width: 95px;
+    min-width: 95px;
     height: 30px;
     border-radius: 5px;
     margin-right: 15px;
@@ -165,8 +166,9 @@
 
 .gDetailLBox > li {
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     width: 420px;
+    flex-direction: row;
 }
 
 .gDetailRight > span {
@@ -176,8 +178,9 @@
 
 .gameDetailRight{
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    flex-wrap: wrap;
 }
 
 li::marker {

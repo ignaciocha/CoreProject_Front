@@ -1,60 +1,59 @@
 .calChatBox {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 200px;
-}
-
-.calendarBox {
-  width: 400px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .chatBox {
-  width: 400px;
-  height: 400px;
-  background-color: rgba(0, 0, 0, 0.1);
+	width: 400px;
+	height: 400px;
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .scheduleVoteBox {
-  display: flex;
-  flex-direction: column;
-  user-select: none;
-  margin: 0 200px;
+	display: flex;
+	flex-direction: column;
+	user-select: none;
 }
 
 .scheduleHistory {
-  cursor: pointer;
-  margin: 5px 0;
-  padding: 5px 0 5px 5px;
-  max-width: 390px;
-  overflow: hidden;
-  border-radius: 10px;
+	cursor: pointer;
+	margin: 5px 0;
+	padding: 5px 0 5px 5px;
+	max-width: 390px;
+	overflow: hidden;
+	border-radius: 10px;
 }
 
 .scheduleHistory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 .voteHistory {
-  cursor: pointer;
-  margin: 5px 0;
-  padding: 5px 0 5px 5px;
-  max-width: 390px;
-  overflow: hidden;
-  border-radius: 10px;
+	cursor: pointer;
+	margin: 5px 0;
+	padding: 5px 0 5px 5px;
+	max-width: 390px;
+	overflow: hidden;
+	border-radius: 10px;
 }
 
 .voteHistory:hover {
-  background-color: rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* 팀원관리 */
 .teamSetting {
-  display: flex;
-  justify-content: flex-end;
-  margin-right: 200px;
+	display: inline-block;
+	height: 30px;
+	background-color: black;
 }
 
-.teamSettingBtnStyle {
-  background-color: transparent;
-  border: none;
+/* .teamSettingBtnStyle {
+	background-color: transparent;
+	border: none;
+} */
+
+.teamRoomBottom {
+	display: flex;
+	justify-content: space-between;
 }

@@ -32,3 +32,12 @@
 .calendarForm button:disabled {
 	background-color: rgba(0, 0, 0, 0.3);
 }
+
+.calendarForm label {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.calendarForm h4 {
+	margin: 0 10px;
+}

@@ -4,12 +4,14 @@
 }
 
 .notiCon {
+    padding-right: 50px;
     display: flex;
     position: absolute;
-    right: 100px;
+    right: 400px;
     align-items: flex-end;
-    width: 300px;
+    width: 270px;
     flex-direction: column;
     justify-content: flex-end;
     z-index: 1;
 }
+

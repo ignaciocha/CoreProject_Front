@@ -41,36 +41,43 @@ const MyTeam = () => {
 
   return (
     <div>
-      {belongTeam[0] && (
-        <div>
-          <h3>참여 중인 팀</h3>
+      <div className="belongTeamDiv">
+        {belongTeam[0] && (
+          <div>
+            <h3>
+              <b>참여 중인 팀</b>
+            </h3>
+          </div>
+        )}
+        <div className="belongTeamContainer">
+          {belongTeam &&
+            belongTeam.map((item, idx) => (
+              <BelongTeam
+                key={idx + item.team_name}
+                item={item}
+                idx={idx}
+              ></BelongTeam>
+            ))}
         </div>
-      )}
-      <div className="belongTeamContainer">
-        {belongTeam &&
-          belongTeam.map((item, idx) => (
-            <BelongTeam
-              key={idx + item.team_name}
-              item={item}
-              idx={idx}
-            ></BelongTeam>
-          ))}
       </div>
-
-      {waitingTeam[0] && (
-        <div>
-          <h3>참여 신청한 팀</h3>
+      <div className="waitingTeamDv">
+        {waitingTeam[0] && (
+          <div>
+            <h3>
+              <b>참여 신청한 팀</b>
+            </h3>
+          </div>
+        )}
+        <div className="waiting-container">
+          {waitingTeam &&
+            waitingTeam.map((item, idx) => (
+              <WaitingTeam
+                key={idx + item.team_name}
+                item={item}
+                idx={idx}
+              ></WaitingTeam>
+            ))}
         </div>
-      )}
-      <div className="waiting-container">
-        {waitingTeam &&
-          waitingTeam.map((item, idx) => (
-            <WaitingTeam
-              key={idx + item.team_name}
-              item={item}
-              idx={idx}
-            ></WaitingTeam>
-          ))}
       </div>
       {/* 가입 중인 팀이 없는 경우 */}
       {!belongTeam[0] && !waitingTeam[0] && <NoTeam></NoTeam>}

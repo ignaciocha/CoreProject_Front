@@ -1,70 +1,70 @@
 .teamContainerStyle {
-	border: '1px solid gray';
-	display: 'flex';
-	flex-direction: 'column';
-	border-radius: '15px';
-	margin: '10px';
-	box-shadow: '1px 1px 10px -2px gray';
-	padding: '10px';
+  border: "1px solid gray";
+  display: "flex";
+  flex-direction: "column";
+  border-radius: "15px";
+  margin: "10px";
+  box-shadow: "1px 1px 10px -2px gray";
+  padding: "10px";
 }
 
 .teamBox {
-	border: 1px solid gray;
-	display: flex;
-	flex-direction: column;
-	min-width: 480px;
-	max-width: 480px;
-	/* max-width: calc(50%-10px); */
-	min-height: 220px;
-	max-height: 220px;
-	border-radius: 15px;
-	margin: 20px;
-	box-shadow: 1px 1px 10px -2px gray;
-	padding: 10px;
-	justify-content: center;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+  min-width: 450px;
+  max-width: 450px;
+  /* max-width: calc(50%-10px); */
+  min-height: 200px;
+  max-height: 200px;
+  border-radius: 15px;
+  margin: 20px;
+  box-shadow: 1px 1px 10px -2px gray;
+  padding: 10px;
+  justify-content: center;
 }
 
 .teamItemStyle {
-	display: flex;
-	flex-direction: column;
-	color: rgba(0, 0, 0, 0.748);
+  display: flex;
+  flex-direction: column;
+  color: rgba(0, 0, 0, 0.748);
 }
 
 .gamelogoStyle {
-	border-radius: 50%;
+  border-radius: 50%;
 }
 
 .linkTextStyle {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .teamIntroStyle {
-	display: flex;
-	margin-left: 2%;
-	margin-right: 2%;
-	flex-direction: row;
+  display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
+  flex-direction: row;
 }
 
 .teamTextStyle {
-	margin-left: 1rem;
-	display: flex;
-	flex-direction: column;
+  margin-left: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .teamTagStyle {
-	margin-right: 1rem;
+  margin-right: 1rem;
 }
 
 .gameLogoStyle {
-	/* margin-left: 5%; */
-	margin-right: 1%;
+  /* margin-left: 5%; */
+  margin-right: 1%;
 }
 
 .teamBox {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .team-name {
-	font-size: 18px;
+  font-size: 18px;
 }

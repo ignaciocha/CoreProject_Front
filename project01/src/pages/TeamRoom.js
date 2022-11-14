@@ -75,36 +75,46 @@ const TeamRoom = () => {
 						일정내역
 					</h3>
 					<Modal open={modalCal} close={closeModalCal} header='일정'>
-						<h3>다가오는 일정</h3>
-						<div className='scheduleList'>
+						<div className='startScheduleList'>
+							<h3 className='scheduleListTitle'>다가오는 일정</h3>
+							<div className='scheduleList'>
+								{eventList &&
+									eventList.map((i) => {
+										if (today <= i.end)
+											return (
+												<div className='calendarModalList'>
+													<span className='calendarModalTitle'>{i.title}</span>
+													<div className='calendarModalDate'>
+														<span className='calendarModalStart'>
+															{i.start}
+														</span>
+														<span>~</span>
+														<span className='calendarModalEnd'>{i.end}</span>
+													</div>
+												</div>
+											);
+										else return null;
+									})}
+							</div>
+						</div>
+						<div className='endScheduleList'>
+							<h3 className='scheduleListTitle'>지난 일정</h3>
 							{eventList &&
 								eventList.map((i) => {
-									if (today <= i.end)
+									if (today >= i.end)
 										return (
 											<div className='calendarModalList'>
 												<span className='calendarModalTitle'>{i.title}</span>
-												<span className='calendarModalStart'>{i.start}</span>
-												<span>~</span>
-												<span className='calendarModalEnd'>{i.end}</span>
+												<div className='calendarModalDate'>
+													<span className='calendarModalStart'>{i.start}</span>
+													<span>~</span>
+													<span className='calendarModalEnd'>{i.end}</span>
+												</div>
 											</div>
 										);
 									else return null;
 								})}
 						</div>
-						<h3>지난 일정</h3>
-						{eventList &&
-							eventList.map((i) => {
-								if (today >= i.end)
-									return (
-										<div className='calendarModalList'>
-											<span className='calendarModalTitle'>{i.title}</span>
-											<span className='calendarModalStart'>{i.start}</span>
-											<span>~</span>
-											<span className='calendarModalEnd'>{i.end}</span>
-										</div>
-									);
-								else return null;
-							})}
 						<div className='scheduleList'></div>
 					</Modal>
 					<h3 className='voteHistory' onClick={openModalVote}>

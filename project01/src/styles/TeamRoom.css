@@ -71,3 +71,38 @@
 	display: flex;
 	justify-content: space-between;
 }
+
+.startScheduleList {
+	height: 300px;
+}
+.endScheduleList {
+	height: 300px;
+}
+
+.calendarModalList {
+	display: flex;
+	justify-content: space-between;
+}
+
+.scheduleListTitle {
+	color: purple;
+	display: flex;
+	justify-content: center;
+}
+
+.calendarModalTitle {
+	font-size: 22px;
+}
+
+.calendarModalDate {
+}
+
+.calendarModalStart {
+	font-size: 14px;
+	margin-right: 5px;
+}
+
+.calendarModalEnd {
+	font-size: 14px;
+	margin-left: 5px;
+}

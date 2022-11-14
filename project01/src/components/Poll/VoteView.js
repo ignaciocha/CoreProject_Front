@@ -70,6 +70,7 @@ const VoteView = ({ item, poll, team_seq }) => {
         console.log(response.data); //정상 통신 후 응답된 메시지 출력
         setRender(!render);
         setPossible(false);
+        poll.vt_count++;
       })
       .catch((error) => {
         alert("투표할 항목을 선택해주세요!");

@@ -10,7 +10,11 @@ function Message({ talker, msg, user_icon, msg_time, isSender }) {
   return (
     <div className={`message ${isSender && "message--sent"}`}>
       <div className="message__name"> {talker} </div>
-      <Avatar icon={<UserOutlined />} />
+      {Number(user_icon).length > 1 ? (
+        <img alt="" width="50px" src={`/${user_icon}`}></img>
+      ) : (
+        <Avatar icon={<UserOutlined />} />
+      )}
       {/* <Avatar variant="square" className="message__avatar" src={user_icon} /> */}
       {/* {isSender ? (
 				<ArrowRightIcon className="message__sentArrow" />

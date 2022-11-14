@@ -11,17 +11,17 @@ const BelongTeam = ({ item, idx }) => {
   };
 
   return (
-    <div className="myTeamFlex">
-      <div className="teamItemAlign">
-        <Link
-          style={linkStyle}
-          className="linkTextStyle"
-          to={"/teamroom/" + item.team_seq}
-        >
+    <div>
+      <Link
+        style={linkStyle}
+        className="linkTextStyle"
+        to={"/teamroom/" + item.team_seq}
+      >
+        <div className="teamItemTitle">
           <div className="belongTeamStyle">
-            <div className="belong-sub-con">
-              <div className="belongteamItemTitle">
-                <div className="belong-game-logo">
+            <div className="waiting-sub-con">
+              <div className="waiting-team-item">
+                <div className="waiting-team-logo">
                   {item.team_game === "리그오브레전드" && (
                     <img
                       src={logo1}
@@ -51,16 +51,18 @@ const BelongTeam = ({ item, idx }) => {
                     ></img>
                   )}
                 </div>
-                <div className="belong-text-line">
-                  <span>{item.team_name}</span>
-                  <span>{item.team_name}</span>
-                  <span>{item.team_name}</span>
+              </div>
+              <div className="teamItemTitle">
+                <div className="waitingTeamText">
+                  <div className="waitingCancle">
+                    <span>{item.team_name}</span>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </Link>
-      </div>
+        </div>
+      </Link>
     </div>
   );
 };

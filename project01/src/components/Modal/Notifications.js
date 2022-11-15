@@ -24,7 +24,7 @@ const Notifications = () => {
             console.log(res.data)
             setNotiList(res.data)
             }).catch((error)=>console.log(error)) 
-  },[notiList.length])
+  },[notiList.length, show])
 
 return (
   <div>

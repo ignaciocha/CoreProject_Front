@@ -19,7 +19,7 @@
 #fSpanBox {
     display: flex;
     flex-direction: column;
-    /* padding-left: 20px; */
+    padding-left: 5px;
     width: 400px;
 }
 

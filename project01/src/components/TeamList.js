@@ -45,7 +45,7 @@ export const TeamList = () => {
       <div>
         <div className="mainArticle">
           <h3 className="mainH3">
-            <b>정원 마감이 얼마 남지 않은 팀👀</b>
+            <b>정원 마감이 얼마 남지 않은 팀</b>📢
           </h3>
         </div>
         <ul className="mainTeamStyle">

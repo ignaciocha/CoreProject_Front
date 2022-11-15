@@ -10,13 +10,14 @@ const NotiList = ({item, show, notiList, setNotiList}) => {
     const navigate = useNavigate();
 
     const delNoti = (e) => {
+        console.log(e.target)
         if(e.target.tagName === 'BUTTON'){
-            const config = {"Content-Type": 'application/json'};
-
+            // const config = {"Content-Type": 'application/json'};
+            console.log(item.noti_seq)
             axios.post('/api/delnoti', {
                 user_id : localStorage.getItem("user_id"),
                 noti_seq : item.noti_seq
-            }, config)
+            })
             .then((res)=>{
                 console.log(res)
                 setNotiList(res.data)
@@ -24,6 +25,7 @@ const NotiList = ({item, show, notiList, setNotiList}) => {
             }).catch((error)=>console.log(error))
         }
     }
+
 
     const delNotiNavi = (e) => {
         if(e.target.className === 'toast-body'){
@@ -53,8 +55,7 @@ const NotiList = ({item, show, notiList, setNotiList}) => {
             console.log(res.data)
             setNotiName(res.data)
         }).catch((error)=>console.log(error))
-    },[])
-
+    },[notiList, show])
     
   return (
     <div>
@@ -63,7 +64,9 @@ const NotiList = ({item, show, notiList, setNotiList}) => {
                 <strong className="me-auto">{item.noti_msg}</strong>
                 <small>{item.noti_dt}</small>
             </Toast.Header>
-                <Toast.Body onClick={delNotiNavi}>{notiName}</Toast.Body>
+                <Toast.Body
+                onClick={delNotiNavi}
+                >{notiName}</Toast.Body>
         </Toast>
     </div>
   )

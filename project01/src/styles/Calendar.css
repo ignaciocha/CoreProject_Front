@@ -46,6 +46,18 @@
 	transition: all 0.2s linear;
 }
 
+.fc-daygrid-event-dot {
+	--fc-event-border-color: rgb(178, 96, 255);
+}
+
+.fc-event-title-container {
+	background-color: rgb(178, 96, 255);
+}
+
+.fc-daygrid-block-event {
+	border: 1px solid rgb(167, 74, 255);
+}
+
 .fc .fc-button:focus {
 	outline: 0;
 	box-shadow: 0 0 0 0.2rem plum;

@@ -17,6 +17,10 @@
 	flex-direction: column;
 }
 
+html::-webkit-scrollbar {
+	display: none;
+}
+
 a:hover {
 	--bs-link-hover-color: none;
 }

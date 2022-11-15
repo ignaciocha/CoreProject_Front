@@ -29,9 +29,9 @@ const FilterItemList = ({
 	// // 필터 리스트 불러오기
 
 	return (
-		<label className="filterCheck" key={key}>
+		<label className='filterCheck' key={key}>
 			<input
-				type="checkbox"
+				type='checkbox'
 				onChange={(e) => filterHandler(e)}
 				checked={isFiltered}
 				id={item.category_seq}

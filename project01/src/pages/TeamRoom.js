@@ -58,7 +58,7 @@ const TeamRoom = () => {
   const today = dayjs(new Date()).format("YYYY-MM-DD");
 
   return (
-    <div>
+    <div className="teamRoomTop">
       <div className="calChatBox">
         <div className="calendarBox">
           <Calendar

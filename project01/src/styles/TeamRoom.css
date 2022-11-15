@@ -1,65 +1,65 @@
 .calChatBox {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .chatBox {
-	width: 400px;
-	height: 400px;
-	background-color: rgba(0, 0, 0, 0.1);
+  width: 400px;
+  height: 400px;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 .scheduleVoteBox {
-	display: flex;
-	flex-direction: column;
-	user-select: none;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
 }
 
 .scheduleHistory {
-	cursor: pointer;
-	margin-top: 20px;
-	padding: 5px;
-	width: 110px;
-	overflow: hidden;
-	border-radius: 10px;
-	border: 1px solid plum;
-	font-size: 1.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 5px;
+  width: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid plum;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .voteHistory {
-	cursor: pointer;
-	margin: 5px 0;
-	padding: 5px;
-	width: 110px;
-	overflow: hidden;
-	border-radius: 10px;
-	border: 1px solid plum;
-	font-size: 1.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  cursor: pointer;
+  margin: 5px 0;
+  padding: 5px;
+  width: 110px;
+  overflow: hidden;
+  border-radius: 10px;
+  border: 1px solid plum;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 팀원관리 */
 .teamSetting {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 50px;
-	font-size: 1.5rem;
-	padding: 5px;
-	border-radius: 10px;
-	border: 1px solid plum;
-	margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 1.5rem;
+  padding: 5px;
+  border-radius: 10px;
+  border: 1px solid plum;
+  margin-top: 10px;
 }
 
 .teamSetting:hover,
 .voteHistory:hover,
 .scheduleHistory:hover {
-	color: rgb(160, 0, 160);
+  color: rgb(160, 0, 160);
 }
 
 /* .teamSettingBtnStyle {
@@ -68,42 +68,46 @@
 } */
 
 .teamRoomBottom {
-	width: 1000px;
-	display: flex;
-	justify-content: space-between;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .startScheduleList {
-	height: 300px;
+  height: 300px;
 }
 .endScheduleList {
-	height: 300px;
+  height: 300px;
 }
 
 .calendarModalList {
-	display: flex;
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .scheduleListTitle {
-	color: purple;
-	display: flex;
-	justify-content: center;
+  color: purple;
+  display: flex;
+  justify-content: center;
 }
 
 .calendarModalTitle {
-	font-size: 22px;
+  font-size: 22px;
 }
 
 .calendarModalDate {
 }
 
 .calendarModalStart {
-	font-size: 14px;
-	margin-right: 5px;
+  font-size: 14px;
+  margin-right: 5px;
 }
 
 .calendarModalEnd {
-	font-size: 14px;
-	margin-left: 5px;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+.teamRoomTop {
+  margin-top: 2rem;
 }

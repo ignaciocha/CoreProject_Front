@@ -90,7 +90,7 @@ const TeamMember = ({ item, idx }) => {
         <Space size="middle">
           {/* 이미 가입승인된 회원 - 탈퇴 */}
           {admin == user_id &&
-          admin == record.user_id &&
+          admin != record.user_id &&
           record.confirm_yn === "y" ? (
             <Popconfirm
               title="정말로 탈퇴시키시겠습니까?"

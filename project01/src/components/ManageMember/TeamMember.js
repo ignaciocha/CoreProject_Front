@@ -7,6 +7,7 @@ import { message, Popconfirm } from "antd";
 import "antd/dist/antd.css";
 import { UserOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
+import { borderRadius } from "../../../node_modules/@mui/system/index";
 
 const TeamMember = ({ item, idx }) => {
   const confirm = (e) => {
@@ -35,8 +36,12 @@ const TeamMember = ({ item, idx }) => {
       dataIndex: "user_icon",
       render: (_, record) => (
         <div>
-          {Number(record.user_icon).length > 1 ? (
-            <img alt="" width="50px" src={`/${record.user_icon}`}></img>
+          {record.user_icon ? (
+            <img
+              alt=""
+              className="userIconStyle"
+              src={`/${record.user_icon && record.user_icon}`}
+            ></img>
           ) : (
             <Avatar icon={<UserOutlined />} />
           )}
@@ -221,8 +226,12 @@ const TeamMember = ({ item, idx }) => {
   return (
     <div>
       <div className="wrapper">
-        팀원목록
-        <Table columns={columns} dataSource={data} />
+        <div className="teamMemberMargin">
+          <h3>
+            <b>팀원목록</b>
+          </h3>
+          <Table columns={columns} dataSource={data} />
+        </div>
       </div>
     </div>
   );

@@ -13,3 +13,12 @@
   background-color: transparent;
   border: none;
 }
+
+.userIconStyle {
+  border-radius: 50%;
+  width: 35px;
+}
+
+.teamMemberMargin {
+  margin-top: 5%;
+}

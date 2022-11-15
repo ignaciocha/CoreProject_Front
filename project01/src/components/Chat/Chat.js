@@ -62,7 +62,7 @@ const Chat = ({ team_seq, team_name }) => {
       <div className="chat">
         <div className="chat_header">
           <div className="chat_headerInfo">
-            <h3>{team_name}</h3>
+            <h4>{team_name}</h4>
           </div>
         </div>
         <div className="chat_body">

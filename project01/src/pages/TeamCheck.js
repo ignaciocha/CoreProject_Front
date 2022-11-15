@@ -1,14 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import '../styles/TeamCheck.css'
+import { FaArrowLeft } from 'react-icons/fa'
 import axios from 'axios'
 import { useNavigate, useParams } from 'react-router-dom';
 import JoinCheckModal from '../components/Modal/JoinCheckModal';
-// import Modal from '../components/Modal/Modal';
-
 
 const TeamCheck = () => {
 
   let {team_seq}  = useParams();
+
+  const navigate2 = useNavigate()
 
   const [oneTeam, setOneTeam] = useState('');
   const [teamM, setTeamM] = useState('');
@@ -83,12 +84,19 @@ const TeamCheck = () => {
     }
   }
 
-
+  const backBtn = () => {
+    navigate2(-1)
+  }
 
   return (
     <div className='plusTeam'>
     <form onSubmit={teamJoinHandle}>
       <table width='430px'>
+        <tr>
+          <td>
+            <FaArrowLeft onClick={backBtn}/>
+          </td>
+        </tr>
         <tr>
           <td>
             <small>팀 상세 조회</small>

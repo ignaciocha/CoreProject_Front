@@ -6,9 +6,9 @@ import overwatch2 from '../../assets/img/teamSearchImg/옵치.jpg';
 import valorant from '../../assets/img/teamSearchImg/발로.jpg';
 import FilterBox from '../Filter/FilterBox';
 
-const Bubble = ({ setFilterTeam, filterTeam }) => {
+const Bubble = ({ setFilterTeam, setNowGameCategory }) => {
 	const style = {
-		area: [lol, overwatch2, lostark, valorant]
+		area: [lol, overwatch2, lostark, valorant],
 	}; // div들을 담고 있는 객체
 	// let checkCircle = ''; // 현재 재생 중인 음성의 index가 무엇인 지 담는다.
 
@@ -38,6 +38,7 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 	/** 게임 클릭하면 카테고리에 맞는 필터 보여주기 */
 	const gameClick = (e) => {
 		const selectGame = e.target.value;
+		setNowGameCategory(e.target.value);
 		// 클릭한 게임 이름 선택(소문자)
 		axios
 			.get('/api/filter', {
@@ -116,32 +117,31 @@ const Bubble = ({ setFilterTeam, filterTeam }) => {
 	return (
 		<div>
 			<div className='tsDiv'>
-			<h3><b>팀찾기</b></h3>
-			<small>게임을 고른 후 필터를 선택해주세요!</small>
+				<h3>
+					<b>팀찾기</b>
+				</h3>
+				<small>게임을 고른 후 필터를 선택해주세요!</small>
 			</div>
-		<div className='bubbleFlex'>
-			<div className="bubbleChart">
-				{style.area.map((item, index) => {
-					return (
-						<label key={item}>
-							<div className='selGmImgContainer'>
-								<img src={item}
-								className='selGmImg'
-									id={index}
-								/>
-								<input
-								type="checkbox"
-								value={gameDBTitle[index]}
-								style={{ display: 'none' }}
-								onClick={(e) => gameClick(e)}
-								/>
-								<h3 className='imgH3'>{gameDBTitle[index]}</h3>
-							</div>
-						</label>
-					);
-				})}
+			<div className='bubbleFlex'>
+				<div className='bubbleChart'>
+					{style.area.map((item, index) => {
+						return (
+							<label key={item}>
+								<div className='selGmImgContainer'>
+									<img src={item} className='selGmImg' id={index} />
+									<input
+										type='checkbox'
+										value={gameDBTitle[index]}
+										style={{ display: 'none' }}
+										onClick={(e) => gameClick(e)}
+									/>
+									<h3 className='imgH3'>{gameDBTitle[index]}</h3>
+								</div>
+							</label>
+						);
+					})}
+				</div>
 			</div>
-		</div>
 			<FilterBox
 				filteredList={filteredList}
 				setFilteredList={setFilteredList}
